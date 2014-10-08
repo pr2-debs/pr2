@@ -1,0 +1,23 @@
+This directory contains the ROS configuration for your robot on fuerte.
+
+Files and their uses are listed below:
+
+/etc/ros/fuerte/setup.sh
+
+ * Sets up the ROS environment.  This is typically a symlinked to from
+   /etc/ros/setup.sh
+
+/etc/ros/fuerte/robot.launch
+
+ * This launch file starts the PR2 from scratch.  The launch file is
+   just an inclusion of the default pr2 launch files, but if you have
+   changes to your robot (e.g. removing and arm or adding a sensor),
+   this is the place to put those, and this can be treated like a
+   configuration file.  This file typically references
+   /etc/ros/fuerte/urdf/robot.xml
+
+/etc/ros/fuerte/urdf/
+
+ * This directory contains calibrated and uncalibrated
+   fuerte-specific URDFs.  /etc/ros/fuerte/urdf/robot.xml
+   is loaded by default from robot.launch.

@@ -1,0 +1,31 @@
+#!/bin/bash
+
+
+rm -rf build
+mkdir build
+cd build
+
+. /etc/lsb-release
+
+SRCDIR=openvpn-2.2.1
+apt-get source openvpn=2.2.1
+#wget http://archive.ubuntu.com/ubuntu/pool/main/o/openvpn/openvpn_2.1~rc19-1ubuntu2.dsc
+#wget http://archive.ubuntu.com/ubuntu/pool/main/o/openvpn/openvpn_2.1~rc19.orig.tar.gz
+#wget http://archive.ubuntu.com/ubuntu/pool/main/o/openvpn/openvpn_2.1~rc19-1ubuntu2.diff.gz
+#wget http://archive.ubuntu.com/ubuntu/pool/main/o/openvpn/openvpn_2.1~rc7-1ubuntu3.6.diff.gz
+#wget http://archive.ubuntu.com/ubuntu/pool/main/o/openvpn/openvpn_2.1~rc7-1ubuntu3.6.dsc
+#http://archive.ubuntu.com/ubuntu/pool/main/o/openvpn/openvpn_2.1~rc7.orig.tar.gz
+
+#tar xf openvpn_2.2.1-8ubuntu1
+#(cd $SRCDIR; zcat ../openvpn_2.2.1-8ubuntu1.debian.tar.gz | patch -p1)
+
+#cp -r ../changes/* $SRCDIR
+cd $SRCDIR
+chmod a+x debian/rules
+dpkg-buildpackage -rfakeroot -uc -b
+cd ../..
+
+mv build/*.deb ..
+mv build/*.changes ..
+#rm -rf build
+

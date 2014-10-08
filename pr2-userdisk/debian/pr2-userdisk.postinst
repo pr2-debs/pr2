@@ -1,0 +1,20 @@
+#!/bin/sh
+set -e
+
+#DEBHELPER#
+
+PKG=pr2-userdisk
+
+case "$1" in
+  configure)
+    ucf --three-way /usr/share/autofs5/conffiles/auto.master /etc/auto.master
+
+    /usr/sbin/update-fstab
+
+     ;;
+
+  *)
+        echo "postinst called with unknown argument \`$1'" >&2
+        exit 0
+    ;;
+esac

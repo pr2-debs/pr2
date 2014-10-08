@@ -1,0 +1,2 @@
+KERNEL=="sd*", KERNELS=="1:0:0:0", SYMLINK+="removable%n", RUN+="/etc/init.d/hddtemp restart"
+

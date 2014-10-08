@@ -1,0 +1,73 @@
+pr2-core-cturtle (0.5.5) stable; urgency=low
+
+  * Incrementing to SVN: r652
+   - r652: pr2-core no longer depends on an explicit distro
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Wed, 02 Feb 2011 14:24:02 -0800
+
+pr2-core-cturtle (0.5.4) stable; urgency=low
+
+  * Incrementing to SVN: r615
+   - r614: Adding zsh support
+   - r615: Moving pr2-core into pr2 section
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Mon, 17 Jan 2011 13:34:07 -0800
+
+pr2-core-cturtle (0.5.3) stable; urgency=low
+
+  * Incrementing to SVN: r437
+   - r436: Put robot name and type on the parameter server
+   - r437: Move to /etc/ros/robot.yaml
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Wed, 01 Dec 2010 19:39:57 -0800
+
+pr2-core-cturtle (0.5.2) stable; urgency=low
+
+  * Incrementing to SVN: r393
+   - r392: /etc/ros/cturtle/setup.bash doesn't exist anymore
+   - r393: Adding setup.bash back
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Tue, 30 Nov 2010 15:00:33 -0800
+
+pr2-core-cturtle (0.5.1) stable; urgency=low
+
+  * Incrementing to SVN: r377
+   - r371: Getting rid of /etc/ros/env
+   - r377: Cleaning up pr2-core
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Wed, 24 Nov 2010 13:42:27 -0800
+
+pr2-core-cturtle (0.5.0) stable; urgency=low
+
+  * Incrementing to SVN: r141
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Tue, 12 Oct 2010 16:09:24 -0700
+
+pr2-core-cturtle (0.0.4) stable; urgency=low
+
+  * Incrementing to SVN: r991
+   - r991: Forgot to add debhelper to postinst
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Wed, 14 Jul 2010 17:37:38 -0700
+
+pr2-core-cturtle (0.0.3) stable; urgency=low
+
+  * Incrementing to SVN: r990
+   - r990: Fixing typo
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Wed, 14 Jul 2010 17:24:25 -0700
+
+pr2-core-cturtle (0.0.2) stable; urgency=low
+
+  * Incrementing to SVN: r989
+   - r989: Adding in triggers on /opt/ros/cturtle
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Wed, 14 Jul 2010 17:22:18 -0700
+
+pr2-core-cturtle (0.0.1) stable; urgency=low
+
+  * Incrementing to SVN: r929
+   - r929: Creating pr2-core-cturtle
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Mon, 07 Jun 2010 11:47:14 -0700
+

@@ -1,0 +1,2 @@
+#!/bin/sh
+deluser --system --quiet --remove-home pr2 || true

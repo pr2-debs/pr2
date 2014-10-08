@@ -1,0 +1,3 @@
+nameserver 10.68.255.1
+nameserver 10.68.0.5
+options timeout:1

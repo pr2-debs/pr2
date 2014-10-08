@@ -1,0 +1,5 @@
+#!/bin/sh
+. /etc/ros/setup.sh
+export USER="ros"
+export HOME="/u/ros"
+exec roslaunch /etc/ros/robot.launch "$@"

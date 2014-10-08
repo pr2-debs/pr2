@@ -1,0 +1,9 @@
+#!/usr/bin/env python
+
+import os
+import sys
+
+if __name__ == '__main__':
+   if os.getenv('LD_LIBRARY_PATH'):
+      os.putenv('LIBRARY_PATH', os.getenv('LD_LIBRARY_PATH'))
+   os.execv('/usr/lib/robot/robot', sys.argv)

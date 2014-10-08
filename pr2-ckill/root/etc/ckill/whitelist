@@ -1,0 +1,25 @@
+python /usr/bin/ckill
+python /usr/lib/robot/robot.py
+bash
+tcsh
+csh
+sh
+sshd
+ssh
+emacs
+emacs22
+emacsclient
+xemacs
+vi
+vim
+less
+more
+pager
+man
+ps
+screen
+tmux
+sftp-server
+su
+yes
+vmstat

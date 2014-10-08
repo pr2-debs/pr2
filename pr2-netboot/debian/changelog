@@ -1,0 +1,394 @@
+pr2-netboot (0.5.27) stable; urgency=low
+
+  * Incrementing to SVN: r831
+   - r831: Fix configuration files managed by ucf.
+
+ -- Austin Hendrix <ahendrix@willowgarage.com>  Wed, 21 Dec 2011 18:49:40 -0800
+
+pr2-netboot (0.5.26) stable; urgency=low
+
+  * Incrementing to SVN: r821
+   - r821: Update c2 to newer, non-rt kernel.
+
+ -- Austin Hendrix <ahendrix@willowgarage.com>  Fri, 09 Dec 2011 16:00:05 -0800
+
+pr2-netboot (0.5.25) stable; urgency=low
+
+  * Incrementing to SVN: r817
+   - r817: Set up serial console on c2.
+
+ -- Austin Hendrix <ahendrix@willowgarage.com>  Wed, 30 Nov 2011 13:54:04 -0800
+
+pr2-netboot (0.5.24) stable; urgency=low
+
+  * Incrementing to SVN: r637
+   - r637: Removing reference to willowgarage from dnsmasq.conf
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Mon, 24 Jan 2011 13:57:26 -0800
+
+pr2-netboot (0.5.23) stable; urgency=low
+
+  * Incrementing to SVN: r595
+   - r593: Removing old initramfs-tools
+   - r594: Making initramfs-tools for c2
+   - r595: We now generate the proper initrd for c2 at boot
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Wed, 12 Jan 2011 10:45:28 -0800
+
+pr2-netboot (0.5.22) stable; urgency=low
+
+  * Incrementing to SVN: r582
+   - r580: Poweroff on pr2-shudown
+   - r582: Moving the initramfs-tools components to pr2-netboot and having them pull from the overlay
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Tue, 11 Jan 2011 15:49:57 -0800
+
+pr2-netboot (0.5.21) stable; urgency=low
+
+  * Incrementing to SVN: r516
+   - r516: making pr2-shutdown robust to hostkey stuff
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Wed, 22 Dec 2010 15:02:29 -0800
+
+pr2-netboot (0.5.20) stable; urgency=low
+
+  * Incrementing to SVN: r444
+   - r444: Add new mac-addresses
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Mon, 06 Dec 2010 19:04:35 -0800
+
+pr2-netboot (0.5.19) stable; urgency=low
+
+  * Incrementing to SVN: r427
+   - r427: Home should not be getting mounted twice
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Wed, 01 Dec 2010 16:49:01 -0800
+
+pr2-netboot (0.5.18) stable; urgency=low
+
+  * Incrementing to SVN: r334
+   - r330: Making the c2 redirections use better strings
+   - r334: Making sure the right kernel boots
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Sun, 21 Nov 2010 16:46:22 -0800
+
+pr2-netboot (0.5.17) stable; urgency=low
+
+  * Incrementing to SVN: r281
+   - r281: Getting rid of warnings from c2init
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Thu, 21 Oct 2010 20:51:12 -0700
+
+pr2-netboot (0.5.16) stable; urgency=low
+
+  * Incrementing to SVN: r280
+   - r280: Removing missing conffiles
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Thu, 21 Oct 2010 18:55:49 -0700
+
+pr2-netboot (0.5.15) stable; urgency=low
+
+  * Incrementing to SVN: r279
+   - r279: I believe this is safe
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Thu, 21 Oct 2010 18:53:38 -0700
+
+pr2-netboot (0.5.14) stable; urgency=low
+
+  * Incrementing to SVN: r275
+   - r273: removing original fstab
+   - r274: Adding fstab.d into the overlay
+   - r275: Get fstab to be updated before mountall is run
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Thu, 21 Oct 2010 18:39:23 -0700
+
+pr2-netboot (0.5.13) stable; urgency=low
+
+  * Incrementing to SVN: r268
+   - r268: Fixing umountnfs.sh
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Thu, 21 Oct 2010 15:53:49 -0700
+
+pr2-netboot (0.5.12) stable; urgency=low
+
+  * Incrementing to SVN: r267
+   - r265: Portmap needs a redirection rule as well
+   - r266: Sendsigs needed the pr2-netboot extension
+   - r267: Sendsigs needed the pr2-netboot extension
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Thu, 21 Oct 2010 14:46:32 -0700
+
+pr2-netboot (0.5.11) stable; urgency=low
+
+  * Incrementing to SVN: r263
+   - r263: Executable selector needs to call through for addgroup as well
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Thu, 21 Oct 2010 14:07:51 -0700
+
+pr2-netboot (0.5.10) stable; urgency=low
+
+  * Incrementing to SVN: r261
+   - r260: Fix umountnfs.sh to get rebooting to work on c2
+   - r261: updating conf files
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Thu, 21 Oct 2010 13:24:04 -0700
+
+pr2-netboot (0.5.9) stable; urgency=low
+
+  * Incrementing to SVN: r248
+   - r239: Calling the right c2init script
+   - r240: Fixing the c2init unionfs script
+   - r246: disable wg-openvpn
+   - r248: Making wg-openvpn a conffile
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Tue, 19 Oct 2010 11:50:58 -0700
+
+pr2-netboot (0.5.7) stable; urgency=low
+
+  * Incrementing to SVN: r236
+   - r236: Replacing /slave with /unionfs/overlay
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Mon, 18 Oct 2010 16:58:03 -0700
+
+pr2-netboot (0.5.6) stable; urgency=low
+
+  * Incrementing to SVN: r233
+   - r233: Making diversion rules set up properly
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Mon, 18 Oct 2010 16:24:27 -0700
+
+pr2-netboot (0.5.5) stable; urgency=low
+
+  * Incrementing to SVN: r228
+   - r228: Updating unionfs path
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Mon, 18 Oct 2010 14:51:54 -0700
+
+pr2-netboot (0.5.4) stable; urgency=low
+
+  * Incrementing to SVN: r213
+   - r174: Moving pr2bin contents to use/sbin
+   - r175: Moving to usr/local/sbin
+   - r176: Start c2 via c2init
+   - r177: Marking sendsigs in the right location
+   - r178: Adding executable flag
+   - r179: Unionfs-fuse-nfs-root gets called outside of init system now
+   - r180: Cleaning up debian filesnames
+   - r181: Hoping that lucid / new kernel fix some of these networking issues
+   - r183: moving pr2-shutdown and c2init into /usr/bin
+   - r184: Removing local
+   - r185: moving around unionfs stuff tobe clearer
+   - r186: hosts directory no longer needs to exist
+   - r187: pr2bin directory is gone
+   - r188: changing c2init to use new locations
+   - r189: renaming slave to overlay
+   - r190: renaming slave to overlay
+   - r191: More moving files
+   - r195: Adding executable-selector.d
+   - r196: Adding bin directory
+   - r197: Using executable-selector instead of unionfs-fuse
+   - r198: Making pr2-shutdown fork
+   - r200: Adding host_type for c2
+   - r202: Changing passwd and apt-get to point at the right locations
+   - r213: pr2bin overlay is gone
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Mon, 18 Oct 2010 12:37:47 -0700
+
+pr2-netboot (0.5.3) stable; urgency=low
+
+  * Incrementing to SVN: r169
+   - r169: Adding missing tmp_HIDDEN~
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Thu, 14 Oct 2010 12:27:52 -0700
+
+pr2-netboot (0.5.2) stable; urgency=low
+
+  * Incrementing to SVN: r168
+   - r168: Adding /var/lib
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Thu, 14 Oct 2010 12:15:19 -0700
+
+pr2-netboot (0.5.1) stable; urgency=low
+
+  * Incrementing to SVN: r156
+   - r156: moving pr2-pr2bin
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Tue, 12 Oct 2010 17:19:06 -0700
+
+pr2-netboot (0.5.0) stable; urgency=low
+
+  * Incrementing to SVN: r142
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Tue, 12 Oct 2010 16:09:39 -0700
+
+pr2-netboot (0.1.22) stable; urgency=low
+
+  * Incrementing to SVN: r849
+   - r849: Adding readme file to preserve directory
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Fri, 30 Apr 2010 17:44:20 -0700
+
+pr2-netboot (0.1.21) stable; urgency=low
+
+  * Incrementing to SVN: r847
+   - r847: Calling update-grub
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Fri, 30 Apr 2010 16:51:37 -0700
+
+pr2-netboot (0.1.20) stable; urgency=low
+
+  * Incrementing to SVN: r843
+   - r843: Changing the netboot kernel links to keep them from ending up in grub
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Fri, 30 Apr 2010 15:53:52 -0700
+
+pr2-netboot (0.1.19) stable; urgency=low
+
+  * Incrementing to SVN: r774
+   - r774: Removing search willowgarage.com
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Fri, 09 Apr 2010 12:15:46 -0700
+
+pr2-netboot (0.1.18) stable; urgency=low
+
+  * Incrementing to SVN: r753
+   - r753: Fixing pr2-shutdown
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Thu, 01 Apr 2010 21:45:14 -0700
+
+pr2-netboot (0.1.17) stable; urgency=low
+
+  * Incrementing to SVN: r747
+   - r747: Adding --netboot and --reboot options to pr2-shutdown
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Thu, 01 Apr 2010 15:29:40 -0700
+
+pr2-netboot (0.1.16) stable; urgency=low
+
+  * Incrementing to SVN: r592
+   - r592: Activated lan1 on both computers on the 10.69.0.x subnet.
+
+ -- Blaise Gassend <blaise@willowgarage.com>  Tue, 26 Jan 2010 17:13:15 -0800
+
+pr2-netboot (0.1.15) stable; urgency=low
+
+  * Changed:
+    - Activated lan1 on 10.69.0.x subnet
+  * Incrementing to SVN: r582
+   - r582: changing pr2-shutdown to keep using SIGKILL
+
+ -- Blaise Gassend <blaise@willowgarage.com>  Wed, 20 Jan 2010 22:47:38 -0800
+
+pr2-netboot (0.1.14) stable; urgency=low
+
+  * Incrementing to SVN: r489
+   - r489: Making pr2-shutdown much liklier to succeed by running ckill and stopping autofs manually before initiating shutdown.
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Mon, 04 Jan 2010 15:50:35 -0800
+
+pr2-netboot (0.1.13) stable; urgency=low
+
+  * Incrementing to SVN: r486
+   - r486: Moving nfs-kernel-server later in the boot process.  This is still a sloppy workaround for a deeper bug, but it does the trick.
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Mon, 04 Jan 2010 13:47:45 -0800
+
+pr2-netboot (0.1.12) stable; urgency=low
+
+  * Incrementing to SVN: r370
+   - r370: Removing ipmi spam from /var/log/messages
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Fri, 04 Dec 2009 01:22:40 -0800
+
+pr2-netboot (0.1.11) stable; urgency=low
+
+  * Incrementing to SVN: r362
+   - r362: Making sure /slave/var/tmp gets created correctly.
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Wed, 02 Dec 2009 14:42:42 -0800
+
+pr2-netboot (0.1.10) stable; urgency=low
+
+  * Incrementing to SVN: r359
+   - r359: We still wanted /tmp to be mounted as tmpfs
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Tue, 01 Dec 2009 18:23:48 -0800
+
+pr2-netboot (0.1.9) stable; urgency=low
+
+  * Incrementing to SVN: r358
+   - r358: Actually moving location of unionfs-fuse-nfs-root
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Tue, 01 Dec 2009 18:01:24 -0800
+
+pr2-netboot (0.1.8) stable; urgency=low
+
+  * Incrementing to SVN: r356
+   - r352: Moving unionfs-fuse-nfs-root to run before mountkernfs.sh.  This fixes all kinds of problems.
+   - r354: Adding whiteout dir for /var/tmp on c2
+   - r355: Actually adding the whiteout directory
+   - r356: Making /var/tmp not tmpfs anymore.
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Tue, 01 Dec 2009 17:49:55 -0800
+
+pr2-netboot (0.1.7) stable; urgency=low
+
+  * Incrementing to SVN: r327
+   - r327: Mounting hwlog from c1 onto c2.
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Wed, 25 Nov 2009 14:48:17 -0800
+
+pr2-netboot (0.1.6) stable; urgency=low
+
+  * Incrementing to SVN: r316
+   - r314: Making "/root" get mounted correctly since mountnfs doesn't run in if-up.d on account of netboot.
+   - r316: Adding pr2-shutdown to pr2-netboot
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Mon, 23 Nov 2009 16:03:47 -0800
+
+pr2-netboot (0.1.5) stable; urgency=low
+
+  * Incrementing to SVN: r268
+   - r258: Not starting lan1, lan2, lan3 at startup anymore.
+   - r265: Moving pr2-usermigrate and useradd from pr2-netboot into pr2-environment.
+   - r266: Putting SCREENDIR in a subdirectory to reduce confusion given the two computers share ~/.screen
+   - r267: slave/exports does not need to be a diversion and should not export home
+       
+   - r268: Moving around pr2deb dependencies for pr2-pr2bin package.
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Tue, 17 Nov 2009 10:20:47 -0800
+
+pr2-netboot (0.1.4) stable; urgency=low
+
+  * Incrementing to SVN: r256
+   - r256: Need to bring down the (unconfigured) slave computer lan1 before networking is started
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Thu, 05 Nov 2009 15:01:20 -0800
+
+pr2-netboot (0.1.3) stable; urgency=low
+
+  * Incrementing to SVN: r255
+   - r255: Getting rid of eth0 interface that has been causing nfs problems.
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Thu, 05 Nov 2009 13:51:06 -0800
+
+pr2-netboot (0.1.2) stable; urgency=low
+
+  * Incrementing rev to see how dependency changes track.
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Thu, 05 Nov 2009 10:47:29 -0800
+
+pr2-netboot (0.1.1) stable; urgency=low
+
+  * Incrementing to SVN: r215
+   - r213: Added /etc/slave on the slave to allow detection of which computer we are on in scripts.
+   - r215: Fixing some checks in the install scripts.
+
+ -- Blaise Gassend <blaise@willowgarage.com>  Mon, 02 Nov 2009 10:45:27 -0800
+
+pr2-netboot (0.1) stable; urgency=low
+
+  * Initial release. 
+  * Creating the package
+
+ -- Blaise Gassend <blaise@willowgarage.com>  Thu, 16 Jul 2009 00:56:37 -0700

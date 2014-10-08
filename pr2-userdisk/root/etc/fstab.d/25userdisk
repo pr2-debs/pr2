@@ -1,0 +1,1 @@
+/dev/mapper/vg00-home   /home           ext4    barrier=0,defaults,nobootwait              0       2

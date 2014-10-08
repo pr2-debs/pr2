@@ -1,0 +1,35 @@
+pr2-core-fuerte (0.1.4) stable; urgency=low
+
+  * Incrementing to SVN: r961
+   - r961: Remove frames from openni_head.launch
+
+ -- Austin Hendrix <ahendrix@willowgarage.com>  Wed, 29 Aug 2012 16:50:03 -0700
+
+pr2-core-fuerte (0.1.3) stable; urgency=low
+
+  * Incrementing to SVN: r849
+   - r849: Add standard openni_head launch file.
+
+ -- Austin Hendrix <ahendrix@willowgarage.com>  Fri, 30 Mar 2012 10:39:21 -0700
+
+pr2-core-fuerte (0.1.2) stable; urgency=low
+
+  * Incrementing to SVN: r847
+   - r847: Add environment loader.
+
+ -- Austin Hendrix <ahendrix@willowgarage.com>  Fri, 16 Mar 2012 14:00:20 -0700
+
+pr2-core-fuerte (0.1.1) stable; urgency=low
+
+  * Incrementing to SVN: r843
+   - r843: Update environment scripts for catkin.
+
+ -- Austin Hendrix <ahendrix@willowgarage.com>  Tue, 06 Mar 2012 09:57:23 -0800
+
+pr2-core-fuerte (0.1.0) stable; urgency=low
+
+  * Incrementing to SVN: r841
+   - r841: Create pr2-core-fuerte package.
+
+ -- Austin Hendrix <ahendrix@willowgarage.com>  Tue, 06 Mar 2012 09:33:14 -0800
+

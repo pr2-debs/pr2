@@ -1,0 +1,12 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+export DH_ALWAYS_EXCLUDE=CVS:.svn
+DEB_DIVERT_EXTENSION = .pr2-chrony
+DEB_DIVERT_FILES_pr2-chrony += \
+	/etc/chrony/chrony.conf.pr2-chrony \
+   /usr/share/chrony/chrony.conf.pr2-chrony
+
+include /usr/share/cdbs/1/rules/debhelper.mk
+include /usr/share/cdbs/1/rules/config-package.mk
+

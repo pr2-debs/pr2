@@ -1,0 +1,13 @@
+This directory contains v2.
+
+v1: 
+- C1 tries to boot from network first.
+- Returns to previous state when power is restored.
+
+v2:
+- C1 tries to boot from disk first.
+- Always powers on when power is restored.
+
+v3:
+- When C1 told to netboot, uses lan1
+- Always powers on when power is restored.

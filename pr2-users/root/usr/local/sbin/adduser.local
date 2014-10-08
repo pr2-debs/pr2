@@ -1,0 +1,18 @@
+#!/usr/bin/env python
+
+import os
+import sys
+
+if __name__ == '__main__':
+    username = sys.argv[1]
+    uid = int(sys.argv[2])
+    gid = int(sys.argv[3])
+    homedir = sys.argv[4]
+
+    homesplit = homedir.split('/')
+    if homesplit[1] == 'u':
+        newhomedir = str.join('/',['/home']+homesplit[2:])
+        newhomelink = str.join('/',['/pr/1']+homesplit[2:])
+        if os.path.exists(homedir):
+            os.system("mv '%s' '%s'"%(homedir,newhomedir))
+            os.symlink(newhomelink,homedir)

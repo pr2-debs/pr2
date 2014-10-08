@@ -1,0 +1,106 @@
+pr2-netconsole (0.5.13) stable; urgency=low
+
+  * Incrementing to SVN: r725
+   - r725: console-log-zip is now executable
+
+ -- Wim Meeussen <wim@willowgarage.com>  Thu, 17 Mar 2011 11:31:19 -0700
+
+pr2-netconsole (0.5.12) stable; urgency=low
+
+  * Incrementing to SVN: r695
+   - r695: Increasing dmesg to -n7
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Wed, 16 Feb 2011 13:41:38 -0800
+
+pr2-netconsole (0.5.11) stable; urgency=low
+
+  * Incrementing to SVN: r686
+   - r686: Adding newline to crontab file
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Thu, 10 Feb 2011 22:22:13 -0800
+
+pr2-netconsole (0.5.10) stable; urgency=low
+
+  * Incrementing to SVN: r684
+   - r684: Fixing netconsole init script
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Thu, 10 Feb 2011 21:47:26 -0800
+
+pr2-netconsole (0.5.9) stable; urgency=low
+
+  * Incrementing to SVN: r679
+   - r679: Every 5 minutes, check whether the remote mac has been set
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Wed, 09 Feb 2011 19:37:51 -0800
+
+pr2-netconsole (0.5.8) stable; urgency=low
+
+  * Incrementing to SVN: r639
+   - r639: Make sure the netconsole gets started before rsyslog
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Wed, 26 Jan 2011 17:03:10 -0800
+
+pr2-netconsole (0.5.7) stable; urgency=low
+
+  * Incrementing to SVN: r628
+   - r625: Changing path for cron job to sync all netconsole logs from PR2
+   - r626: This directory isn't necessary
+   - r627: Fixing the cron script
+   - r628: More fixing of the cron script
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Tue, 18 Jan 2011 11:19:33 -0800
+
+pr2-netconsole (0.5.6) stable; urgency=low
+
+  * Incrementing to SVN: r624
+   - r624: Making netconsole log to home directory instead
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Tue, 18 Jan 2011 10:55:13 -0800
+
+pr2-netconsole (0.5.5) stable; urgency=low
+
+  * Incrementing to SVN: r309
+   - r306: Removing initscript
+   - r307: Adding upstart script
+   - r308: Moduels get loaded in usptart script, and init script doesn't need to be added to rc system anymore
+   - r309: We no longer interfere with fstab
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Sun, 07 Nov 2010 15:00:08 -0800
+
+pr2-netconsole (0.5.4) stable; urgency=low
+
+  * Incrementing to SVN: r305
+   - r305: Getting netconsole to go into a separate file
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Sun, 07 Nov 2010 14:09:47 -0800
+
+pr2-netconsole (0.5.3) stable; urgency=low
+
+  * Incrementing to SVN: r303
+   - r303: removing configfs
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Fri, 05 Nov 2010 14:30:31 -0700
+
+pr2-netconsole (0.5.2) stable; urgency=low
+
+  * Incrementing to SVN: r301
+   - r301: removing diversion rule
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Fri, 05 Nov 2010 14:17:46 -0700
+
+pr2-netconsole (0.5.1) stable; urgency=low
+
+  * Incrementing to SVN: r299
+   - r299: changelog
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Fri, 05 Nov 2010 14:16:30 -0700
+
+pr2-netconsole (0.5.0) stable; urgency=low
+
+  * Incrementing to SVN: r298
+   - r296: Initial migration of pr2-netconsole
+   - r297: Moving to fstab.d and rsyslog.d
+   - r298: More integration changes
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Fri, 05 Nov 2010 14:12:47 -0700
+

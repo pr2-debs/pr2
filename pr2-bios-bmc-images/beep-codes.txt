@@ -1,0 +1,6 @@
+2, 1 -> Will flash BMC unless you press N within 5 seconds
+2, 2 -> Will flash BIOS unless you press N within 5 seconds
+2, 3 -> Will set C1 BIOS settings unless you press N within 5 seconds
+2, 4 -> Will set C2 BIOS settings unless you press N within 5 seconds
+3 -> About to start operation. DO NOT INTERRUPT. Wait for the 5 beeps
+5 -> Done. Press b to reboot or p for a prompt.

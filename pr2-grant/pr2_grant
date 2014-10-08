@@ -1,0 +1,4 @@
+#!/bin/sh
+
+echo "Usage pr2_grant has been deprecated.  Please use pr2-grant instead"
+exec /usr/bin/pr2-grant "$@"

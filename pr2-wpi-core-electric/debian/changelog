@@ -1,0 +1,18 @@
+pr2-wpi-core-electric (0.1.1) stable; urgency=low
+
+  * Incrementing to SVN: r963
+   - r963: Add dependency on openni.
+
+ -- Austin Hendrix <ahendrix@willowgarage.com>  Fri, 31 Aug 2012 13:47:27 -0700
+
+pr2-wpi-core-electric (0.1.0) stable; urgency=low
+
+  * Incrementing to SVN: r959
+   - r953: Add wpi-core-electric
+   - r956: Downgrade to Electric.
+   - r957: Downgrade setup files to Electric.
+   - r958: Downgrade to Electric.
+   - r959: Downgrade package control files to electric.
+
+ -- Austin Hendrix <ahendrix@willowgarage.com>  Wed, 29 Aug 2012 16:47:03 -0700
+

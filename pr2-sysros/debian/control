@@ -1,0 +1,13 @@
+Source: pr2-sysros
+Section: pr2
+Priority: extra
+Maintainer: Austin Hendrix <ahendrix@willowgarage.com>
+Build-Depends: debhelper (>= 5)
+Standards-Version: 3.7.2
+
+Package: pr2-sysros
+Architecture: any
+Depends: python, ros-fuerte-linux-networking
+Description: Provides system components that are provided through ROS
+Provides: ${diverted-files}
+Conflicts: ${diverted-files}, pr2-core (<= 0.5.25)

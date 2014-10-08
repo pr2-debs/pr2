@@ -1,0 +1,57 @@
+#!/bin/sh
+set -e
+
+#DEBHELPER#
+
+PKG=pr2-network
+
+case "$1" in
+  configure)
+    # Don't want this getting in the way if it was put there by
+    # pr2-network
+    rm -f /etc/iptables.d/02-basestation-vpn
+
+    # create the log directory if it doesn't exist
+    mkdir -p /var/log/roam
+
+    # Start up multi_interface_roam
+    update-rc.d multi_interface_roam start 15 2 3 4 5 . stop 85 0 1 6 .
+    if [ -e /etc/init.d/multi_interface_roam ]; then
+      invoke-rc.d multi_interface_roam start || true
+    fi
+
+    # Turn off ifplugd if we just upgraded to multi_interface roam
+    if [ -e /etc/init.d/ifplugd ]; then
+      invoke-rc.d ifplugd stop || true
+    fi
+    
+    # We have added a rule, we should restart iptables.d to load it
+    if [ -e /etc/init.d/iptables.d ]; then
+      invoke-rc.d iptables.d restart || true
+    fi
+
+    echo "Checking if robot can be branded"
+    if [ -e /unionfs/overlay/etc/hostname -a -e /tmp/pr2-network/BASESTATION_IP -a -e /tmp/pr2-network/BASESTATION_HOSTNAME ]; then
+	echo "Yes, let's brand the robot"
+        ROBOT_NAME=`python -c """
+import yaml
+try:
+  print yaml.load(open('/etc/ros/robot.yaml'))['robot']['name']
+except:
+  print 'robot'
+"""`
+        C1_NAME=`cat /etc/hostname`
+        C2_NAME=`cat /unionfs/overlay/etc/hostname`
+        BASESTATION_IP=`cat /tmp/pr2-network/BASESTATION_IP`
+        BASESTATION_HOSTNAME=`cat /tmp/pr2-network/BASESTATION_HOSTNAME`
+        echo Rebranding robot with: ${ROBOT_NAME} ${C1_NAME} ${C2_NAME} ${BASESTATION_IP} ${BASESTATION_HOSTNAME}
+        pr2-brand ${ROBOT_NAME} ${C1_NAME} ${C2_NAME} ${BASESTATION_IP} ${BASESTATION_HOSTNAME}
+    fi
+
+    ;;
+  
+  *)
+        echo "postinst called with unknown argument \`$1'" >&2
+        exit 0
+    ;;
+esac

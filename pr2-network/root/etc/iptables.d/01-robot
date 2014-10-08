@@ -1,0 +1,6 @@
+-t nat -A PREROUTING -d 10.68.0.1/255.255.0.255 -j ACCEPT 
+-t nat -A PREROUTING -d 10.68.0.0/255.255.0.0 -i tun9 -j NETMAP --to 10.68.0.0/24
+#-t nat -A POSTROUTING -o ! lo -j MASQUERADE 
+-t nat -A POSTROUTING -o tun9 -j MASQUERADE 
+-t filter -A INPUT -i wan0 -m state --state ESTABLISHED -j ACCEPT
+-t filter -A INPUT -i wan0 -j DROP

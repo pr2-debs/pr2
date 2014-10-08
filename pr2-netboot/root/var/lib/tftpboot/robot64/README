@@ -1,0 +1,2 @@
+These should be symlinks pointing to the currently booted kernel.
+Also this file needs to exist so the debbuilder creates this directory.

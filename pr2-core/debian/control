@@ -1,0 +1,13 @@
+Source: pr2-core
+Section: pr2
+Priority: extra
+Maintainer: Eric Berger <berger@willowgarage.com>
+Build-Depends: debhelper (>= 5)
+Standards-Version: 3.7.2
+
+Package: pr2-core
+Architecture: any
+Depends: python, pr2-users, pr2-core-impl, fortune, fortunes
+Description: Provides pr2 and pr2_admin utilities for the pr2
+Provides: ${diverted-files}
+Conflicts: ${diverted-files}

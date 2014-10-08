@@ -1,0 +1,47 @@
+#! /bin/sh
+
+TFTPBOOT=/var/lib/tftpboot
+PATH=/sbin:/usr/sbin:/bin:/usr/bin
+
+# Kernel version to boot on c2
+VERSION=3.0.6-pr2
+VMLINUZ_PATH=/boot/vmlinuz-${VERSION}
+INITRD_PATH=/boot/initrd.img-${VERSION}-c2
+VMLINUZ_LINK=${TFTPBOOT}/robot64/vmlinuz
+INITRD_LINK=${TFTPBOOT}/robot64/initrd.img
+
+. /lib/lsb/init-functions
+
+case "$1" in
+  restart|start)
+    [ "$VERBOSE" = no ] || log_action_begin_msg "Creating kernel links for netboot"
+    ES=0
+
+    # Make the initramfs for c2
+    mkinitramfs -v -d /etc/initramfs-tools.c2 -o ${INITRD_PATH} ${VERSION}
+
+    # Remove the new kernel links
+    (rm -f ${VMLINUZ_LINK} || ES=$?)
+    (rm -f ${INITRD_LINK}  || ES=$?)
+
+    #Creating appropriate symlinks directly
+    ln -s ${VMLINUZ_PATH} ${VMLINUZ_LINK} || ES=$?
+    ln -s ${INITRD_PATH}  ${INITRD_LINK} || ES=$?
+    [ "$VERBOSE" = no ] || log_action_end_msg $ES
+    ;;
+  stop)
+    [ "$VERBOSE" = no ] || log_action_begin_msg "Removing kernel links for netboot"
+    ES=0
+    [ ! -e ${VMLINUZ_LINK} ] || ([ -h ${VMLINUZ_LINK} ] && rm ${VMLINUZ_LINK}) || ES=$?
+    [ ! -e ${INITRD_LINK} ] || ([ -h ${INITRD_LINK} ] && rm ${INITRD_LINK}) || ES=$?
+    [ "$VERBOSE" = no ] || log_action_end_msg $ES
+    ;;
+  reload|force-reload)
+    echo "Error: argument '$1' not supported" >&2
+    exit 3
+    ;;
+  *)
+    echo "Usage: netboot-kernel-links restart|start|stop" >&2
+    exit 3
+    ;;
+esac

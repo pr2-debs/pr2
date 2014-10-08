@@ -1,0 +1,13 @@
+Source: pr2-iptables.d
+Section: config
+Priority: extra
+Maintainer: Jeremy Leibs <leibs@willowgarage.com>
+Build-Depends: debhelper (>= 5)
+Standards-Version: 3.7.2
+
+Package: pr2-iptables.d
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, iptables
+Description: Provides a directory iptables.d from which it loads iptables rules.
+Provides: ${diverted-files}
+Conflicts: ${diverted-files}

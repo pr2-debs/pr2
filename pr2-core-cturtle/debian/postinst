@@ -1,0 +1,62 @@
+#!/bin/bash
+
+#DEBHELPER#
+
+update_urdf()
+{
+    if [ -e /etc/ros/cturtle/setup.bash ]; then
+	
+	. /etc/ros/cturtle/setup.sh
+	
+	ver_str=`sed -nre 's/rosbuild_make_distribution\((.*)\)/\1/p' \`rosstack find pr2_common\`/CMakeLists.txt`
+	
+	new_xacro=/etc/ros/cturtle/urdf/pr2_${ver_str}.urdf.xacro
+	    
+        #Copy pr2.urdf.xacro to /etc/ros/urdf/
+	[ -e ${new_xacro} ] ||
+	{
+	    cp `rospack find pr2_description`/robots/pr2.urdf.xacro ${new_xacro}
+	
+            #Generate a nominal pr2.xml
+	    tgt_urdf=/etc/ros/cturtle/urdf/robot.xml
+	    new_urdf=/etc/ros/cturtle/urdf/robot_uncalibrated_${ver_str}.xml
+	    rosrun xacro xacro.py ${new_xacro} > ${new_urdf}
+	    
+            # Create link from robot.xml
+	    if [ ! -e ${tgt_urdf} ]; then
+		ln -sf ${new_urdf} ${tgt_urdf}
+	    fi
+	
+            # Also create link from robot_uncalibrated.xml 
+	    tgt_urdf=/etc/ros/cturtle/urdf/robot_uncalibrated.xml
+	    if [ ! -e ${tgt_urdf} ]; then
+		ln -sf ${new_urdf} ${tgt_urdf}
+	    fi
+	}
+	
+    fi
+}
+
+case "$1" in
+    'configure')
+	
+	update_urdf
+    
+	;;
+
+    'triggered')
+
+	update_urdf
+
+	;;
+
+    *)
+	;;
+
+esac
+
+    
+
+
+
+

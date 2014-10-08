@@ -1,0 +1,49 @@
+pr2-users (0.5.0) stable; urgency=low
+
+  * Incrementing to SVN: r146
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Tue, 12 Oct 2010 16:10:50 -0700
+
+pr2-users (0.2.2) stable; urgency=low
+
+  * Incrementing to SVN: r699
+   - r699: Making adduser work without autofs
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Fri, 19 Mar 2010 17:21:57 -0700
+
+pr2-users (0.2.1) stable; urgency=low
+
+  * Incrementing to SVN: r697
+   - r697: Moving creation of the pr2admin user
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Fri, 19 Mar 2010 13:20:43 -0700
+
+pr2-users (0.2.0) stable; urgency=low
+
+  * Incrementing to SVN: r675
+   - r673: Creating pr2admin account
+   - r675: adding pr2admin to admin group
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Thu, 11 Mar 2010 17:53:03 -0800
+
+pr2-users (0.1.2) stable; urgency=low
+
+  * Incrementing to SVN: r617
+   - r617: Fixing pr2-users diversion
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Fri, 05 Feb 2010 11:25:07 -0800
+
+pr2-users (0.1.1) stable; urgency=low
+
+  * Incrementing to SVN: r613
+   - r613: Creating new pr2-users package
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Fri, 05 Feb 2010 11:05:13 -0800
+
+pr2-users (0.1) stable; urgency=low
+
+  * Initial release. 
+  * Creating the package
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Fri, 05 Feb 2010 10:45:58 -0800
+

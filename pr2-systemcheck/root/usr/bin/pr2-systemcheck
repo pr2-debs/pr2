@@ -1,0 +1,166 @@
+#! /usr/bin/env python
+
+import sys
+import os
+from optparse import OptionParser
+import subprocess
+
+def printindent(str, indent):
+    for l in str.splitlines():
+        print indent + l
+
+def process_ret(ret):
+    passed = 0
+    failed = 0
+    skipped = 0
+    total = 0
+
+    if res == 0:
+        passed = passed + 1
+        print 'OK'
+    elif res == 254:
+        skipped = skipped + 1
+        print 'SKIPPED'
+    else:
+        failed = failed + 1
+        print 'FAIL (Return code: %d)'%res
+        
+    if options.verbose:
+        printindent(o, '    ');
+    else:
+        printindent(e, '    ');
+
+    return (passed, failed, skipped, total)
+
+
+if __name__ == '__main__':
+    parser = OptionParser(usage="usage: pr2-systemcheck")
+    parser.add_option("-v","--verbose",action="store_true", dest="verbose",default=False)
+    (options, args) = parser.parse_args()
+
+    host_files = {}
+    host_files['local'] = []
+    host_files['all'] = []
+
+    all_files = []
+
+    path='/usr/share/pr2-systemcheck/'
+    justwidth=50
+
+    for host in os.listdir(path):
+        if os.path.isdir(path+host):
+            host_files[host] = []
+
+    for (host,file_list) in host_files.iteritems():
+        for root,dirs,files in os.walk(path+'/'+host):
+            for name in files:
+                if name[-1] not in '~' and name != 'README':
+                    file_list.append((root[len(path)+1:] + '/' + name, root + '/' + name))
+            file_list.sort()
+
+    real_hosts = host_files.keys()
+    real_hosts.remove('all')
+    real_hosts.remove('local')
+    real_hosts.sort()
+
+    if options.verbose:
+        stderrarg=subprocess.STDOUT
+    else:
+        stderrarg=subprocess.PIPE
+
+    passed = 0
+    failed = 0
+    skipped = 0
+    run = 0
+    total = 0
+
+    # Run local scripts not through ssh.  Just in case our ssh server isn't running.
+    print "Running local scripts"
+    total += len(host_files['local']) + len(real_hosts)
+    for (s,f) in host_files['local']:
+        run += 1
+        print (' * Running \'%s\'... '%(s)).ljust(justwidth),
+        
+        cmd="TMPFILE=`mktemp` || exit 1 && cat > ${TMPFILE} && chmod +x ${TMPFILE} && ${TMPFILE}; ret=${?}; rm ${TMPFILE}; exit ${ret}"
+        script = subprocess.Popen(['sh', '-c', cmd], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=stderrarg)
+        data = open(f,'r').read()
+        (o,e) = script.communicate(data)
+        res = script.wait()
+        if res == 0:
+            passed += 1
+            print 'OK'
+        elif res == 254:
+            skipped += 1
+            print 'SKIPPED'
+        else:
+            failed += 1
+            print 'FAIL (Return code: %d)'%res
+            
+        if options.verbose:
+            printindent(o, '    ');
+            print ''
+        else:
+            printindent(e, '    ');
+
+    # For each host (any directory not all or local), we run the contents of all + the machine-specific tests
+    for host in real_hosts:
+        total += len(host_files['all'] + host_files[host])
+
+        print "Running scripts for %s"%host
+
+        print (" * Testing ssh connection to %s... "%host).ljust(justwidth),
+        run += 1
+        
+        test_ssh = subprocess.Popen(['ssh', host, 'echo', 'SSH WORKS'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+        (o,e) = test_ssh.communicate('')
+        res = test_ssh.wait()
+        if res != 0 or not 'SSH WORKS' in o:
+            failed += 1
+            print 'FAIL'
+            printindent(o, '    ');
+            for (s,f) in host_files['all'] + host_files[host]:
+                print ' * Not running \'%s\''%(s)
+        else:
+            passed += 1
+            print 'OK'
+
+            for (s,f) in host_files['all'] + host_files[host]:
+                run += 1
+                print (' * Running \'%s\'... '%(s)).ljust(justwidth),
+                cmd="TMPFILE=`mktemp` || exit 1 && cat > ${TMPFILE} && chmod +x ${TMPFILE} && ${TMPFILE}; ret=${?}; rm ${TMPFILE}; exit ${ret}"
+                script = subprocess.Popen(['ssh', host, cmd], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=stderrarg)
+                data = open(f,'r').read()
+                (o,e) = script.communicate(data)
+                res = script.wait()
+                if res == 0:
+                    passed += 1
+                    print 'OK'
+                elif res == 254:
+                    skipped += 1
+                    print 'SKIPPED'
+                else:
+                    failed += 1
+                    print 'FAIL (Return code: %d)'%res
+
+                if options.verbose:
+                    out = o + '\n'
+                else:
+                    out = e
+                    
+                printindent(out, '    ');
+
+    print ""
+    if (passed > 0):
+        print "%d/%d passed"%(passed,total)
+    if (failed > 0):
+        print "%d/%d failed"%(failed,total)
+    if (skipped > 0):
+        print "%d/%d skipped"%(skipped,total)
+    if (total - run > 0):
+        print "%d/%d not run"%(total - run,total)
+
+
+    if failed != 0:
+        sys.exit(1)
+    else:
+        sys.exit(0)

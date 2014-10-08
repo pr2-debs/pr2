@@ -1,0 +1,22 @@
+#!/bin/sh
+
+case "$1" in 
+  purge)
+    update-rc.d unionfs-fuse-nfs-root remove
+    update-rc.d netboot-kernel-links remove
+    update-rc.d unionfs-mark-sendsigs-omit remove
+    update-rc.d fixslavenet.sh remove
+  ;;
+  *)
+  ;;
+esac
+
+if [ -e /etc/init.d/dnsmasq ]; then
+  invoke-rc.d dnsmasq restart || true
+fi
+
+if [ -e /etc/init.d/atftpd ]; then
+  invoke-rc.d atftpd restart || true
+fi
+
+#DEBHELPER#

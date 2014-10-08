@@ -1,0 +1,169 @@
+#!/usr/bin/python
+
+import sys
+import os
+import re
+import pysvn
+import email
+import subprocess
+import tempfile
+from optparse import OptionParser
+
+def build_pkgs(pkgs, new_only):
+    if len(pkgs) == 0:
+	pkgs = os.listdir('.')
+
+    pkgs = [p for p in pkgs if os.path.isdir(p) and p[0] != '.']
+
+    yesno = raw_input("About to invoke 'svn up.'  Continue? [Y/n]")
+    if yesno.lower()=="n":
+        print "Aborting..."
+        sys.exit(0)
+    else:
+        pysvn.Client().update('.')
+
+    for p in pkgs:
+        p = p.strip('/')
+        print "Preparing to build package: %s"%p
+        last_rev = 1
+        major = 0
+        minor = 0
+        patch = 0
+        distribution = "UNRELEASED"
+        def_name = "None"
+        def_email = "None"
+
+
+        changelog = open(p + '/debian/changelog').read()
+        m = re.search(r"^\s*\* Incrementing to SVN: r([0-9]+).*$", changelog, re.MULTILINE)
+        if m is not None:
+            last_rev = int(m.group(1))
+
+        m = re.search(r"^%s \(([0-9]+)\.*([0-9]*)\.*([0-9]*)\) (.*);.*$"%p, changelog, re.MULTILINE)
+        if m is not None:
+            if m.group(1) != "":
+                major = int(m.group(1))
+            if m.group(2) != "":
+                minor = int(m.group(2))
+            if m.group(3) != "":
+                patch = int(m.group(3))
+            if m.group(4) != "":
+                distribution = m.group(4)
+
+        
+
+        m = re.search(r"^ -- (.*) <(.*@.*)>.*$", changelog, re.MULTILINE)
+        if m is not None:
+            if m.group(1) != "":
+                def_name = m.group(1)
+            if m.group(2) != "":
+                def_email = m.group(2)
+
+        client = pysvn.Client()
+        svn_info = client.info(p)
+        svn_changes = client.log(p,revision_start=svn_info.revision,revision_end=pysvn.Revision(pysvn.opt_revision_kind.number, last_rev),discover_changed_paths=True)
+        svn_local_mods = client.status(p)
+
+        # Can't seem to avoid doing this filtering manually
+        real_svn_changes = []
+        for c in svn_changes:
+            if c.revision.number <= last_rev:
+                continue
+            base = svn_info.url.replace(svn_info.repos,'')
+            paths = c.changed_paths
+            if not False in [path.path.split('/')[-1] == 'changelog' or path.path.find(base) == -1 for path in paths]:
+                continue
+            real_svn_changes.append(c)
+
+        mod_text = ['Added:', 'Removed:', 'Changed:', 'Conflicted:', 'Unversioned:']
+        mod_val  = [pysvn.wc_status_kind.added, pysvn.wc_status_kind.deleted, pysvn.wc_status_kind.modified, pysvn.wc_status_kind.conflicted, pysvn.wc_status_kind.unversioned]
+
+        real_local_mods = [m for m in svn_local_mods if m.path.split('/')[-1] != 'changelog' and m.text_status in mod_val]
+
+        new_date = email.Utils.formatdate(localtime=True)
+
+        local_mod_ver=""
+        local_mod_txt=""
+
+        if len(real_local_mods) > 0:
+            print "There are local modifications to '%s'!"%p
+            for (t,v) in zip(mod_text, mod_val):
+                l = [f for f in real_local_mods if f.text_status == v]
+                if len(l) > 0:
+                    print ' %s'%t
+                    local_mod_txt = local_mod_txt + "  * %s\n"%t
+                    for f in l:
+                        print '  * ' + f.path 
+                        local_mod_txt = local_mod_txt + "    - %s\n"%f.path
+            yesno = raw_input("Are you sure you want to package this deb? [y/N]")
+
+            if yesno.lower()!="y":
+                continue
+
+        svn_log_txt = ""
+        if len(real_svn_changes) > 0:
+            new_rev = 1
+
+            for l in reversed(real_svn_changes):
+                new_rev = "r%s"%(l.revision.number)
+                new_date = email.Utils.formatdate(l.date,localtime=True)
+                logmsg = l.message
+                lines = logmsg.splitlines()
+                if len(lines) == 0:
+                    lines = [""]
+                svn_log_txt = svn_log_txt + "   - %s: %s\n"%(new_rev,lines[0])
+                for line in lines[1:]:
+                    svn_log_txt = svn_log_txt + "       %s\n"%line
+            svn_log_txt="  * Incrementing to SVN: %s\n"%new_rev + svn_log_txt
+            
+
+
+        if (len(real_svn_changes) + len(real_local_mods)) == 0 and new_only:
+            print "No changes... skipping"
+            continue
+
+        if len(real_svn_changes) + len(real_local_mods) > 0:
+            print "There have been changes to '%s' since the last time the changelist was updated."%p
+            yesno = raw_input("Would you like to automatically update the changelist? [Y/n]")
+            if yesno.lower()=="y" or yesno == "":
+                name=raw_input("Enter your name [%s]: "%def_name)
+                if name == "":
+                    name = def_name
+                emailaddr=raw_input("Enter your email [%s]: "%def_email)
+                if emailaddr == "":
+                    emailaddr = def_email
+
+                patch = patch + 1
+                        
+                newchangetxt = """%s (%d.%d.%d) %s; urgency=low
+
+%s%s
+ -- %s <%s>  %s
+
+"""%(p,major,minor,patch,distribution,local_mod_txt,svn_log_txt,name,emailaddr,new_date)
+
+                print "Changelog has been updated to:"
+                print newchangetxt
+                yesno = raw_input("Would you like to modify this text? [y/N]")
+                if yesno.lower()=="y":
+                    tf = tempfile.NamedTemporaryFile(delete=False)
+                    tf.write(newchangetxt)
+                    tf.close()
+                    editor = os.getenv('EDITOR','emacs')
+                    cmd = "%s %s"%(editor, tf.name)
+                    subprocess.Popen(cmd.split()).wait()
+                    newchangetxt = open(tf.name).read()
+                    os.remove(tf.name)
+                open(p+'/debian/changelog','w').write(newchangetxt + changelog)
+
+        os.chdir(p)
+	subprocess.Popen(['dpkg-buildpackage', '-uc', '-b']).wait()
+	subprocess.Popen(['fakeroot', 'debian/rules', 'clean']).wait()
+        os.chdir('..')
+
+if __name__ == "__main__":
+  parser = OptionParser(usage="usage: builddeps [PKG1 PKG2 ...]")
+  parser.add_option("--new",action="store_true", dest="new_only",default=False)
+  (options, args) = parser.parse_args()
+
+  build_pkgs(args, options.new_only)

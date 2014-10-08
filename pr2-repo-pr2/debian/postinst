@@ -1,0 +1,19 @@
+#!/bin/sh
+set -e
+
+PKG=pr2-repo-pr2
+
+case "$1" in
+  configure)
+        . /etc/lsb-release
+        
+        echo "deb http://packages.ros.org/pr2/ubuntu ${DISTRIB_CODENAME} pr2" > /etc/apt/sources.list.d/pr2debspr2.list
+    ;;
+
+  *)
+        echo "postinst called with unknown argument \`$1'" >&2
+        exit 0
+    ;;
+esac
+
+#DEBHELPER#

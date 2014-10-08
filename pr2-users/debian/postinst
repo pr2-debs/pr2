@@ -1,0 +1,20 @@
+#!/bin/sh
+set -e
+
+PKG=pr2-users
+
+case "$1" in
+  configure)
+    groupadd -f -r admin
+    groupadd -f -r apt
+    groupadd -f -r rosadmin
+
+    ;;
+
+  *)
+        echo "postinst called with unknown argument \`$1'" >&2
+        exit 0
+    ;;
+esac
+
+#DEBHELPER#

@@ -1,0 +1,13 @@
+Source: pr2-core-fuerte
+Section: pr2
+Priority: extra
+Maintainer: Austin Hendrix <ahendrix@willowgarage.com>
+Build-Depends: debhelper (>= 5)
+Standards-Version: 3.7.2
+
+Package: pr2-core-fuerte
+Architecture: any
+Depends: python, ros-fuerte-pr2, pr2-core (>= 0.5.31)
+Description: Provides ROS environment configuration files for PR2.
+Provides: ${diverted-files}, pr2-core-impl
+Conflicts: ${diverted-files}

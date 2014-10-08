@@ -1,0 +1,6 @@
+#!/bin/sh 
+
+# Prevents unionfs-fuse from being killed when the computer is rebooting.
+mkdir -p /var/run/sendsigs.omit.d
+ps -C unionfs-fuse -o pid | grep -v PID > /var/run/sendsigs.omit.d/unionfs-fuse.pids
+echo 1 > var/run/sendsigs.omit.d/init.pid

@@ -1,0 +1,14 @@
+pr2-core-diamondback (0.5.1) stable; urgency=low
+
+  * Incrementing to SVN: r723
+   - r723: add newline
+
+ -- Wim Meeussen <wim@willowgarage.com>  Fri, 25 Feb 2011 11:23:02 -0800
+
+pr2-core-diamondback (0.5.0) stable; urgency=low
+
+  * Incrementing to SVN: r659
+   - r659: Creating pr2-core-diamondback
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Fri, 04 Feb 2011 12:46:11 -0800
+

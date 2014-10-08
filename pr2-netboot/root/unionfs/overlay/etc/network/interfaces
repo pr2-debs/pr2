@@ -1,0 +1,17 @@
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+#lan0 is not auto.  It is up from the very beginning on account of netboot.
+iface lan0 inet static
+  address c2-lan0          
+  netmask 255.255.255.0
+  gateway c1
+
+auto lan1
+iface lan1 inet static
+  address c2-lan1          
+  netmask 255.255.255.0

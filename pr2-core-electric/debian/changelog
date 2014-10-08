@@ -1,0 +1,20 @@
+pr2-core-electric (0.1.2) stable; urgency=low
+
+  * Incrementing to SVN: r852
+   - r852: Add standard openni head launch.
+
+ -- Austin Hendrix <ahendrix@willowgarage.com>  Fri, 30 Mar 2012 10:43:00 -0700
+
+pr2-core-electric (0.1.1) stable; urgency=low
+
+  * Incrementing to SVN: r786
+   - r786: Adding pr2-core-electric deb
+
+ -- Kevin Watts <watts@willowgarage.com>  Mon, 25 Jul 2011 10:52:35 -0700
+
+pr2-core-electric (0.1.0) stable; urgency=low
+
+  * Incrementing to SVN: r723
+   - r723: add newline
+
+ -- Wim Meeussen <wim@willowgarage.com>  Fri, 25 Feb 2011 11:23:02 -0800

@@ -1,0 +1,21 @@
+#!/bin/sh
+set -e
+
+PKG=pr2-grant
+
+case "$1" in
+  configure)
+
+    chown root.root /usr/bin/pr2_grant
+    chmod +s /usr/bin/pr2_grant
+    chown root.root /usr/bin/pr2-grant
+    chmod +s /usr/bin/pr2-grant
+    ;;
+
+  *)
+        echo "postinst called with unknown argument \`$1'" >&2
+        exit 0
+    ;;
+esac
+
+#DEBHELPER#

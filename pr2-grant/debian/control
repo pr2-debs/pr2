@@ -1,0 +1,12 @@
+Source: pr2-grant
+Section: unknown
+Priority: extra
+Maintainer: Rob Wheeler <wheeler@willowgarage.com>
+Build-Depends: debhelper (>= 5), libcap-dev
+Standards-Version: 3.7.2
+
+Package: pr2-grant
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libcap-dev, build-essential
+Description: Installs the pr2_grant helper which grants capabilities to a program to allow it to open raw sockets, unlock memory, and set realtime scheduling priorities.
+

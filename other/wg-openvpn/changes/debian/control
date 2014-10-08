@@ -1,0 +1,29 @@
+Source: wg-openvpn
+Section: net
+Priority: optional
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+XSBC-Original-Maintainer: Alberto Gonzalez Iniesta <agi@inittab.org>
+Build-Depends: debhelper (>= 6), libssl-dev (>> 0.9), liblzo2-dev, libpam0g-dev, quilt, libpkcs11-helper1-dev
+Standards-Version: 3.8.2
+
+Package: wg-openvpn
+Architecture: any
+Depends: debconf | debconf-2.0, ${shlibs:Depends}, ${misc:Depends}, libssl0.9.8 (>= 0.9.8g), openssl-blacklist (>= 0.3), openvpn-blacklist, lsb-base (>= 3.2)
+Recommends: net-tools
+Suggests: openssl, resolvconf
+Description: virtual private network daemon
+ wg-openvpn is a modified version of OpenVPN that includes the ability to 
+ float a TLS connection
+ .
+ OpenVPN is an application to securely tunnel IP networks over a
+ single UDP or TCP port. It can be used to access remote sites, make
+ secure point-to-point connections, enhance wireless security, etc.
+ .
+ OpenVPN uses all of the encryption, authentication, and certification
+ features provided by the OpenSSL library (any cipher, key size, or
+ HMAC digest).
+ .
+ OpenVPN may use static, pre-shared keys or TLS-based dynamic key exchange. It
+ also supports VPNs with dynamic endpoints (DHCP or dial-up clients), tunnels
+ over NAT or connection-oriented stateful firewalls (such as Linux's iptables).
+

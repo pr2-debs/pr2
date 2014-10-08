@@ -1,0 +1,55 @@
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# For ecat0, we just bring the interface up. This should allow ethercat to
+# run without assigning an arbitrary v4 address.
+
+auto ecat0 
+iface ecat0 inet manual
+  up ifconfig $IFACE up
+
+# In case udev renaming failed, we still want to talk to the robot.
+auto eth0
+iface eth0 inet static
+  address c1-lan0
+  netmask 255.255.255.0
+  gateway wifi-router
+  metric 4
+
+# The wan interface
+iface wan0 inet dhcp
+  metric 3
+
+# The four lan interfaces
+auto lan0
+iface lan0 inet static
+  address c1-lan0
+  netmask 255.255.255.0
+  gateway wifi-router
+  metric 4
+
+auto lan1
+iface lan1 inet static
+  address c1-lan1
+  netmask 255.255.255.0
+  metric 5
+
+#auto lan2
+iface lan2 inet static
+  address c1-lan2
+  netmask 255.255.255.0
+  gateway wifi-router
+  metric 6
+  post-up ip route del 10.68.0.0/24 dev lan2  proto kernel  scope link  src 10.68.0.21 
+
+#auto lan3
+iface lan3 inet static
+  address c1-lan3		
+  netmask 255.255.255.0
+  gateway wifi-router
+  metric 7 
+  post-up ip route del 10.68.0.0/24 dev lan3  proto kernel  scope link  src 10.68.0.31 

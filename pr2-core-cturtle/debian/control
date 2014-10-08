@@ -1,0 +1,13 @@
+Source: pr2-core-cturtle
+Section: pr2
+Priority: extra
+Maintainer: Jeremy Leibs <leibs@willowgarage.com>
+Build-Depends: debhelper (>= 5)
+Standards-Version: 3.7.2
+
+Package: pr2-core-cturtle
+Architecture: any
+Depends: python, ros-cturtle-pr2all
+Description: Provides pr2 and pr2_admin utilities for the pr2
+Provides: ${diverted-files}, pr2-core-impl
+Conflicts: ${diverted-files}

@@ -1,0 +1,3 @@
+#!/bin/sh
+
+echo "You cannot run addgroup on c2.  Please login to c1."

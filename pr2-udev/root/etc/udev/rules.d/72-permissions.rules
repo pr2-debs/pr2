@@ -1,0 +1,30 @@
+# This file establishes permissions and ownership of devices according
+# to Ubuntu policy.  See udev(7) for syntax.
+#
+# The names of the devices must not be set here, but in 20-names.rules;
+# user-friendly symlinks (which need no permissions or ownership) should
+# be set in 60-symlinks.rules.
+
+# IEEE1394 (firewire) devices
+KERNEL=="raw1394",			GROUP="users"
+KERNEL=="dv1394*",			GROUP="users"
+KERNEL=="video1394*",			GROUP="users"
+
+# Serial devices
+SUBSYSTEM=="tty",			GROUP="users"
+KERNEL=="ttyACM[0-9]*",			GROUP="users", MODE="0660"
+
+# USB serial converters
+SUBSYSTEM=="usb_device", GOTO="usb_serial_start"
+SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", GOTO="usb_serial_start"
+GOTO="usb_serial_end"
+LABEL="usb_serial_start"
+ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", \
+					GROUP="users", MODE="0660"
+LABEL="usb_serial_end"
+
+# Sound devices
+SUBSYSTEM=="sound",			GROUP="users"
+
+# Other devices, by name
+KERNEL=="js[0-9]*",			GROUP="users"

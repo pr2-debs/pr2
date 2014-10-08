@@ -1,0 +1,23 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+export DH_ALWAYS_EXCLUDE=CVS:.svn
+
+DEB_DIVERT_EXTENSION = .pr2-netboot
+DEB_DIVERT_FILES_pr2-netboot += \
+	/etc/default/atftpd.pr2-netboot \
+	/etc/init.d/umountnfs.sh.pr2-netboot \
+	/etc/init.d/sendsigs.pr2-netboot \
+	/etc/init/portmap.conf.pr2-netboot \
+	/etc/exports.pr2-netboot \
+	/etc/dnsmasq.conf.pr2-netboot \
+	/etc/syslog.conf.pr2-netboot \
+	/etc/syslog.conf.pr2-netboot \
+	/usr/sbin/adduser.pr2-netboot \
+	/usr/sbin/usermod.pr2-netboot \
+	/usr/bin/passwd.pr2-netboot \
+	/usr/bin/apt-get.pr2-netboot \
+   /usr/share/nfs-kernel-server/conffiles/etc.exports.pr2-netboot
+
+include /usr/share/cdbs/1/rules/debhelper.mk
+include /usr/share/cdbs/1/rules/config-package.mk

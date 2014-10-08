@@ -1,0 +1,4 @@
+tmpfs                   /tmp            tmpfs   defaults                            0  0
+proc                    /proc           proc    nodev,noexec,nosuid                 0  0
+c1:/root	        /root		nfs	rw,hard,intr,bg,timeo=600,nolock    0  0
+c1:/hwlog	        /hwlog		nfs	rw,hard,intr,bg,timeo=600,nolock    0  0

@@ -1,0 +1,24 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+export DH_ALWAYS_EXCLUDE=CVS:.svn
+
+DEB_DIVERT_EXTENSION = .pr2-wpi-environment
+DEB_DIVERT_FILES_pr2-wpi-environment += \
+	/etc/default/snmpd.pr2-wpi-environment \
+	/etc/snmp/snmpd.conf.pr2-wpi-environment \
+	/etc/default/rsync.pr2-wpi-environment \
+	/etc/default/distcc.pr2-wpi-environment \
+	/etc/distcc/hosts.pr2-wpi-environment \
+	/etc/default/grub.pr2-wpi-environment \
+	/etc/ssh/sshd_config.pr2-wpi-environment \
+	/etc/ssh/ssh_config.pr2-wpi-environment \
+	/etc/bluetooth/main.conf.pr2-wpi-environment \
+	/etc/environment.pr2-wpi-environment \
+	/etc/lvm/lvm.conf.pr2-wpi-environment \
+   /usr/share/grub/default/grub.pr2-wpi-environment
+
+include /usr/share/cdbs/1/rules/debhelper.mk
+include /usr/share/cdbs/1/rules/config-package.mk
+
+

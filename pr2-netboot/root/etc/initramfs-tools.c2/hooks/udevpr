@@ -1,0 +1,23 @@
+#!/bin/sh -e
+# initramfs hook for udev-p2
+
+MINKVER="2.6.24"
+PREREQ=""
+
+# Output pre-requisites
+prereqs()
+{
+	echo "$PREREQ"
+}
+
+case "$1" in
+    prereqs)
+	prereqs
+	exit 0
+	;;
+esac
+
+if [ -e /unionfs/overlay/etc/udev/rules.d/71-pr2-network-interface.rules ]; then
+    mkdir ${DESTDIR}/etc/udev/rules.d
+    cp /unionfs/overlay/etc/udev/rules.d/71-pr2-network-interface.rules ${DESTDIR}/etc/udev/rules.d
+fi

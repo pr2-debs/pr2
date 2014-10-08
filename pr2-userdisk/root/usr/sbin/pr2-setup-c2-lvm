@@ -1,0 +1,65 @@
+#!/bin/sh
+
+DISK=/dev/sda
+
+FORCE=0
+
+while getopts ":f" opt; do
+  case $opt in
+    f)
+	  FORCE=1
+	  ;;
+  esac
+done
+shift `expr $OPTIND - 1`
+
+
+# Verify that we are actually the root user.
+if [ "$(id -u)" != "0" ]; then
+   echo "This script must be run as root" 1>&2
+   exit 1
+fi
+
+
+# If we are on the master machine
+if [ ! -e /etc/slave ]; then
+    if [ $FORCE -eq 0 ]; then
+	ssh c2 pr2-setup-c2-lvm
+    else
+	ssh c2 pr2-setup-c2-lvm -f
+    fi
+else
+
+    pvdisplay /dev/sda > /dev/null || {
+
+        echo "There is not currently an lvm volume setup on disk"
+        echo "Erase all data on $(hostname):${DISK} and repartition? (y/n)"
+        if [ $FORCE -eq 0 ]; then
+            read WISH
+            
+            if [ "$WISH" != "y" ]; then
+	        echo "Aborting..."
+	        exit 0
+            fi
+        fi
+
+        for v_partition in $(parted -s /dev/sda print|awk '/^ / {print $1}')
+        do
+            parted -s /dev/sda rm ${v_partition}
+        done
+        dd if=/dev/zero of=/dev/sda bs=512 count=1
+        pvcreate /dev/sda
+    }
+
+    vgdisplay vg00 > /dev/null || {
+        echo "Creating vg00 volume group"
+        vgcreate vg00 /dev/sda
+    }
+
+    lvdisplay /dev/mapper/vg00/home || {
+        echo "Creating 'home' logical volume"
+        lvcreate -l 50%FREE -nhome vg00
+        mkfs.ext4 /dev/mapper/vg00-home
+    }
+
+fi

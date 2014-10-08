@@ -1,0 +1,3 @@
+# Send everything to master.
+*.*;local4.!*  /var/log/messages
+local4.*        /var/log/ipmi

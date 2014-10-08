@@ -1,0 +1,7 @@
+/unionfs/overlay/etc/syslog.conf
+/unionfs/overlay/etc/default/wg-openvpn
+/unionfs/overlay/etc/default/dnsmasq
+/unionfs/overlay/etc/hostname
+/unionfs/overlay/etc/network/interfaces
+/unionfs/overlay/etc/resolv.conf
+/unionfs/overlay/etc/exports

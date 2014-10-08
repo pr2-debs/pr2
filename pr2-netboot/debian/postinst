@@ -1,0 +1,53 @@
+#!/bin/sh
+set -e
+
+#DEBHELPER#
+
+PKG=pr2-wg-network
+
+case "$1" in
+  configure)
+    # deal with ucf
+    ucf --three-way /usr/share/nfs-kernel-server/conffiles/etc.exports /etc/exports
+
+    if [ -e /etc/init.d/netboot-kernel-links ]; then
+      update-rc.d netboot-kernel-links start 99 S 6 .
+      invoke-rc.d netboot-kernel-links start || true
+    fi
+
+    if [ -e /etc/init.d/unionfs-mark-sendsigs-omit ]; then
+      update-rc.d unionfs-mark-sendsigs-omit start 99 S 6 .
+    fi
+
+    if [ -e /etc/init.d/dnsmasq ]; then
+      invoke-rc.d dnsmasq restart || true
+    fi
+  
+    if [ -e /etc/init.d/atftpd ]; then
+      invoke-rc.d atftpd stop || true
+      invoke-rc.d atftpd start || true
+    fi
+
+    # Dnsmasq later so that the slave doesn't every try to boot until the master is up
+    if [ -e /etc/init.d/dnsmasq ]; then
+      update-rc.d -f dnsmasq remove
+      update-rc.d dnsmasq start 99 2 3 4 5 . stop 1 0 1 6 .
+    fi
+
+    # Create /unionfs/overlay/var/tmp, make it writable, and set the sticky bit
+    if [ ! -d /unionfs/overlay/var/tmp ]; then
+      mkdir /unionfs/overlay/var/tmp
+    fi
+    chmod 1777 /unionfs/overlay/var/tmp
+ 
+    echo Making /etc/mtab a link to /proc/mounts
+    rm -f /etc/mtab
+    ln -s /proc/mounts /etc/mtab
+
+    ;;
+
+  *)
+        echo "postinst called with unknown argument \`$1'" >&2
+        exit 0
+    ;;
+esac

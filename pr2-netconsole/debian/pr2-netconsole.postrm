@@ -1,0 +1,12 @@
+#!/bin/sh
+
+case "$1" in 
+  purge)
+    ;;
+
+
+    *)
+    ;;
+esac
+
+#DEBHELPER#

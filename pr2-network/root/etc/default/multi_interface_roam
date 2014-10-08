@@ -1,0 +1,1 @@
+DAEMON_OPTS=/etc/sysros/wifi/pr2.yaml

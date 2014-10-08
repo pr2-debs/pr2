@@ -1,0 +1,13 @@
+Source: pr2-repo-pr2
+Section: config
+Priority: extra
+Maintainer: Jeremy Leibs <leibs@willowgarage.com>
+Build-Depends: debhelper (>= 5)
+Standards-Version: 3.7.2
+
+Package: pr2-repo-pr2
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, pr2-repo
+Description: Package containing the sources.list and key for the pr2debs repository itself.
+Provides: ${diverted-files}
+Conflicts: ${diverted-files}

@@ -1,0 +1,13 @@
+Source: pr2-webui
+Section: config
+Priority: extra
+Maintainer: Austin Hendrix <ahendrix@willowgarage.com>
+Build-Depends: debhelper (>= 5), config-package-dev (>= 4.5~)
+Standards-Version: 3.7.2
+
+Package: pr2-webui
+Architecture: any
+Depends: python, pr2-core, pr2-core-impl, apache2, apache2-mpm-prefork, libapache2-mod-python
+Description: Sets up the webui for the pr2
+Provides: ${diverted-files}
+Conflicts: ${diverted-files}

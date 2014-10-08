@@ -1,0 +1,16 @@
+pr2-core-unstable (0.5.1) stable; urgency=low
+
+  * Incrementing to SVN: r652
+   - r652: pr2-core no longer depends on an explicit distro
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Wed, 02 Feb 2011 14:24:02 -0800
+
+pr2-core-unstable (0.5.0) stable; urgency=low
+
+  * Incrementing to SVN: r618
+   - r616: Making pr2-core-unstable package
+   - r617: Should go in the unstable directory
+   - r618: Updating instances of cturtle to unstable
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Mon, 17 Jan 2011 13:46:25 -0800
+

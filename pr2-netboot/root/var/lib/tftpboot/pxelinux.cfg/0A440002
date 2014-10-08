@@ -1,0 +1,9 @@
+PROMPT 1
+DEFAULT robot64
+TIMEOUT 1
+LABEL robot64
+        kernel robot64/vmlinuz
+        append boot=nfs root=/dev/nfs nfsroot=10.68.0.1:/ ip=10.68.0.2:10.68.0.1:10.68.0.1:255.255.255.0:c2:lan0 initrd=robot64/initrd.img rw rootdelay=10 vga=extended numa=noacpi acpi=off init=/usr/sbin/c2init console=ttyS0,57600 console=tty1 --
+label bmc106
+        kernel memdisk
+        append initrd=disk-bios3a03-bmc106-wg0.1.img

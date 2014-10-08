@@ -1,0 +1,13 @@
+Source: pr2-network
+Section: config
+Priority: extra
+Maintainer: Blaise Gassend <blaise@willowgarage.com>
+Build-Depends: debhelper (>= 5), config-package-dev (>= 4.5~)
+Standards-Version: 3.7.2
+
+Package: pr2-network
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, pr2-iptables.d, wg-openvpn, initramfs-tools, ros-fuerte-linux-networking, wireless-tools, iw
+Description: Configures the master computer's networking for operation at Willow Garage.
+Provides: ${diverted-files}, pr2-network
+Conflicts: ${diverted-files}, pr2-environment (<= 0.2.13)

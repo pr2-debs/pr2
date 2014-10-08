@@ -1,0 +1,140 @@
+#!/bin/bash
+
+[[ -e /etc/slave ]] && {
+    echo "You should only run pr2-brand on c1"
+    exit 1    
+}
+
+[[ `id -u` == 0 ]] || {
+    echo "Must run pr2-brand as root"
+    exit 1
+}
+
+[[ -z $1 || -z $2 || -z $3 || -z $4 ]] && {
+    echo "Usage: pr2-brand <ROBOT_NAME> <MASTER_NAME> <SLAVE_NAME> <BASESTATION_IP>"
+    exit 1
+}
+
+
+[[ $1 =~ ^[a-zA-Z]+[a-zA-Z0-9\-]*$ ]] || {
+    echo "Name must be valid hostnames."
+    exit 1
+}
+
+[[ $2 =~ ^[a-zA-Z]+[a-zA-Z0-9\-]*$ ]] || {
+    echo "Name must be valid hostnames."
+    exit 1
+}
+
+[[ $3 =~ ^[a-zA-Z]+[a-zA-Z0-9\-]*$ ]] || {
+    echo "Name must be valid hostnames."
+    exit 1
+}
+
+[[ $4 =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]] || {
+    echo "Basetation IP must be formatted as ip address."
+    exit 1
+}
+
+ROBOT_NAME=$1
+MASTER_NAME=$2
+SLAVE_NAME=$3
+BASESTATION_IP=$4
+BASESTATION_HOSTNAME=$5
+
+mkdir -p /etc/ros
+
+if [ -e /etc/ros/robot.yaml ]
+then
+   python -c """
+import yaml
+f = open('/etc/ros/robot.yaml')
+conf = yaml.load(f)
+f.close()
+conf['robot']['name'] = '${ROBOT_NAME}'
+yaml.dump(conf, open('/etc/ros/robot.yaml', 'w'), default_flow_style=False)
+"""
+else
+   echo """
+robot:
+  name: ${ROBOT_NAME}
+  type: pr2
+   """ > /etc/ros/robot.yaml
+fi
+
+echo "Modifying /etc/hosts..."
+cp /etc/hosts /etc/hosts.bak
+
+TMPFILE=`mktemp` || {
+    echo "Could not create temp file"
+    exit 1
+}
+
+perl -p -e "s/10\.68\.0\.1(\s+\S+){3,4}/10\.68\.0\.1 ${MASTER_NAME} c1 c1-lan0 ${MASTER_NAME}-lan0/;
+s/10\.68\.0\.11(\s+\S+){1,2}/10\.68\.0\.11 c1-lan1 ${MASTER_NAME}-lan1/;
+s/10\.68\.0\.21(\s+\S+){1,2}/10\.68\.0\.21 c1-lan2 ${MASTER_NAME}-lan2/;
+s/10\.68\.0\.31(\s+\S+){1,2}/10\.68\.0\.31 c1-lan3 ${MASTER_NAME}-lan3/;
+s/10\.68\.0\.91(\s+\S+){1,2}/10\.68\.0\.91 c1-esms ${MASTER_NAME}-esms/;
+s/10\.68\.0\.2(\s+\S+){3,4}/10\.68\.0\.2 ${SLAVE_NAME} c2 c2-lan0 ${SLAVE_NAME}-lan0/;
+s/10\.68\.0\.12(\s+\S+){1,2}/10\.68\.0\.12 c2-lan1 ${SLAVE_NAME}-lan1/;
+s/10\.68\.0\.92(\s+\S+){1,2}/10\.68\.0\.92 c2-esms ${SLAVE_NAME}-esms/;
+s/10\.68\.255\.1\s+.*/10\.68\.255\.1 ${BASESTATION_HOSTNAME}/;
+s/^[^#]* basestation-novpn/${BASESTATION_IP} basestation-novpn/;
+" /etc/hosts > $TMPFILE
+
+
+cat $TMPFILE > /etc/hosts
+
+sed -r -e "{s/^myhostname = .*$/myhostname = ${ROBOT_NAME}/;}" /etc/postfix/main.cf > $TMPFILE
+
+cat $TMPFILE > /etc/postfix/main.cf
+
+rm $TMPFILE
+
+
+echo "Replacing /etc/hostname"
+cp /etc/hostname /etc/hostname.bak
+echo "${MASTER_NAME}" > /etc/hostname
+
+echo "Replacing /unionfs/overlay/etc/hostname"
+cp /unionfs/overlay/etc/hostname /unionfs/overlay/etc/hostname.bak
+echo "${SLAVE_NAME}" > /unionfs/overlay/etc/hostname
+
+hostname ${MASTER_NAME}
+
+#Set up host-based authentication
+
+#Fill in shosts.equiv file
+echo """+${MASTER_NAME}
++${SLAVE_NAME}""" > /etc/ssh/shosts.equiv
+
+#Update ssh_known_hosts file
+TMPFILE=`mktemp` || {
+   echo "Could not create temp file"
+   exit 1
+}
+
+cp /etc/ssh/ssh_known_hosts $TMPFILE
+
+echo """${MASTER_NAME},10.68.0.1 `cat /etc/ssh/ssh_host_rsa_key.pub`
+${MASTER_NAME},10.68.0.1 `cat /etc/ssh/ssh_host_dsa_key.pub`
+${SLAVE_NAME},10.68.0.2 `cat /etc/ssh/ssh_host_rsa_key.pub`
+${SLAVE_NAME},10.68.0.2 `cat /etc/ssh/ssh_host_dsa_key.pub`
+c1,10.68.0.1 `cat /etc/ssh/ssh_host_rsa_key.pub`
+c1,10.68.0.1 `cat /etc/ssh/ssh_host_dsa_key.pub`
+c2,10.68.0.2 `cat /etc/ssh/ssh_host_rsa_key.pub`
+c2,10.68.0.2 `cat /etc/ssh/ssh_host_dsa_key.pub`
+""" >> $TMPFILE
+
+sort $TMPFILE | uniq > /etc/ssh/ssh_known_hosts
+
+rm $TMPFILE
+
+# We set c2 hostname after we set up our authorized hosts so that we don't get prompted
+ssh c2 -o ConnectTimeout=5 hostname ${SLAVE_NAME} || true
+
+#Re-start sshd on both c1 and c2
+/etc/init.d/ssh restart
+ssh c2 -o ConnectTimeout=5 /etc/init.d/ssh restart || true
+
+

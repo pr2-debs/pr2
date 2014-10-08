@@ -1,0 +1,16 @@
+# /etc/exports: the access control list for filesystems which may be exported
+#		to NFS clients.  See exports(5).
+#
+# Example for NFSv2 and NFSv3:
+# /srv/homes       hostname1(rw,sync) hostname2(ro,sync)
+#
+# Example for NFSv4:
+# /srv/nfs4        gss/krb5i(rw,sync,fsid=0,crossmnt)
+# /srv/nfs4/homes  gss/krb5i(rw,sync)
+#
+/	10.68.0.0/24(ro,insecure,async,no_subtree_check,no_root_squash,insecure_locks)
+/root	10.68.0.0/24(rw,insecure,async,no_subtree_check,no_root_squash,insecure_locks)
+/home   10.68.0.0/24(rw,insecure,async,no_subtree_check,no_root_squash,insecure_locks)
+/hwlog  10.68.0.0/24(rw,insecure,async,no_subtree_check,no_root_squash,insecure_locks)
+/unionfs	10.68.0.0/24(rw,insecure,async,no_subtree_check,no_root_squash,insecure_locks)
+

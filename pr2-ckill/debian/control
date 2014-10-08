@@ -1,0 +1,13 @@
+Source: pr2-ckill
+Section: config
+Priority: extra
+Maintainer: Jeremy Leibs <leibs@willowgarage.com>
+Build-Depends: debhelper (>= 5)
+Standards-Version: 3.7.2
+
+Package: pr2-ckill
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, python
+Description: Provides a script for killing processes across a cluster of machines
+Provides: ${diverted-files}
+Conflicts: ${diverted-files}

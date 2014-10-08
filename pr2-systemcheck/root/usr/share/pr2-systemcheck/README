@@ -1,0 +1,4 @@
+The scripts in 'local' will only be run on this machine.
+The scripts in 'all' will be run on every machine.
+
+Each additional directory is interpreted as a remote hostname where scripts will be run.

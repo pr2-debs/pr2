@@ -1,0 +1,11 @@
+Source: pr2-users
+Section: config
+Priority: extra
+Maintainer: Jeremy Leibs <leibs@willowgarage.com>
+Build-Depends: debhelper (>= 5), config-package-dev (>= 4.5~)
+Standards-Version: 3.7.2
+
+Package: pr2-users
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Installs user configuration files

@@ -1,0 +1,482 @@
+pr2-network (0.5.38) stable; urgency=low
+
+  * Incrementing to SVN: r950
+   - r950: Fix robot-brand so that it doesn't lose user changes.
+
+ -- Austin Hendrix <ahendrix@willowgarage.com>  Thu, 16 Aug 2012 10:55:25 -0700
+
+pr2-network (0.5.37) stable; urgency=low
+
+  * Incrementing to SVN: r947
+   - r947: Create /var/log/roam if it doesn't exist.
+
+ -- Austin Hendrix <ahendrix@willowgarage.com>  Tue, 14 Aug 2012 23:22:35 -0700
+
+pr2-network (0.5.36) stable; urgency=low
+
+  * Incrementing to SVN: r907
+   - r907: Update regex in pr2-brand.
+
+ -- Austin Hendrix <ahendrix@willowgarage.com>  Thu, 02 Aug 2012 14:35:57 -0700
+
+pr2-network (0.5.35) stable; urgency=low
+
+  * Incrementing to SVN: r903
+   - r903: Fix multi_interface_roam.
+
+ -- Austin Hendrix <ahendrix@willowgarage.com>  Thu, 02 Aug 2012 08:56:02 -0700
+
+pr2-network (0.5.34) stable; urgency=low
+
+  * Incrementing to SVN: r892
+   - r892: Update dependencies to Fuerte.
+
+ -- Austin Hendrix <ahendrix@willowgarage.com>  Tue, 31 Jul 2012 10:52:51 -0700
+
+pr2-network (0.5.33) stable; urgency=low
+
+  * Incrementing to SVN: r801
+   - r783: fix iptables rule
+   - r801: Update to electric.
+
+ -- Austin Hendrix <ahendrix@willowgarage.com>  Tue, 09 Aug 2011 18:01:17 -0700
+
+pr2-network (0.5.32) stable; urgency=low
+
+  * Incrementing to SVN: r777
+   - r777: another test
+
+ -- Wim Meeussen <wim@willowgarage.com>  Mon, 04 Apr 2011 15:54:33 -0700
+
+pr2-network (0.5.31) stable; urgency=low
+
+  * Incrementing to SVN: r775
+   - r775: testing
+
+ -- Wim Meeussen <wim@willowgarage.com>  Mon, 04 Apr 2011 15:51:23 -0700
+
+pr2-network (0.5.30) stable; urgency=low
+
+  * Incrementing to SVN: r773
+   - r773: use replace and not strip
+
+ -- Wim Meeussen <wim@willowgarage.com>  Mon, 04 Apr 2011 15:39:43 -0700
+
+pr2-network (0.5.29) stable; urgency=low
+
+  * Incrementing to SVN: r771
+   - r771: test smarts to get basestation hostname
+
+ -- Wim Meeussen <wim@willowgarage.com>  Mon, 04 Apr 2011 15:24:01 -0700
+
+pr2-network (0.5.28) stable; urgency=low
+
+  * Incrementing to SVN: r769
+   - r769: fix find-replace for basestation ip
+
+ -- Wim Meeussen <wim@willowgarage.com>  Mon, 04 Apr 2011 12:49:57 -0700
+
+pr2-network (0.5.27) stable; urgency=low
+
+  * Incrementing to SVN: r767
+   - r767: change default name
+
+ -- Wim Meeussen <wim@willowgarage.com>  Fri, 01 Apr 2011 16:31:10 -0700
+
+pr2-network (0.5.26) stable; urgency=low
+
+  * Incrementing to SVN: r765
+   - r765: remove prints
+
+ -- Wim Meeussen <wim@willowgarage.com>  Fri, 01 Apr 2011 16:29:31 -0700
+
+pr2-network (0.5.25) stable; urgency=low
+
+  * Incrementing to SVN: r763
+   - r763: set basestation default name
+
+ -- Wim Meeussen <wim@willowgarage.com>  Fri, 01 Apr 2011 16:28:12 -0700
+
+pr2-network (0.5.24) stable; urgency=low
+
+  * Incrementing to SVN: r761
+   - r761: test again
+
+ -- Wim Meeussen <wim@willowgarage.com>  Fri, 01 Apr 2011 16:26:28 -0700
+
+pr2-network (0.5.23) stable; urgency=low
+
+  * Incrementing to SVN: r759
+   - r759: test
+
+ -- Wim Meeussen <wim@willowgarage.com>  Fri, 01 Apr 2011 16:25:22 -0700
+
+pr2-network (0.5.22) stable; urgency=low
+
+  * Incrementing to SVN: r757
+   - r757: put rules back
+
+ -- Wim Meeussen <wim@willowgarage.com>  Fri, 01 Apr 2011 15:28:40 -0700
+
+pr2-network (0.5.21) stable; urgency=low
+
+  * Incrementing to SVN: r755
+   - r755: remove rules to test
+
+ -- Wim Meeussen <wim@willowgarage.com>  Fri, 01 Apr 2011 15:27:13 -0700
+
+pr2-network (0.5.20) stable; urgency=low
+
+  * Incrementing to SVN: r753
+   - r753: add prints
+
+ -- Wim Meeussen <wim@willowgarage.com>  Fri, 01 Apr 2011 15:07:14 -0700
+
+pr2-network (0.5.19) stable; urgency=low
+
+  * Incrementing to SVN: r751
+   - r751: missing space
+
+ -- Wim Meeussen <wim@willowgarage.com>  Fri, 01 Apr 2011 14:58:04 -0700
+
+pr2-network (0.5.18) stable; urgency=low
+
+  * Incrementing to SVN: r749
+   - r749: prints
+
+ -- Wim Meeussen <wim@willowgarage.com>  Fri, 01 Apr 2011 14:55:45 -0700
+
+pr2-network (0.5.17) stable; urgency=low
+
+  * Incrementing to SVN: r747
+   - r746: get rid of /etc/ros/env
+   - r747: don't check for /etc/ros/env
+
+ -- Wim Meeussen <wim@willowgarage.com>  Fri, 01 Apr 2011 14:51:18 -0700
+
+pr2-network (0.5.16) stable; urgency=low
+
+  * Incrementing to SVN: r744
+   - r744: branding writes robot name to /etc/ros/env/ROBOT_NAME to allow for automatic rebranding when new pr2-network package is installed
+
+ -- Wim Meeussen <wim@willowgarage.com>  Fri, 01 Apr 2011 14:47:17 -0700
+
+pr2-network (0.5.15) stable; urgency=low
+
+  * Incrementing to SVN: r742
+   - r742: prints
+
+ -- Wim Meeussen <wim@willowgarage.com>  Fri, 01 Apr 2011 14:33:57 -0700
+
+pr2-network (0.5.14) stable; urgency=low
+
+  * Incrementing to SVN: r740
+   - r740: add print
+
+ -- Wim Meeussen <wim@willowgarage.com>  Fri, 01 Apr 2011 14:31:30 -0700
+
+pr2-network (0.5.13) stable; urgency=low
+
+  * Incrementing to SVN: r738
+   - r738:  fix preinst
+
+ -- Wim Meeussen <wim@willowgarage.com>  Fri, 01 Apr 2011 14:25:33 -0700
+
+pr2-network (0.5.12) stable; urgency=low
+
+  * Incrementing to SVN: r736
+   - r736: fixes for pre-postinstall
+
+ -- Wim Meeussen <wim@willowgarage.com>  Fri, 01 Apr 2011 14:20:27 -0700
+
+pr2-network (0.5.11) stable; urgency=low
+
+  * Incrementing to SVN: r734
+   - r734: half of fix for branding script
+
+ -- Wim Meeussen <wim@willowgarage.com>  Fri, 01 Apr 2011 14:14:09 -0700
+
+pr2-network (0.5.10) stable; urgency=low
+
+  * Incrementing to SVN: r731
+   - r730: Only masquerade triffic going into tun9
+   - r731: add basestation to /etc/hosts in branding script
+
+ -- Wim Meeussen <wim@willowgarage.com>  Thu, 31 Mar 2011 17:17:34 -0700
+
+pr2-network (0.5.9) stable; urgency=low
+
+  * Incrementing to SVN: r666
+   - r666: No longer need to restart iptables on re-brand
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Fri, 04 Feb 2011 15:57:42 -0800
+
+pr2-network (0.5.8) stable; urgency=low
+
+  * Incrementing to SVN: r650
+   - r650: Fixing multi_interface_roam typo
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Thu, 27 Jan 2011 17:14:51 -0800
+
+pr2-network (0.5.7) stable; urgency=low
+
+  * Incrementing to SVN: r646
+   - r642: Moving the ros wifi configuration into systemros
+   - r643: Moving wifi file to sysros
+   - r644: Changing multi interface roam to use sysros
+   - r645: systemros is just sysros
+   - r646: Config file referenced ros
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Thu, 27 Jan 2011 16:53:46 -0800
+
+pr2-network (0.5.6) stable; urgency=low
+
+  * Incrementing to SVN: r595
+   - r595: We now generate the proper initrd for c2 at boot
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Wed, 12 Jan 2011 10:45:28 -0800
+
+pr2-network (0.5.5) stable; urgency=low
+
+  * Incrementing to SVN: r583
+   - r582: Moving the initramfs-tools components to pr2-netboot and having them pull from the overlay
+   - r583: pr2-netboot no longer needs to call update-initramfs
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Tue, 11 Jan 2011 15:51:57 -0800
+
+pr2-network (0.5.4) stable; urgency=low
+
+  * Incrementing to SVN: r443
+   - r443: Add new mac-addresses
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Mon, 06 Dec 2010 19:02:56 -0800
+
+pr2-network (0.5.3) stable; urgency=low
+
+  * Incrementing to SVN: r437
+   - r435: Store robot name in /etc/robot_name
+   - r436: Put robot name and type on the parameter server
+   - r437: Move to /etc/ros/robot.yaml
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Wed, 01 Dec 2010 19:39:57 -0800
+
+pr2-network (0.5.2) stable; urgency=low
+
+  * Incrementing to SVN: r338
+   - r338: Keeping multi-interface-roam from trying to use ralinks if not there
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Mon, 22 Nov 2010 11:01:42 -0800
+
+pr2-network (0.5.1) stable; urgency=low
+
+  * Incrementing to SVN: r328
+   - r328: Do the right thing on install as well as upgrade
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Sun, 21 Nov 2010 15:53:52 -0800
+
+pr2-network (0.5.0) stable; urgency=low
+
+  * Incrementing to SVN: r327
+   - r325: Moving pr2-wg-network
+   - r326: moving pr2-wg-networking to pr2-network
+   - r327: Updating pr2-wg-network to be pr2-network
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Sun, 21 Nov 2010 15:38:22 -0800
+
+pr2-wg-network (0.5.7) stable; urgency=low
+
+  * Incrementing to SVN: r293
+   - r293: Adding dependency on wireless-tools
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Tue, 26 Oct 2010 16:42:54 -0700
+
+pr2-wg-network (0.5.6) stable; urgency=low
+
+  * Incrementing to SVN: r287
+   - r287: Changing ROS_HOME
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Mon, 25 Oct 2010 15:50:01 -0700
+
+pr2-wg-network (0.5.5) stable; urgency=low
+
+  * Incrementing to SVN: r256
+   - r254: Adding dependency on multi-interface-roam
+   - r256: Fixing the iptables rules for multi-interface-roam
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Tue, 19 Oct 2010 16:43:56 -0700
+
+pr2-wg-network (0.5.4) stable; urgency=low
+
+  * Incrementing to SVN: r245
+   - r245: Merging in (0.0.5 - r985) from pr2-network-experimental
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Tue, 19 Oct 2010 11:35:21 -0700
+
+pr2-wg-network (0.5.3) stable; urgency=low
+
+  * Incrementing to SVN: r235
+   - r235: /slave has become /unionfs/overlay
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Mon, 18 Oct 2010 16:56:45 -0700
+
+pr2-wg-network (0.5.2) stable; urgency=low
+
+  * Incrementing to SVN: r208
+   - r191: More moving files
+   - r199: Adding dep on executable-selector
+   - r201: Moving pr2-brand to use executable-selector
+   - r206: pr2-brand is our own tool, so executable-selector is not necessary
+   - r207: moving pr2-brand back to sbin
+   - r208: pr2-brand doesn't need the executable-selector
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Mon, 18 Oct 2010 12:31:52 -0700
+
+pr2-wg-network (0.5.1) stable; urgency=low
+
+  * Incrementing to SVN: r156
+   - r156: moving pr2-pr2bin
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Tue, 12 Oct 2010 17:19:06 -0700
+
+pr2-wg-network (0.5.0) stable; urgency=low
+
+  * Incrementing to SVN: r147
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Tue, 12 Oct 2010 16:11:05 -0700
+
+pr2-wg-network (0.1.16) stable; urgency=low
+
+  * Incrementing to SVN: r992
+   - r985: Now checks for the presence of /tmp/pr2-wg-network/BASESTATION_IP in the postinstall script before using it.
+   - r992: Running a different dhclient-script to get around adding of default route
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Thu, 22 Jul 2010 13:44:59 -0700
+
+pr2-wg-network (0.1.15) stable; urgency=low
+
+  * Incrementing to SVN: r911
+   - r911: Removing the need for basestation to resolve to 10.68.255.1
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Thu, 03 Jun 2010 16:51:41 -0700
+
+pr2-wg-network (0.1.14) stable; urgency=low
+
+  * Incrementing to SVN: r895
+   - r894: Getting rid of basestation from robot hosts file for people with basestations named basestation
+   - r895: Keeping DNS from being updated inappropriately
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Wed, 19 May 2010 10:29:47 -0700
+
+pr2-wg-network (0.1.13) stable; urgency=low
+
+  * Incrementing to SVN: r819
+   - r819: Fixing broken postinst script
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Wed, 21 Apr 2010 20:13:51 -0700
+
+pr2-wg-network (0.1.12) stable; urgency=low
+
+  * Incrementing to SVN: r817
+   - r817: Only re-brand if necessary files are there
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Wed, 21 Apr 2010 19:54:11 -0700
+
+pr2-wg-network (0.1.11) stable; urgency=low
+
+  * Incrementing to SVN: r794
+   - r794: Making resolv.conf a diversion rule
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Fri, 09 Apr 2010 19:49:51 -0700
+
+pr2-wg-network (0.1.10) stable; urgency=low
+
+  * Incrementing to SVN: r778
+   - r772: Fixing conflict
+   - r773: Removing search willowgarage.com
+   - r775: re-branding post-update
+   - r776: Adding basestation-novpn rule
+   - r777: Fixing broken script
+   - r778: Fixing hosname typo
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Fri, 09 Apr 2010 13:31:34 -0700
+
+pr2-wg-network (0.1.9) stable; urgency=low
+
+  * Incrementing to SVN: r770
+   - r770: Moving pr2-brand into pr2-wg-network
+
+ -- Blaise Gassend <blaise@willowgarage.com>  Fri, 09 Apr 2010 11:43:03 -0700
+
+pr2-wg-network (0.1.8) stable; urgency=low
+
+  * Incrementing to SVN: r592
+   - r592: Activated lan1 on both computers on the 10.69.0.x subnet.
+
+ -- Blaise Gassend <blaise@willowgarage.com>  Tue, 26 Jan 2010 17:13:15 -0800
+
+pr2-wg-network (0.1.7) stable; urgency=low
+
+  * Changed:
+    - Activated lan1 on 10.69.0.x subnet
+    - Moved lan1 to 10.69.0.x in hosts file
+
+ -- Blaise Gassend <blaise@willowgarage.com>  Tue, 26 Jan 2010 15:16:33 -0800
+
+pr2-wg-network (0.1.6) stable; urgency=low
+
+  * Incrementing to SVN: r525
+   - r525: Fixing impact of changing router to wifi-router
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Fri, 08 Jan 2010 14:39:24 -0800
+
+pr2-wg-network (0.1.5) stable; urgency=low
+
+  * Incrementing to SVN: r432
+   - r431: Renaming router to wifi_router.
+   - r432: Changing wifi_router to wifi-router
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Mon, 28 Dec 2009 14:13:49 -0800
+
+pr2-wg-network (0.1.4) stable; urgency=low
+
+  * Incrementing to SVN: r351
+   - r351: Decreasing the timeout and retry times for dhclient.
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Tue, 01 Dec 2009 10:26:13 -0800
+
+pr2-wg-network (0.1.3) stable; urgency=low
+
+  * Incrementing to SVN: r325
+   - r294: Reducing timeout in resolv.conf.
+   - r317: Change dhcp metric on wan0 to 3 so that tun0 can take priority.
+   - r319: Converting pr2-wg-network to use iptables.d
+   - r320: Fixing dependency on iptables.d.
+   - r325: Making postinst scripts restart iptables.d as appropriate.
+       
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Tue, 24 Nov 2009 14:07:40 -0800
+
+pr2-wg-network (0.1.2) stable; urgency=low
+
+  * Incrementing to SVN: r262
+   - r242: Removing explicit routing of 10.0.0.1 via 10.68.0.5
+   - r258: Not starting lan1, lan2, lan3 at startup anymore.
+   - r259: Making machines do dns via basestation.
+   - r262: Changing pr2 branding script to modify hosts rather than overwriting it.
+
+ -- Jeremy Leibd <leibs@willowgarage.com>  Mon, 16 Nov 2009 13:30:20 -0800
+
+pr2-wg-network (0.1.1) stable; urgency=low
+
+  * Incrementing to SVN: r161
+   - r160: Tweaked openvpn-restart to avoid breaking ifup lan1 on c1.
+   - r161: Turned off rp_filter on robot.
+
+ -- Blaise Gassend <blaise@willowgarage.com>  Thu, 03 Sep 2009 13:16:17 -0700
+
+pr2-wg-network (0.1) stable; urgency=low
+
+  * Initial release. 
+  * Creating the package
+
+ -- Blaise Gassend <blaise@willowgarage.com>  Thu, 16 Jul 2009 00:56:37 -0700

@@ -1,0 +1,351 @@
+--- a/debian/dirs
++++ b/debian/dirs
+@@ -1,10 +1,10 @@
+-etc/openvpn
++etc/wg-openvpn
+ etc/network/if-up.d
+ etc/network/if-down.d
+ etc/bash_completion.d
+ usr/sbin
+ usr/share/man/man8
+-usr/share/doc/openvpn
+-usr/share/openvpn
+-usr/lib/openvpn
+-usr/include/openvpn
++usr/share/doc/wg-openvpn
++usr/share/wg-openvpn
++usr/lib/wg-openvpn
++usr/include/wg-openvpn
+--- a/debian/openvpn.bash_completion
++++ b/debian/openvpn.bash_completion
+@@ -1,7 +1,7 @@
+-# bash completion for openvpn init.d script
++# bash completion for wg-openvpn init.d script
+ # Written by Alberto Gonzalez Iniesta <agi@inittab.org>
+ 
+-_openvpn()
++_wg_openvpn()
+ {
+ 
+   local cur 
+@@ -10,14 +10,14 @@
+   cur=${COMP_WORDS[COMP_CWORD]}
+ 
+   if [ $COMP_CWORD -eq 1 ] ; then
+-    COMPREPLY=( $( compgen -W '$( /etc/init.d/openvpn 2>&1 \
++    COMPREPLY=( $( compgen -W '$( /etc/init.d/wg-openvpn 2>&1 \
+               | cut -d"{" -f2 | tr -d "}" | tr "|" " " )' -- $cur ) )
+   else
+-    COMPREPLY=( $( compgen -W '$( command ls /etc/openvpn/*.conf 2>/dev/null \
+-              | sed -e 's%/etc/openvpn/%%' -e 's/\.conf//' )' -- $cur ) )
++    COMPREPLY=( $( compgen -W '$( command ls /etc/wg-openvpn/*.conf 2>/dev/null \
++              | sed -e 's%/etc/wg-openvpn/%%' -e 's/\.conf//' )' -- $cur ) )
+   fi
+ 
+ }
+ 
+ 
+-complete -F _openvpn /etc/init.d/openvpn
++complete -F _wg_openvpn /etc/init.d/wg-openvpn
+--- a/debian/openvpn.if-down.d
++++ b/debian/openvpn.if-down.d
+@@ -1,6 +1,6 @@
+ #!/bin/sh
+ 
+-OPENVPN=/etc/init.d/openvpn
++OPENVPN=/etc/init.d/wg-openvpn
+ 
+ if [ ! -x $OPENVPN ]; then
+   exit 0
+--- a/debian/openvpn.if-up.d
++++ b/debian/openvpn.if-up.d
+@@ -1,6 +1,6 @@
+ #!/bin/sh
+ 
+-OPENVPN=/etc/init.d/openvpn
++OPENVPN=/etc/init.d/wg-openvpn
+ 
+ if [ ! -x $OPENVPN ]; then
+   exit 0
+--- a/debian/update-resolv-conf
++++ b/debian/update-resolv-conf
+@@ -1,9 +1,9 @@
+ #!/bin/bash
+ # 
+-# Parses DHCP options from openvpn to update resolv.conf
+-# To use set as 'up' and 'down' script in your openvpn *.conf:
+-# up /etc/openvpn/update-resolv-conf
+-# down /etc/openvpn/update-resolv-conf
++# Parses DHCP options from wg-openvpn to update resolv.conf
++# To use set as 'up' and 'down' script in your wg-openvpn *.conf:
++# up /etc/wg-openvpn/update-resolv-conf
++# down /etc/wg-openvpn/update-resolv-conf
+ #
+ # Used snippets of resolvconf script by Thomas Hood <jdthood@yahoo.co.uk> 
+ # and Chris Hanson
+@@ -11,7 +11,7 @@
+ #
+ # 05/2006 chlauber@bnc.ch
+ # 
+-# Example envs set from openvpn:
++# Example envs set from wg-openvpn:
+ # foreign_option_1='dhcp-option DNS 193.43.27.132'
+ # foreign_option_2='dhcp-option DNS 193.43.27.133'
+ # foreign_option_3='dhcp-option DOMAIN be.bnc.ch'
+--- a/debian/postinst
++++ b/debian/postinst
+@@ -12,9 +12,7 @@
+ case "$1" in
+   configure)
+     # get rid of confiles installed by mistake
+-    rm -f /etc/network/if-up.d/openvpn.if-up.d || true
+-    rm -f /etc/network/if-down.d/openvpn.if-down.d || true
+-    db_get openvpn/create_tun || RET="false"
++    db_get wg-openvpn/create_tun || RET="false"
+     if [ "$RET" = "true" ]; then
+       [ -e /dev/net ] || mkdir -m 755 /dev/net
+       [ -d /dev/net -a ! -e /dev/net/tun ] && /bin/mknod /dev/net/tun c 10 200
+@@ -29,7 +27,7 @@
+ 
+       if [ "$show_vuln_keys" = "yes" ]; then
+         db_version 2.0
+-        db_input critical openvpn/vulnerable_prng || true
++        db_input critical wg-openvpn/vulnerable_prng || true
+         db_go
+       fi
+ 
+@@ -37,11 +35,11 @@
+   ;;
+ esac
+ 
+-if [ -x "/etc/init.d/openvpn" ]; then
++if [ -x "/etc/init.d/wg-openvpn" ]; then
+ 	if [ -x /usr/sbin/invoke-rc.d ]; then
+-	   invoke-rc.d openvpn cond-restart || invoke-rc.d openvpn restart
++	   invoke-rc.d wg-openvpn cond-restart || invoke-rc.d wg-openvpn restart
+ 	else
+-	   /etc/init.d/openvpn cond-restart || /etc/init.d/openvpn restart
++	   /etc/init.d/wg-openvpn cond-restart || /etc/init.d/wg-openvpn restart
+ 	fi
+ fi
+ 
+--- a/debian/prerm
++++ b/debian/prerm
+@@ -8,11 +8,11 @@
+ test $DEBIAN_SCRIPT_DEBUG && set -v -x
+ 
+ stop_vpn () {
+-  if [ -x "/etc/init.d/openvpn" ]; then
++  if [ -x "/etc/init.d/wg-openvpn" ]; then
+           if [ -x /usr/sbin/invoke-rc.d ] ; then
+-                  invoke-rc.d openvpn stop
++                  invoke-rc.d wg-openvpn stop
+           else
+-                  /etc/init.d/openvpn stop
++                  /etc/init.d/wg-openvpn stop
+           fi
+   fi
+ }
+--- a/debian/config
++++ b/debian/config
+@@ -11,7 +11,7 @@
+ 
+ # Do we want to create /dev/net/tun?
+ if [ ! -e /dev/.udev ] && [ ! -e /dev/net/tun ]; then
+-  db_input medium openvpn/create_tun || true
++  db_input medium wg-openvpn/create_tun || true
+   db_go
+ fi
+ 
+--- a/debian/default
++++ b/debian/default
+@@ -1,4 +1,4 @@
+-# This is the configuration file for /etc/init.d/openvpn
++# This is the configuration file for /etc/init.d/wg-openvpn
+ 
+ #
+ # Start only these VPNs automatically via init script.
+@@ -10,10 +10,10 @@
+ #AUTOSTART="home office"
+ #
+ # Refresh interval (in seconds) of default status files
+-# located in /var/run/openvpn.$NAME.status
++# located in /var/run/wg-openvpn.$NAME.status
+ # Defaults to 10, 0 disables status file generation
+ #
+ #STATUSREFRESH=10
+ #STATUSREFRESH=0
+-# Optional arguments to openvpn's command line
++# Optional arguments to wg-openvpn's command line
+ OPTARGS=""
+--- a/debian/templates
++++ b/debian/templates
+@@ -7,7 +7,7 @@
+ # Even minor modifications require translation updates and such
+ # changes should be coordinated with translators and reviewers.
+ 
+-Template: openvpn/create_tun
++Template: wg-openvpn/create_tun
+ Type: boolean
+ Default: false
+ _Description: Create the TUN/TAP device?
+@@ -16,7 +16,7 @@
+  .
+  You should not choose this option if you're using devfs.
+ 
+-Template: openvpn/vulnerable_prng
++Template: wg-openvpn/vulnerable_prng
+ Type: note
+ _Description: Vulnerable random number generator
+  A weakness has been discovered in the random number generator used by OpenSSL
+--- a/debian/openvpn.init.d
++++ b/debian/openvpn.init.d
+@@ -6,7 +6,7 @@
+ # Required-Stop:     $network $local_fs
+ # Default-Start:     2 3 4 5
+ # Default-Stop:      0 1 6
+-# Short-Description: Openvpn VPN service
++# Short-Description: wg-Openvpn VPN service
+ ### END INIT INFO
+ 
+ # Original version by Robert Leslie
+@@ -18,17 +18,17 @@
+ 
+ test $DEBIAN_SCRIPT_DEBUG && set -v -x
+ 
+-DAEMON=/usr/sbin/openvpn
++DAEMON=/usr/sbin/wg-openvpn
+ DESC="virtual private network daemon(s)"
+-CONFIG_DIR=/etc/openvpn
++CONFIG_DIR=/etc/wg-openvpn
+ test -x $DAEMON || exit 0
+ test -d $CONFIG_DIR || exit 0
+ 
+ # Source defaults file; edit that file to configure this script.
+ AUTOSTART="all"
+ STATUSREFRESH=10
+-if test -e /etc/default/openvpn ; then
+-  . /etc/default/openvpn
++if test -e /etc/default/wg-openvpn ; then
++  . /etc/default/wg-openvpn
+ fi
+ 
+ start_vpn () {
+@@ -44,11 +44,11 @@
+       # status file already given in config file
+       STATUSARG=""
+     elif test $STATUSREFRESH -eq 0 ; then
+-      # default status file disabled in /etc/default/openvpn
++      # default status file disabled in /etc/default/wg-openvpn
+       STATUSARG=""
+     else
+       # prepare default status file
+-      STATUSARG="--status /var/run/openvpn.$NAME.status $STATUSREFRESH"
++      STATUSARG="--status /var/run/wg-openvpn.$NAME.status $STATUSREFRESH"
+     fi
+ 
+     # Handle backwards compatibility
+@@ -58,10 +58,10 @@
+ 
+     STATUS=0
+     # Check to see if it's already started...
+-    if test -e /var/run/openvpn.$NAME.pid ; then
++    if test -e /var/run/wg-openvpn.$NAME.pid ; then
+       log_failure_msg "Already running (PID file exists)"
+     else
+-      $DAEMON $OPTARGS --writepid /var/run/openvpn.$NAME.pid \
++      $DAEMON $OPTARGS --writepid /var/run/wg-openvpn.$NAME.pid \
+       $DAEMONARG $STATUSARG --cd $CONFIG_DIR \
+       --config $CONFIG_DIR/$NAME.conf $script_security < /dev/null || STATUS=1
+     fi
+@@ -70,7 +70,7 @@
+ stop_vpn () {
+   kill `cat $PIDFILE` || true
+   rm -f $PIDFILE
+-  rm -f /var/run/openvpn.$NAME.status 2> /dev/null
++  rm -f /var/run/wg-openvpn.$NAME.status 2> /dev/null
+   log_end_msg 0
+ }
+ 
+@@ -124,8 +124,8 @@
+   log_action_begin_msg "Stopping $DESC"
+   if test -z "$2" ; then
+     PIDFILE=
+-    for PIDFILE in `ls /var/run/openvpn.*.pid 2> /dev/null`; do
+-      NAME=`echo $PIDFILE | cut -c18-`
++    for PIDFILE in `ls /var/run/wg-openvpn.*.pid 2> /dev/null`; do
++      NAME=`echo $PIDFILE | cut -c21-`
+       NAME=${NAME%%.pid}
+       log_daemon_msg "  Stopping VPN '$NAME'"
+       stop_vpn
+@@ -136,10 +136,10 @@
+   else
+     while shift ; do
+       [ -z "$1" ] && break
+-      if test -e /var/run/openvpn.$1.pid ; then
++      if test -e /var/run/wg-openvpn.$1.pid ; then
+         log_daemon_msg "  Stopping VPN '$1'"
+-        PIDFILE=`ls /var/run/openvpn.$1.pid 2> /dev/null`
+-        NAME=`echo $PIDFILE | cut -c18-`
++        PIDFILE=`ls /var/run/wg-openvpn.$1.pid 2> /dev/null`
++        NAME=`echo $PIDFILE | cut -c21-`
+         NAME=${NAME%%.pid}
+         stop_vpn
+       else
+@@ -152,10 +152,10 @@
+ reload|force-reload)
+   log_action_begin_msg "Reloading $DESC"
+   PIDFILE=
+-  for PIDFILE in `ls /var/run/openvpn.*.pid 2> /dev/null`; do
+-    NAME=`echo $PIDFILE | cut -c18-`
++  for PIDFILE in `ls /var/run/wg-openvpn.*.pid 2> /dev/null`; do
++    NAME=`echo $PIDFILE | cut -c21-`
+     NAME=${NAME%%.pid}
+-# If openvpn if running under a different user than root we'll need to restart
++# If wg-openvpn if running under a different user than root we'll need to restart
+     if egrep '^[[:blank:]]*user[[:blank:]]' $CONFIG_DIR/$NAME.conf > /dev/null 2>&1 ; then
+       log_daemon_msg "  Stopping VPN '$NAME'"
+       stop_vpn
+@@ -176,8 +176,8 @@
+ soft-restart)
+   log_action_begin_msg "Soft-restarting $DESC"
+   PIDFILE=
+-  for PIDFILE in `ls /var/run/openvpn.*.pid 2> /dev/null`; do
+-    NAME=`echo $PIDFILE | cut -c18-`
++  for PIDFILE in `ls /var/run/wg-openvpn.*.pid 2> /dev/null`; do
++    NAME=`echo $PIDFILE | cut -c21-`
+     NAME=${NAME%%.pid}
+     log_daemon_msg "  Soft-restarting VPN '$NAME'"
+     kill -USR1 `cat $PIDFILE` || true
+@@ -196,8 +196,8 @@
+ cond-restart)
+   log_action_begin_msg "Restarting $DESC"
+   PIDFILE=
+-  for PIDFILE in `ls /var/run/openvpn.*.pid 2> /dev/null`; do
+-    NAME=`echo $PIDFILE | cut -c18-`
++  for PIDFILE in `ls /var/run/wg-openvpn.*.pid 2> /dev/null`; do
++    NAME=`echo $PIDFILE | cut -c21-`
+     NAME=${NAME%%.pid}
+     log_daemon_msg "  Stopping VPN '$NAME'"
+     stop_vpn
+@@ -248,9 +248,9 @@
+       fi
+       if test "x$AUTOVPN" = "x1" ; then
+         # If it is autostarted, then it contributes to global status
+-        status_of_proc -p /var/run/openvpn.${NAME}.pid openvpn "VPN '${NAME}'" || GLOBAL_STATUS=1
++        status_of_proc -p /var/run/wg-openvpn.${NAME}.pid wg-openvpn "VPN '${NAME}'" || GLOBAL_STATUS=1
+       else
+-        status_of_proc -p /var/run/openvpn.${NAME}.pid openvpn "VPN '${NAME}' (non autostarted)" || true
++        status_of_proc -p /var/run/wg-openvpn.${NAME}.pid wg-openvpn "VPN '${NAME}' (non autostarted)" || true
+       fi
+     done
+   else
+@@ -261,7 +261,7 @@
+       NAME=$1
+       if test -e $CONFIG_DIR/$NAME.conf ; then
+         # Config exists
+-        status_of_proc -p /var/run/openvpn.${NAME}.pid openvpn "VPN '${NAME}'" || GLOBAL_STATUS=1
++        status_of_proc -p /var/run/wg-openvpn.${NAME}.pid wg-openvpn "VPN '${NAME}'" || GLOBAL_STATUS=1
+       else
+         # Config does not exist
+         log_warning_msg "VPN '$NAME': missing $CONFIG_DIR/$NAME.conf file !"

@@ -1,0 +1,12 @@
+Source: pr2-bios-bmc-images
+Section: unknown
+Priority: extra
+Maintainer: Jeremy Leibs <leibs@willowgarage.com>
+Build-Depends: debhelper (>= 5)
+Standards-Version: 3.7.2
+
+Package: pr2-bios-bmc-images
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, 
+Description: Installs a set of freedos images which update the bios and bmc for the pr2 computers.
+

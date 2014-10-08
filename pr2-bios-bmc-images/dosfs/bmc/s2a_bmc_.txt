@@ -1,0 +1,1943 @@
+=============================================================================
+        S2A AST2050 BMC FW Release v1.6
+=============================================================================
+Version: 1.6
+Date: 2009/04/23
+Hardware: S2A MB
+Firmware Images:
+  1. S2Av105.bin with checksum E122
+  2. S2Av105M.bin with checksum DC88
+
+Note:
+  1. The released file S2Av106.bin is used for:
+     a. using bmcfu.exe under DOS to update.
+     b. using web UI to update
+ 
+  2. The released file S2Av106M.bin is used for:
+     a. using spi.exe under DOS to update.
+     b. using flash writer to pre-program FW into flash before mount on MB in FACTORY.
+
+Function Ready: 
+  N/A
+
+Changed/Added:
+  1. Modified user id setting of "root"
+  2. Added support to DCMI interface
+  3. Added Power Consumption Management in Adcance console
+
+Bug Fixed:
+  N/A
+
+Known issue:
+  N/A
+
+Update procedure:
+  1. use web UI via web broswer:
+     a. Use web broswer to connect to BMC web.
+     b. Login into BMC web.
+     c. Select the "maintanence" tag, then select the "firmware update" sub-tag.
+     d. Enter the update mode.
+     e. Select the file "S2Av106.bin" to update.
+     f. It'll cost you about 5 minutes to complete the update.
+
+  2. use bmcfu.exe under DOS
+     a. Copy two files "S2Av106.bin" and "bmcfu.exe" into your DOS bootable usb device.
+     b. Boot S2A into DOS.
+     c. Type command:
+        bmcfu S2Av106.bin
+     d. It'll cost you about 8 minutes to complete the update.
+
+  3. use spi.exe under DOS
+     a. Copy two files "S2Av106M.bin" and "spi.exe" into your DOS bootable usb device.
+     b. Boot S2A into DOS.
+     c. Type command:
+        spi S2Av106M.bin
+     d. It'll cost you about 8 minutes to complete the update.
+     e. After update complete, please AC off and then AC on.
+
+=============================================================================
+        S2A AST2050 BMC FW Release v1.5
+=============================================================================
+Version: 1.5
+Date: 2009/3/6
+Hardware: S2A MB
+Firmware Images:
+  1. S2Av105.bin with checksum CB5D
+  2. S2Av105M.bin with checksum C771
+
+Note:
+  1. The released file S2Av105.bin is used for:
+     a. using bmcfu.exe under DOS to update.
+     b. using web UI to update
+ 
+  2. The released file S2Av105M.bin is used for:
+     a. using spi.exe under DOS to update.
+     b. using flash writer to pre-program FW into flash before mount on MB in FACTORY.
+
+Function Ready: 
+  N/A
+
+Changed/Added:
+  1. Support OEM selector hostname in Get/Set LAN configuration commands.
+  2. Fix fan speed inaccuracy in AST2050 tachometer driver. 
+
+Bug Fixed:
+  N/A
+
+Known issue:
+  N/A
+
+Update procedure:
+  1. use web UI via web broswer:
+     a. Use web broswer to connect to BMC web.
+     b. Login into BMC web.
+     c. Select the "maintanence" tag, then select the "firmware update" sub-tag.
+     d. Enter the update mode.
+     e. Select the file "S2Av105.bin" to update.
+     f. It'll cost you about 5 minutes to complete the update.
+
+  2. use bmcfu.exe under DOS
+     a. Copy two files "S2Av105.bin" and "bmcfu.exe" into your DOS bootable usb device.
+     b. Boot S2A into DOS.
+     c. Type command:
+        bmcfu S2Av105.bin
+     d. It'll cost you about 8 minutes to complete the update.
+
+  3. use spi.exe under DOS
+     a. Copy two files "S2Av105M.bin" and "spi.exe" into your DOS bootable usb device.
+     b. Boot S2A into DOS.
+     c. Type command:
+        spi S2Av105M.bin
+     d. It'll cost you about 8 minutes to complete the update.
+     e. After update complete, please AC off and then AC on.
+
+=============================================================================
+        S2A AST2050 BMC FW Release v1.4
+=============================================================================
+Version: 1.4
+Date: 2009/02/26
+Hardware: S2A MB
+Firmware Images:
+  1. S2Av104.bin with checksum B035
+  2. S2Av104M.bin with checksum ACB3
+
+Note:
+  1. The released file S2Av104.bin is used for:
+     a. using bmcfu.exe under DOS to update.
+     b. using web UI to update
+ 
+  2. The released file S2Av104M.bin is used for:
+     a. using spi.exe under DOS to update.
+     b. using flash writer to pre-program FW into flash before mount on MB in FACTORY.
+
+Function Ready: 
+  N/A
+
+Changed/Added:
+  1. Support IPMI specification "anonymous" user
+
+Bug Fixed:
+  1. Warning message during BIOS update in web UI with Microsoft Internet Explorer
+  2. Shared LAN port can not work when any byte of MAC address of BMC is 0xFF
+
+Known issue:
+  N/A
+
+Update procedure:
+  1. use web UI via web broswer:
+     a. Use web broswer to connect to BMC web.
+     b. Login into BMC web.
+     c. Select the "maintanence" tag, then select the "firmware update" sub-tag.
+     d. Enter the update mode.
+     e. Select the file "S2Av104.bin" to update.
+     f. It'll cost you about 5 minutes to complete the update.
+
+  2. use bmcfu.exe under DOS
+     a. Copy two files "S2Av104.bin" and "bmcfu.exe" into your DOS bootable usb device.
+     b. Boot S2A into DOS.
+     c. Type command:
+        bmcfu S2Av104.bin
+     d. It'll cost you about 8 minutes to complete the update.
+
+  3. use spi.exe under DOS
+     a. Copy two files "S2Av104M.bin" and "spi.exe" into your DOS bootable usb device.
+     b. Boot S2A into DOS.
+     c. Type command:
+        spi S2Av104M.bin
+     d. It'll cost you about 8 minutes to complete the update.
+     e. After update complete, please AC off and then AC on.
+
+=============================================================================
+        S2A AST2050 BMC FW Release v1.3
+=============================================================================
+Version: 1.3
+Date: 2009/02/24
+Hardware: S2A MB
+Firmware Images:
+  1. S2Av103.bin with checksum 1835
+  2. S2Av103M.bin with checksum 1352
+
+Note:
+  1. The released file S2Av103.bin is used for:
+     a. using bmcfu.exe under DOS to update.
+     b. using web UI to update
+ 
+  2. The released file S2Av103M.bin is used for:
+     a. using spi.exe under DOS to update.
+     b. using flash writer to pre-program FW into flash before mount on MB in FACTORY.
+
+Function Ready: 
+  N/A
+
+Changed/Added:
+  1. Use bootable ISO-9660 CD image to update BIOS in web UI.
+
+Bug Fixed:
+  N/A
+
+Known issue:
+  N/A
+
+Update procedure:
+  1. use web UI via web broswer:
+     a. Use web broswer to connect to BMC web.
+     b. Login into BMC web.
+     c. Select the "maintanence" tag, then select the "firmware update" sub-tag.
+     d. Enter the update mode.
+     e. Select the file "S2Av103.bin" to update.
+     f. It'll cost you about 5 minutes to complete the update.
+
+  2. use bmcfu.exe under DOS
+     a. Copy two files "S2Av103.bin" and "bmcfu.exe" into your DOS bootable usb device.
+     b. Boot S2A into DOS.
+     c. Type command:
+        bmcfu S2Av103.bin
+     d. It'll cost you about 8 minutes to complete the update.
+
+  3. use spi.exe under DOS
+     a. Copy two files "S2Av103M.bin" and "spi.exe" into your DOS bootable usb device.
+     b. Boot S2A into DOS.
+     c. Type command:
+        spi S2Av103M.bin
+     d. It'll cost you about 8 minutes to complete the update.
+     e. After update complete, please AC off and then AC on.
+
+=============================================================================
+        S2A AST2050 BMC FW Release v1.2
+=============================================================================
+Version: 1.2
+Date: 2009/02/13
+Hardware: S2A MB
+Firmware Images:
+  1. S2Av102.bin with checksum CF97
+  2. S2Av102M.bin with checksum CBBF
+
+Note:
+  1. The released file S2Av102.bin is used for:
+     a. using bmcfu.exe under DOS to update.
+     b. using web UI to update
+ 
+  2. The released file S2Av102M.bin is used for:
+     a. using spi.exe under DOS to update.
+     b. using flash writer to pre-program FW into flash before mount on MB in FACTORY.
+
+Function Ready: 
+  N/A
+
+Changed/Added:
+  1. support of Macronix MX25L12805D SPI flash
+
+Bug Fixed:
+  1. sensor reading of web UI works abnormally
+  2. event logs shownn in web UI are indiscriminate
+  3. severity of watchdog event is unspecified.
+
+Known issue:
+  N/A
+
+Update procedure:
+  1. use web UI via web broswer:
+     a. Use web broswer to connect to BMC web.
+     b. Login into BMC web.
+     c. Select the "maintanence" tag, then select the "firmware update" sub-tag.
+     d. Enter the update mode.
+     e. Select the file "S2Av102.bin" to update.
+     f. It'll cost you about 5 minutes to complete the update.
+
+  2. use bmcfu.exe under DOS
+     a. Copy two files "S2Av102.bin" and "bmcfu.exe" into your DOS bootable usb device.
+     b. Boot S2A into DOS.
+     c. Type command:
+        bmcfu S2Av102.bin
+     d. It'll cost you about 8 minutes to complete the update.
+
+  3. use spi.exe under DOS
+     a. Copy two files "S2Av102M.bin" and "spi.exe" into your DOS bootable usb device.
+     b. Boot S2A into DOS.
+     c. Type command:
+        spi S2Av102M.bin
+     d. It'll cost you about 8 minutes to complete the update.
+     e. After update complete, please AC off and then AC on.
+
+=============================================================================
+        S2A AST2050 BMC FW Release v1.1
+=============================================================================
+Version: 1.1
+Date: 2009/01/20
+Hardware: S2A MB
+Firmware Images:
+  1. S2Av101.bin with checksum 4826
+  2. S2Av101M.bin with checksum 43CE
+
+Note:
+  1. The released file S2Av101.bin is used for:
+     a. using bmcfu.exe under DOS to update.
+     b. using web UI to update
+ 
+  2. The released file S2Av101M.bin is used for:
+     a. using spi.exe under DOS to update.
+     b. using flash writer to pre-program FW into flash before mount on MB in FACTORY.
+
+Function Ready: 
+  N/A 
+
+Changed/Added:
+  1. DRAM settings.
+
+Bug Fixed:
+  1. CPU status is shown as disabled when DC on in web UI.
+  2. BMC hang after vidoe stress in remote KVM.
+
+Known issue:
+  N/A
+
+Update procedure:
+  1. use web UI via web broswer:
+     a. Use web broswer to connect to BMC web.
+     b. Login into BMC web.
+     c. Select the "maintanence" tag, then select the "firmware update" sub-tag.
+     d. Enter the update mode.
+     e. Select the file "S2Av101.bin" to update.
+     f. It'll cost you about 5 minutes to complete the update.
+
+  2. use bmcfu.exe under DOS
+     a. Copy two files "S2Av101.bin" and "bmcfu.exe" into your DOS bootable usb device.
+     b. Boot S2A into DOS.
+     c. Type command:
+        bmcfu S2Av101.bin
+     d. It'll cost you about 8 minutes to complete the update.
+
+  3. use spi.exe under DOS
+     a. Copy two files "S2Av101M.bin" and "spi.exe" into your DOS bootable usb device.
+     b. Boot S2A into DOS.
+     c. Type command:
+        spi S2Av101M.bin
+     d. It'll cost you about 8 minutes to complete the update.
+     e. After update complete, please AC off and then AC on.
+
+=============================================================================
+        S2A AST2050 BMC FW Release v1.0
+=============================================================================
+Version: 1.0
+Date: 2009/01/09
+Hardware: S2A MB
+Firmware Images:
+  1. S2Av100.bin with checksum E454
+  2. S2Av100M.bin with checksum E11B
+
+Note:
+  1. The released file S2Av100.bin is used for:
+     a. using bmcfu.exe under DOS to update.
+     b. using web UI to update
+ 
+  2. The released file S2Av100M.bin is used for:
+     a. using spi.exe under DOS to update.
+     b. using flash writer to pre-program FW into flash before mount on MB in FACTORY.
+
+Function Ready: 
+  1. support PMBus/PSMI simultaneous and detect in boot time. 
+
+Changed/Added:
+  N/A
+
+Bug Fixed:
+  N/A 
+
+Known issue:
+  N/A
+
+Update procedure:
+  1. use web UI via web broswer:
+     a. Use web broswer to connect to BMC web.
+     b. Login into BMC web.
+     c. Select the "maintanence" tag, then select the "firmware update" sub-tag.
+     d. Enter the update mode.
+     e. Select the file "S2Av100.bin" to update.
+     f. It'll cost you about 5 minutes to complete the update.
+
+  2. use bmcfu.exe under DOS
+     a. Copy two files "S2Av100.bin" and "bmcfu.exe" into your DOS bootable usb device.
+     b. Boot S2A into DOS.
+     c. Type command:
+        bmcfu S2Av100.bin
+     d. It'll cost you about 8 minutes to complete the update.
+
+  3. use spi.exe under DOS
+     a. Copy two files "S2Av100M.bin" and "spi.exe" into your DOS bootable usb device.
+     b. Boot S2A into DOS.
+     c. Type command:
+        spi S2Av100M.bin
+     d. It'll cost you about 8 minutes to complete the update.
+     e. After update complete, please AC off and then AC on.
+
+=============================================================================
+        S2A AST2050 BMC FW Release v0.30
+=============================================================================
+Version: 0.30
+Date: 2009/01/05
+Hardware: S2A MB
+Firmware Images:
+  1. S2Av030.bin with checksum 4F9C
+  2. S2Av030M.bin with checksum 4B05
+
+Note:
+  1. The released file S2Av030.bin is used for:
+     a. using bmcfu.exe under DOS to update.
+     b. using web UI to update
+ 
+  2. The released file S2Av030M.bin is used for:
+     a. using spi.exe under DOS to update.
+     b. using flash writer to pre-program FW into flash before mount on MB in FACTORY.
+
+Function Ready: 
+  1. DCM related functions
+
+Changed/Added:
+  N/A  
+
+Bug Fixed:
+  1. The F6 key is no function under BIOS in Remote KVM console. 
+
+Known issue:
+  N/A
+
+Update procedure:
+  1. use web UI via web broswer:
+     a. Use web broswer to connect to BMC web.
+     b. Login into BMC web.
+     c. Select the "maintanence" tag, then select the "firmware update" sub-tag.
+     d. Enter the update mode.
+     e. Select the file "S2Av030.bin" to update.
+     f. It'll cost you about 5 minutes to complete the update.
+
+  2. use bmcfu.exe under DOS
+     a. Copy two files "S2Av030.bin" and "bmcfu.exe" into your DOS bootable usb device.
+     b. Boot S2A into DOS.
+     c. Type command:
+        bmcfu S2Av030.bin
+     d. It'll cost you about 8 minutes to complete the update.
+
+  3. use spi.exe under DOS
+     a. Copy two files "S2Av030M.bin" and "spi.exe" into your DOS bootable usb device.
+     b. Boot S2A into DOS.
+     c. Type command:
+        spi S2Av030M.bin
+     d. It'll cost you about 8 minutes to complete the update.
+     e. After update complete, please AC off and then AC on.
+
+=============================================================================
+        S2A AST2050 BMC FW Release v0.29
+=============================================================================
+Version: 0.29
+Date: 2008/12/25
+Hardware: S2A MB
+Firmware Images:
+  1. S2Av029.bin with checksum C631
+  2. S2Av029M.bin with checksum C194
+
+Note:
+  1. The released file S2Av029.bin is used for:
+     a. using bmcfu.exe under DOS to update.
+     b. using web UI to update
+ 
+  2. The released file S2Av029M.bin is used for:
+     a. using spi.exe under DOS to update.
+     b. using flash writer to pre-program FW into flash before mount on MB in FACTORY.
+
+Function Ready: 
+  1. PSU FRU reading.
+
+Changed/Added:
+  2. Sorting of system monitor pages in web UI.  
+
+Bug Fixed:
+  N/A
+
+Known issue:
+  N/A
+
+Update procedure:
+  1. use web UI via web broswer:
+     a. Use web broswer to connect to BMC web.
+     b. Login into BMC web.
+     c. Select the "maintanence" tag, then select the "firmware update" sub-tag.
+     d. Enter the update mode.
+     e. Select the file "S2Av029.bin" to update.
+     f. It'll cost you about 5 minutes to complete the update.
+
+  2. use bmcfu.exe under DOS
+     a. Copy two files "S2Av029.bin" and "bmcfu.exe" into your DOS bootable usb device.
+     b. Boot S2A into DOS.
+     c. Type command:
+        bmcfu S2Av029.bin
+     d. It'll cost you about 8 minutes to complete the update.
+
+  3. use spi.exe under DOS
+     a. Copy two files "S2Av029M.bin" and "spi.exe" into your DOS bootable usb device.
+     b. Boot S2A into DOS.
+     c. Type command:
+        spi S2Av029M.bin
+     d. It'll cost you about 8 minutes to complete the update.
+     e. After update complete, please AC off and then AC on.
+
+=============================================================================
+        S2A AST2050 BMC FW Release v0.28
+=============================================================================
+Version: 0.28
+Date: 2008/12/18
+Hardware: S2A MB
+Firmware Images:
+  1. S2Av028.bin with checksum C445
+  2. S2Av028M.bin with checksum C02C
+
+Note:
+  1. The released file S2Av028.bin is used for:
+     a. using bmcfu.exe under DOS to update.
+     b. using web UI to update
+ 
+  2. The released file S2Av028M.bin is used for:
+     a. using spi.exe under DOS to update.
+     b. using flash writer to pre-program FW into flash before mount on MB in FACTORY.
+
+Function Ready: 
+  1. AC lost event log.
+
+Changed/Added:
+  1. ID string of CPU related SDRs.
+  2. New style of system monitor pages in web UI.  
+
+Bug Fixed:
+  N/A
+
+Known issue:
+  N/A
+
+Update procedure:
+  1. use web UI via web broswer:
+     a. Use web broswer to connect to BMC web.
+     b. Login into BMC web.
+     c. Select the "maintanence" tag, then select the "firmware update" sub-tag.
+     d. Enter the update mode.
+     e. Select the file "S2Av028.bin" to update.
+     f. It'll cost you about 5 minutes to complete the update.
+
+  2. use bmcfu.exe under DOS
+     a. Copy two files "S2Av028.bin" and "bmcfu.exe" into your DOS bootable usb device.
+     b. Boot S2A into DOS.
+     c. Type command:
+        bmcfu S2Av028.bin
+     d. It'll cost you about 8 minutes to complete the update.
+
+  3. use spi.exe under DOS
+     a. Copy two files "S2Av028M.bin" and "spi.exe" into your DOS bootable usb device.
+     b. Boot S2A into DOS.
+     c. Type command:
+        spi S2Av028M.bin
+     d. It'll cost you about 8 minutes to complete the update.
+     e. After update complete, please AC off and then AC on.
+
+=============================================================================
+        S2A AST2050 BMC FW Release v0.27
+=============================================================================
+Version: 0.27
+Date: 2008/12/11
+Hardware: S2A MB
+Firmware Images:
+  1. S2Av027.bin with checksum 1D8D
+  2. S2Av027M.bin with checksum 19DD
+
+Note:
+  1. The released file S2Av027.bin is used for:
+     a. using bmcfu.exe under DOS to update.
+     b. using web UI to update
+ 
+  2. The released file S2Av027M.bin is used for:
+     a. using spi.exe under DOS to update.
+     b. using flash writer to pre-program FW into flash before mount on MB in FACTORY.
+
+Function Ready: 
+  1. Auto fan speed control of mainboard fans.
+
+Changed/Added:
+  1. Monitor mainboard fans when backplane does not exist. 
+
+Bug Fixed:
+  N/A
+
+Known issue:
+  N/A
+
+Update procedure:
+  1. use web UI via web broswer:
+     a. Use web broswer to connect to BMC web.
+     b. Login into BMC web.
+     c. Select the "maintanence" tag, then select the "firmware update" sub-tag.
+     d. Enter the update mode.
+     e. Select the file "S2Av027.bin" to update.
+     f. It'll cost you about 5 minutes to complete the update.
+
+  2. use bmcfu.exe under DOS
+     a. Copy two files "S2Av027.bin" and "bmcfu.exe" into your DOS bootable usb device.
+     b. Boot S2A into DOS.
+     c. Type command:
+        bmcfu S2Av027.bin
+     d. It'll cost you about 8 minutes to complete the update.
+
+  3. use spi.exe under DOS
+     a. Copy two files "S2Av027M.bin" and "spi.exe" into your DOS bootable usb device.
+     b. Boot S2A into DOS.
+     c. Type command:
+        spi S2Av027M.bin
+     d. It'll cost you about 8 minutes to complete the update.
+     e. After update complete, please AC off and then AC on.
+
+=============================================================================
+        S2A AST2050 BMC FW Release v0.26
+=============================================================================
+Version: 0.26
+Date: 2008/12/05
+Hardware: S2A MB
+Firmware Images:
+  1. S2Av026.bin with checksum A43C
+  2. S2Av026M.bin with checksum A0EC
+
+Note:
+  1. The released file S2Av026.bin is used for:
+     a. using bmcfu.exe under DOS to update.
+     b. using web UI to update
+ 
+  2. The released file S2Av026M.bin is used for:
+     a. using spi.exe under DOS to update.
+     b. using flash writer to pre-program FW into flash before mount on MB in FACTORY.
+
+Function Ready: 
+  1. IERR event log.
+
+Changed/Added:
+  1. SDRs of Node Manager.
+  2. Thresholds of voltage of CPUs.
+
+Bug Fixed:
+  N/A
+
+Known issue:
+  N/A
+
+Update procedure:
+  1. use web UI via web broswer:
+     a. Use web broswer to connect to BMC web.
+     b. Login into BMC web.
+     c. Select the "maintanence" tag, then select the "firmware update" sub-tag.
+     d. Enter the update mode.
+     e. Select the file "S2Av026.bin" to update.
+     f. It'll cost you about 5 minutes to complete the update.
+
+  2. use bmcfu.exe under DOS
+     a. Copy two files "S2Av026.bin" and "bmcfu.exe" into your DOS bootable usb device.
+     b. Boot S2A into DOS.
+     c. Type command:
+        bmcfu S2Av026.bin
+     d. It'll cost you about 8 minutes to complete the update.
+
+  3. use spi.exe under DOS
+     a. Copy two files "S2Av026M.bin" and "spi.exe" into your DOS bootable usb device.
+     b. Boot S2A into DOS.
+     c. Type command:
+        spi S2Av026M.bin
+     d. It'll cost you about 8 minutes to complete the update.
+     e. After update complete, please AC off and then AC on.
+
+=============================================================================
+        S2A AST2050 BMC FW Release v0.25
+=============================================================================
+Version: 0.25
+Date: 2008/11/28
+Hardware: S2A MB
+Firmware Images:
+  1. S2Av025.bin with checksum 71BE
+  2. S2Av025M.bin with checksum 6DBD
+
+Note:
+  1. The released file S2Av025.bin is used for:
+     a. using bmcfu.exe under DOS to update.
+     b. using web UI to update
+ 
+  2. The released file S2Av025M.bin is used for:
+     a. using spi.exe under DOS to update.
+     b. using flash writer to pre-program FW into flash before mount on MB in FACTORY.
+
+  3. Functions of Node Manager is working with BIOS version 2B01 and above.
+
+Function Ready: 
+  1. Functions of Node Manager.
+
+Changed/Added:
+  1. SDRs of Node Manager.
+
+Bug Fixed:
+  1. BIOS show "BMC Not Responding" but BMC is still alive under AC ON/OFF test.
+  2. System can not resuem after suspend / hibernate(HID driver issue).
+
+Known issue:
+  N/A
+
+Update procedure:
+  1. use web UI via web broswer:
+     a. Use web broswer to connect to BMC web.
+     b. Login into BMC web.
+     c. Select the "maintanence" tag, then select the "firmware update" sub-tag.
+     d. Enter the update mode.
+     e. Select the file "S2Av025.bin" to update.
+     f. It'll cost you about 5 minutes to complete the update.
+
+  2. use bmcfu.exe under DOS
+     a. Copy two files "S2Av025.bin" and "bmcfu.exe" into your DOS bootable usb device.
+     b. Boot S2A into DOS.
+     c. Type command:
+        bmcfu S2Av025.bin
+     d. It'll cost you about 8 minutes to complete the update.
+
+  3. use spi.exe under DOS
+     a. Copy two files "S2Av025M.bin" and "spi.exe" into your DOS bootable usb device.
+     b. Boot S2A into DOS.
+     c. Type command:
+        spi S2Av025M.bin
+     d. It'll cost you about 8 minutes to complete the update.
+     e. After update complete, please AC off and then AC on.
+
+=============================================================================
+        S2A AST2050 BMC FW Release v0.24
+=============================================================================
+Version: 0.24
+Date: 2008/11/14
+Hardware: S2A MB
+Firmware Images:
+  1. S2Av024.bin with checksum B9FA
+  2. S2Av024M.bin with checksum B60A
+
+Note:
+  1. The released file S2Av024.bin is used for:
+     a. using bmcfu.exe under DOS to update.
+     b. using web UI to update
+ 
+  2. The released file S2Av024M.bin is used for:
+     a. using spi.exe under DOS to update.
+     b. using flash writer to pre-program FW into flash before mount on MB in FACTORY.
+
+
+Function Ready: 
+  N/A
+
+Changed/Added:
+  N/A
+
+Bug Fixed:
+  1. BMC hang sometimes(fix KCS driver bug).
+  2. SOL can not be activated.
+
+Known issue:
+  N/A
+
+Update procedure:
+  1. use web UI via web broswer:
+     a. Use web broswer to connect to BMC web.
+     b. Login into BMC web.
+     c. Select the "maintanence" tag, then select the "firmware update" sub-tag.
+     d. Enter the update mode.
+     e. Select the file "S2Av024.bin" to update.
+     f. It'll cost you about 5 minutes to complete the update.
+
+  2. use bmcfu.exe under DOS
+     a. Copy two files "S2Av024.bin" and "bmcfu.exe" into your DOS bootable usb device.
+     b. Boot S2A into DOS.
+     c. Type command:
+        bmcfu S2Av024.bin
+     d. It'll cost you about 8 minutes to complete the update.
+
+  3. use spi.exe under DOS
+     a. Copy two files "S2Av024M.bin" and "spi.exe" into your DOS bootable usb device.
+     b. Boot S2A into DOS.
+     c. Type command:
+        spi S2Av024M.bin
+     d. It'll cost you about 8 minutes to complete the update.
+     e. After update complete, please AC off and then AC on.
+
+=============================================================================
+        S2A AST2050 BMC FW Release v0.23
+=============================================================================
+Version: 0.23
+Date: 2008/11/07
+Hardware: S2A MB
+Firmware Images:
+  1. S2Av023.bin with checksum 5B14
+  2. S2Av023M.bin with checksum 5797
+
+Note:
+  1. The released file S2Av023.bin is used for:
+     a. using bmcfu.exe under DOS to update.
+     b. using web UI to update
+ 
+  2. The released file S2Av023M.bin is used for:
+     a. using spi.exe under DOS to update.
+     b. using flash writer to pre-program FW into flash before mount on MB in FACTORY.
+
+
+Function Ready: 
+  N/A
+
+Changed/Added:
+  1. USB floppy disk is not support.
+
+Bug Fixed:
+  1. Get/set user payload access command test fail.
+  2. SOL timeout when there is no any data.
+  3. Web UI can not show PEF event log.
+  4. Can't modify BMC IP address after set the IP address to 0.0.0.0.
+  5. Severity of BIOS POST ERROR event log is shown as unspecified in Web UI.
+
+Known issue:
+  N/A
+
+Update procedure:
+  1. use web UI via web broswer:
+     a. Use web broswer to connect to BMC web.
+     b. Login into BMC web.
+     c. Select the "maintanence" tag, then select the "firmware update" sub-tag.
+     d. Enter the update mode.
+     e. Select the file "S2Av023.bin" to update.
+     f. It'll cost you about 5 minutes to complete the update.
+
+  2. use bmcfu.exe under DOS
+     a. Copy two files "S2Av023.bin" and "bmcfu.exe" into your DOS bootable usb device.
+     b. Boot S2A into DOS.
+     c. Type command:
+        bmcfu S2Av023.bin
+     d. It'll cost you about 8 minutes to complete the update.
+
+  3. use spi.exe under DOS
+     a. Copy two files "S2Av023M.bin" and "spi.exe" into your DOS bootable usb device.
+     b. Boot S2A into DOS.
+     c. Type command:
+        spi S2Av023M.bin
+     d. It'll cost you about 8 minutes to complete the update.
+     e. After update complete, please AC off and then AC on.
+
+=============================================================================
+        S2A AST2050 BMC FW Release v0.22
+=============================================================================
+Version: 0.22
+Date: 2008/10/23
+Hardware: S2A MB
+Firmware Images:
+  1. S2Av022.bin with checksum 82F5
+  2. S2Av022M.bin with checksum 7ED2
+
+Note:
+  1. The released file S2Av022.bin is used for:
+     a. using bmcfu.exe under DOS to update.
+     b. using web UI to update
+ 
+  2. The released file S2Av022M.bin is used for:
+     a. using spi.exe under DOS to update.
+     b. using flash writer to pre-program FW into flash before mount on MB in FACTORY.
+
+
+Function Ready: 
+  1. Server summary in Remote management console.
+
+Changed/Added:
+  N/A
+
+Bug Fixed:
+  1. Fix get/set user payload access command defect.
+
+Known issue:
+  N/A
+
+Update procedure:
+  1. use web UI via web broswer:
+     a. Use web broswer to connect to BMC web.
+     b. Login into BMC web.
+     c. Select the "maintanence" tag, then select the "firmware update" sub-tag.
+     d. Enter the update mode.
+     e. Select the file "S2Av022.bin" to update.
+     f. It'll cost you about 5 minutes to complete the update.
+
+  2. use bmcfu.exe under DOS
+     a. Copy two files "S2Av022.bin" and "bmcfu.exe" into your DOS bootable usb device.
+     b. Boot S2A into DOS.
+     c. Type command:
+        bmcfu S2Av022.bin
+     d. It'll cost you about 8 minutes to complete the update.
+
+  3. use spi.exe under DOS
+     a. Copy two files "S2Av022M.bin" and "spi.exe" into your DOS bootable usb device.
+     b. Boot S2A into DOS.
+     c. Type command:
+        spi S2Av022M.bin
+     d. It'll cost you about 8 minutes to complete the update.
+     e. After update complete, please AC off and then AC on.
+
+=============================================================================
+        S2A AST2050 BMC FW Release v0.21
+=============================================================================
+Version: 0.21
+Date: 2008/10/16
+Hardware: S2A MB
+Firmware Images:
+  1. S2Av021.bin with checksum F62A
+  2. S2Av021M.bin with checksum F2E2
+
+Note:
+  1. The released file S2Av021.bin is used for:
+     a. using bmcfu.exe under DOS to update.
+     b. using web UI to update
+ 
+  2. The released file S2Av021M.bin is used for:
+     a. using spi.exe under DOS to update.
+     b. using flash writer to pre-program FW into flash before mount on MB in FACTORY.
+
+
+Function Ready: 
+  N/A
+
+Changed/Added:
+  N/A
+
+Bug Fixed:
+  1. Fix ethernet Tx corruption bug.
+
+Known issue:
+  N/A
+
+Update procedure:
+  1. use web UI via web broswer:
+     a. Use web broswer to connect to BMC web.
+     b. Login into BMC web.
+     c. Select the "maintanence" tag, then select the "firmware update" sub-tag.
+     d. Enter the update mode.
+     e. Select the file "S2Av021.bin" to update.
+     f. It'll cost you about 5 minutes to complete the update.
+
+  2. use bmcfu.exe under DOS
+     a. Copy two files "S2Av021.bin" and "bmcfu.exe" into your DOS bootable usb device.
+     b. Boot S2A into DOS.
+     c. Type command:
+        bmcfu S2Av021.bin
+     d. It'll cost you about 8 minutes to complete the update.
+
+  3. use spi.exe under DOS
+     a. Copy two files "S2Av021M.bin" and "spi.exe" into your DOS bootable usb device.
+     b. Boot S2A into DOS.
+     c. Type command:
+        spi S2Av021M.bin
+     d. It'll cost you about 8 minutes to complete the update.
+     e. After update complete, please AC off and then AC on.
+
+=============================================================================
+        S2A AST2050 BMC FW Release v0.20
+=============================================================================
+Version: 0.20
+Date: 2008/10/09
+Hardware: S2A MB
+Firmware Images:
+  1. S2Av020.bin with checksum 10BC
+  2. S2Av020M.bin with checksum 0DC5
+
+Note:
+  1. The released file S2Av020.bin is used for:
+     a. using bmcfu.exe under DOS to update.
+     b. using web UI to update
+ 
+  2. The released file S2Av020M.bin is used for:
+     a. using spi.exe under DOS to update.
+     b. using flash writer to pre-program FW into flash before mount on MB in FACTORY.
+
+
+Function Ready: 
+  N/A
+
+Changed/Added:
+  N/A
+
+Bug Fixed:
+  1. The severity of DIMM ECC error is shown as unspecified
+  2. Can not use '.' in mail alert receiver field.
+
+Known issue:
+  N/A
+
+Update procedure:
+  1. use web UI via web broswer:
+     a. Use web broswer to connect to BMC web.
+     b. Login into BMC web.
+     c. Select the "maintanence" tag, then select the "firmware update" sub-tag.
+     d. Enter the update mode.
+     e. Select the file "S2Av020.bin" to update.
+     f. It'll cost you about 5 minutes to complete the update.
+
+  2. use bmcfu.exe under DOS
+     a. Copy two files "S2Av020.bin" and "bmcfu.exe" into your DOS bootable usb device.
+     b. Boot S2A into DOS.
+     c. Type command:
+        bmcfu S2Av020.bin
+     d. It'll cost you about 8 minutes to complete the update.
+
+  3. use spi.exe under DOS
+     a. Copy two files "S2Av020M.bin" and "spi.exe" into your DOS bootable usb device.
+     b. Boot S2A into DOS.
+     c. Type command:
+        spi S2Av020M.bin
+     d. It'll cost you about 8 minutes to complete the update.
+     e. After update complete, please AC off and then AC on.
+
+=============================================================================
+        S2A AST2050 BMC FW Release v0.19
+=============================================================================
+Version: 0.19
+Date: 2008/10/02
+Hardware: S2A MB
+Firmware Images:
+  1. S2Av019.bin with checksum FB6D
+  2. S2Av019M.bin with checksum F834
+
+Note:
+  1. The released file S2Av019.bin is used for:
+     a. using bmcfu.exe under DOS to update.
+     b. using web UI to update
+ 
+  2. The released file S2Av019M.bin is used for:
+     a. using spi.exe under DOS to update.
+     b. using flash writer to pre-program FW into flash before mount on MB in FACTORY.
+
+
+Function Ready: 
+  N/A
+
+Changed/Added:
+  N/A
+
+Bug Fixed:
+  1. Log of software NMI event in WebUI is shown as undefined.
+  2. Ethernet driver will crash kernel when the Rx ring buffer is full in interrupt handler.
+
+Known issue:
+  N/A
+
+Update procedure:
+  1. use web UI via web broswer:
+     a. Use web broswer to connect to BMC web.
+     b. Login into BMC web.
+     c. Select the "maintanence" tag, then select the "firmware update" sub-tag.
+     d. Enter the update mode.
+     e. Select the file "S2Av019.bin" to update.
+     f. It'll cost you about 5 minutes to complete the update.
+
+  2. use bmcfu.exe under DOS
+     a. Copy two files "S2Av019.bin" and "bmcfu.exe" into your DOS bootable usb device.
+     b. Boot S2A into DOS.
+     c. Type command:
+        bmcfu S2Av019.bin
+     d. It'll cost you about 8 minutes to complete the update.
+
+  3. use spi.exe under DOS
+     a. Copy two files "S2Av019M.bin" and "spi.exe" into your DOS bootable usb device.
+     b. Boot S2A into DOS.
+     c. Type command:
+        spi S2Av019M.bin
+     d. It'll cost you about 8 minutes to complete the update.
+     e. After update complete, please AC off and then AC on.
+
+=============================================================================
+        S2A AST2050 BMC FW Release v0.18
+=============================================================================
+Version: 0.18
+Date: 2008/09/25
+Hardware: S2A MB
+Firmware Images:
+  1. S2Av018.bin with checksum 4BB2
+  2. S2Av018M.bin with checksum 48BF
+
+Note:
+  1. The released file S2Av018.bin is used for:
+     a. using bmcfu.exe under DOS to update.
+     b. using web UI to update
+ 
+  2. The released file S2Av018M.bin is used for:
+     a. using spi.exe under DOS to update.
+     b. using flash writer to pre-program FW into flash before mount on MB in FACTORY.
+
+
+Function Ready: 
+  N/A
+
+Changed/Added:
+  1. Serial over LAN (baud rate is fixed in 115200 bps)
+
+Bug Fixed:
+  1. PEF OEM action mail alert fail.
+
+Known issue:
+  N/A
+
+Update procedure:
+  1. use web UI via web broswer:
+     a. Use web broswer to connect to BMC web.
+     b. Login into BMC web.
+     c. Select the "maintanence" tag, then select the "firmware update" sub-tag.
+     d. Enter the update mode.
+     e. Select the file "S2Av018.bin" to update.
+     f. It'll cost you about 5 minutes to complete the update.
+
+  2. use bmcfu.exe under DOS
+     a. Copy two files "S2Av018.bin" and "bmcfu.exe" into your DOS bootable usb device.
+     b. Boot S2A into DOS.
+     c. Type command:
+        bmcfu S2Av018.bin
+     d. It'll cost you about 8 minutes to complete the update.
+
+  3. use spi.exe under DOS
+     a. Copy two files "S2Av018M.bin" and "spi.exe" into your DOS bootable usb device.
+     b. Boot S2A into DOS.
+     c. Type command:
+        spi S2Av018M.bin
+     d. It'll cost you about 8 minutes to complete the update.
+     e. After update complete, please AC off and then AC on.
+
+=============================================================================
+        S2A AST2050 BMC FW Release v0.17
+=============================================================================
+Version: 0.17
+Date: 2008/09/18
+Hardware: S2A MB
+Firmware Images:
+  1. S2Av017.bin with checksum F916
+  2. S2Av017M.bin with checksum F553
+
+Note:
+  1. The released file S2Av017.bin is used for:
+     a. using bmcfu.exe under DOS to update.
+     b. using web UI to update
+ 
+  2. The released file S2Av017M.bin is used for:
+     a. using spi.exe under DOS to update.
+     b. using flash writer to pre-program FW into flash before mount on MB in FACTORY.
+
+
+Function Ready: 
+  N/A
+
+Changed/Added:
+  N/A
+
+Bug Fixed:
+  1. Remote KVM Console work abnormally when ''Mouse Control Mode'' is ''Relative Mode''.
+  2. Remote KVM screen is blurry after change VideoQuality under scaling mode of displaying.
+
+Known issue:
+  N/A
+
+Update procedure:
+  1. use web UI via web broswer:
+     a. Use web broswer to connect to BMC web.
+     b. Login into BMC web.
+     c. Select the "maintanence" tag, then select the "firmware update" sub-tag.
+     d. Enter the update mode.
+     e. Select the file "S2Av017.bin" to update.
+     f. It'll cost you about 5 minutes to complete the update.
+
+  2. use bmcfu.exe under DOS
+     a. Copy two files "S2Av017.bin" and "bmcfu.exe" into your DOS bootable usb device.
+     b. Boot S2A into DOS.
+     c. Type command:
+        bmcfu S2Av017.bin
+     d. It'll cost you about 8 minutes to complete the update.
+
+  3. use spi.exe under DOS
+     a. Copy two files "S2Av017M.bin" and "spi.exe" into your DOS bootable usb device.
+     b. Boot S2A into DOS.
+     c. Type command:
+        spi S2Av017M.bin
+     d. It'll cost you about 8 minutes to complete the update.
+     e. After update complete, please AC off and then AC on.
+
+=============================================================================
+        S2A AST2050 BMC FW Release v0.16
+=============================================================================
+Version: 0.16
+Date: 2008/09/11
+Hardware: S2A MB
+Firmware Images:
+  1) S2Av016M.bin with checksum 76D7
+  2) S2Av016.bin with checksum 7AAC
+
+Note: 
+  1. The released file S2Av016M.bin is used for:
+    a.) using spi.exe under DOS to update.
+    b.) using flash writer to pre-program FW into flash before mount on MB in FACTORY.
+  2. The released file S2Av016.bin is used for:
+    a.) using upfw.exe under DOS to update.
+    b.) using web UI to update
+
+Function Ready: 
+  N/A
+
+Changed/Added:
+  N/A
+
+Bug Fixed:
+  1. There is a menu to select driver when remote install RHEL 5.X.
+  2. Remote KVM Console can't work.
+
+Known issue:
+  N/A
+
+Update procedure:
+  a.) use spi.exe under DOS
+    1. Copy two files "S2Av016M.bin" and "spi.exe" into your DOS 
+       bootable usb device.
+    2. Boot S2A into DOS.
+    3. Type command:
+       spi S2Av016M.bin
+    4. It'll cost you about 8 minutes to complete the update.
+    5. After update complete, please AC off and then AC on.
+  b.) use upfw.exe under DOS
+    1. Copy two files "S2Av016.bin" and "upfw.exe" into your DOS 
+       bootable usb device.
+    2. Boot S2A into DOS.
+    3. Type command:
+       upfw S2Av016.bin
+    4. It'll cost you about 8 minutes to complete the update.
+
+=============================================================================
+        S2A AST2050 BMC FW Release v0.15
+=============================================================================
+Version: 0.15
+Date: 2008/09/04
+Hardware: S2A MB
+Firmware Images:
+  1) S2Av015M.bin with checksum F22C
+  2) S2Av015.bin with checksum F558
+
+Note: 
+  1. The released file S2Av015M.bin is used for:
+    a.) using spi.exe under DOS to update.
+    b.) using flash writer to pre-program FW into flash before mount on MB in FACTORY.
+  2. The released file S2Av015.bin is used for:
+    a.) using upfw.exe under DOS to update.
+    b.) using web UI to update
+
+Function Ready: 
+  N/A
+
+Changed/Added:
+  1. Auto fan speed control rule.
+  2. CPU / memory SDR ID strings.
+
+Bug Fixed:
+  N/A
+
+Known issue:
+  N/A
+
+Update procedure:
+  a.) use spi.exe under DOS
+    1. Copy two files "S2Av015M.bin" and "spi.exe" into your DOS 
+       bootable usb device.
+    2. Boot S2A into DOS.
+    3. Type command:
+       spi S2Av015M.bin
+    4. It'll cost you about 8 minutes to complete the update.
+    5. After update complete, please AC off and then AC on.
+  b.) use upfw.exe under DOS
+    1. Copy two files "S2Av015.bin" and "upfw.exe" into your DOS 
+       bootable usb device.
+    2. Boot S2A into DOS.
+    3. Type command:
+       upfw S2Av015.bin
+    4. It'll cost you about 8 minutes to complete the update.
+
+=============================================================================
+        S2A AST2050 BMC FW Release v0.14
+=============================================================================
+Version: 0.14
+Date: 2008/08/28
+Hardware: S2A MB
+Firmware Images:
+  1) S2Av014M.bin with checksum 2873
+  2) S2Av014.bin with checksum 2C11
+
+Note: 
+  1. The released file S2Av014M.bin is used for:
+    a.) using spi.exe under DOS to update.
+    b.) using flash writer to pre-program FW into flash before mount on MB in FACTORY.
+  2. The released file S2Av014.bin is used for:
+    a.) using upfw.exe under DOS to update.
+    b.) using web UI to update
+
+Function Ready: 
+  1. Servial over LAN
+
+Changed/Added:
+  1. Auto fan speed control rule.
+
+Bug Fixed:
+  1. There is a small partition when install Microsoft Windows 2003.
+
+Known issue:
+  N/A
+
+Update procedure:
+  a.) use spi.exe under DOS
+    1. Copy two files "S2Av014M.bin" and "spi.exe" into your DOS 
+       bootable usb device.
+    2. Boot S2A into DOS.
+    3. Type command:
+       spi S2Av014M.bin
+    4. It'll cost you about 8 minutes to complete the update.
+    5. After update complete, please AC off and then AC on.
+  b.) use upfw.exe under DOS
+    1. Copy two files "S2Av014.bin" and "upfw.exe" into your DOS 
+       bootable usb device.
+    2. Boot S2A into DOS.
+    3. Type command:
+       upfw S2Av014.bin
+    4. It'll cost you about 8 minutes to complete the update.
+
+=============================================================================
+        S2A AST2050 BMC FW Release v0.13
+=============================================================================
+Version: 0.13
+Date: 2008/08/21
+Hardware: S2A MB
+Firmware Images:
+  1) S2Av013M.bin with checksum 5577
+  2) S2Av013.bin with checksum 591A
+
+Note: 
+  1. The released file S2Av013M.bin is used for:
+    a.) using spi.exe under DOS to update.
+    b.) using flash writer to pre-program FW into flash before mount on MB in FACTORY.
+  2. The released file S2Av013.bin is used for:
+    a.) using upfw.exe under DOS to update.
+    b.) using web UI to update
+
+Function Ready: 
+  1. BIOS update via web UI (supported after BIOS version 1A07)
+
+Changed/Added:
+  1. Auto fan speed control rule.
+
+Bug Fixed:
+  N/A
+
+Known issue:
+  N/A
+
+Update procedure:
+  a.) use spi.exe under DOS
+    1. Copy two files "S2Av013M.bin" and "spi.exe" into your DOS 
+       bootable usb device.
+    2. Boot S2A into DOS.
+    3. Type command:
+       spi S2Av013M.bin
+    4. It'll cost you about 8 minutes to complete the update.
+    5. After update complete, please AC off and then AC on.
+  b.) use upfw.exe under DOS
+    1. Copy two files "S2Av013.bin" and "upfw.exe" into your DOS 
+       bootable usb device.
+    2. Boot S2A into DOS.
+    3. Type command:
+       upfw S2Av013.bin
+    4. It'll cost you about 8 minutes to complete the update.
+
+=============================================================================
+        S2A AST2050 BMC FW Release v0.12
+=============================================================================
+Version: 0.12
+Date: 2008/08/15
+Hardware: S2A MB
+Firmware Images:
+  1) S2Av012M.bin with checksum A692
+  2) S2Av012.bin with checksum A9E0
+
+Note: 
+  1. The released file S2Av012M.bin is used for:
+    a.) using spi.exe under DOS to update.
+    b.) using flash writer to pre-program FW into flash before mount on MB in FACTORY.
+  2. The released file S2Av012.bin is used for:
+    a.) using upfw.exe under DOS to update.
+    b.) using web UI to update
+
+Function Ready: 
+  1. Status LED.
+
+Changed/Added:
+  1. Event severity.
+
+Bug Fixed:
+  1. Can not issue NMI.
+  2. KVM can't work in remote console.
+  3. RKVM screen is blurry after change VideoQuality under scaling mode of displaying.
+  4. RKVM screen is blurry under multi-page.
+
+Known issue:
+  N/A
+
+Update procedure:
+  a.) use spi.exe under DOS
+    1. Copy two files "S2Av012M.bin" and "spi.exe" into your DOS 
+       bootable usb device.
+    2. Boot S2A into DOS.
+    3. Type command:
+       spi S2Av012M.bin
+    4. It'll cost you about 8 minutes to complete the update.
+    5. After update complete, please AC off and then AC on.
+  b.) use upfw.exe under DOS
+    1. Copy two files "S2Av012.bin" and "upfw.exe" into your DOS 
+       bootable usb device.
+    2. Boot S2A into DOS.
+    3. Type command:
+       upfw S2Av012.bin
+    4. It'll cost you about 8 minutes to complete the update.
+
+=============================================================================
+        S2A AST2050 BMC FW Release v0.11
+=============================================================================
+Version: 0.11
+Date: 2008/08/07
+Hardware: S2A MB
+Firmware Images:
+  1) S2Av011M.bin with checksum 609D
+  2) S2Av011.bin with checksum 63A2
+
+Note: 
+  1. The released file S2Av011M.bin is used for:
+    a.) using spi.exe under DOS to update.
+    b.) using flash writer to pre-program FW into flash before mount on MB in FACTORY.
+  2. The released file S2Av011.bin is used for:
+    a.) using upfw.exe under DOS to update.
+    b.) using web UI to update
+
+Function Ready: 
+  1. Power supply output power reading.
+  2. PSMI alert.
+  3. AC lost event log.
+
+Changed/Added:
+  1. Change fan speed control rule.
+  2. Eventlog description.
+
+Bug Fixed:
+  1. AC on/off test fail with BMC not responding.
+
+Known issue:
+  N/A
+
+Update procedure:
+  a.) use spi.exe under DOS
+    1. Copy two files "S2Av011M.bin" and "spi.exe" into your DOS 
+       bootable usb device.
+    2. Boot S2A into DOS.
+    3. Type command:
+       spi S2Av011M.bin
+    4. It'll cost you about 8 minutes to complete the update.
+    5. After update complete, please AC off and then AC on.
+  b.) use upfw.exe under DOS
+    1. Copy two files "S2Av011.bin" and "upfw.exe" into your DOS 
+       bootable usb device.
+    2. Boot S2A into DOS.
+    3. Type command:
+       upfw S2Av011.bin
+    4. It'll cost you about 8 minutes to complete the update.
+
+=============================================================================
+        S2A AST2050 BMC FW Release v0.10
+=============================================================================
+Version: 0.10
+Date: 2008/08/01
+Hardware: S2A MB
+Firmware Images:
+  1) S2Av010M.bin with checksum D91D
+  2) S2Av010.bin with checksum DDB0
+
+Note: 
+  1. The released file S2Av010M.bin is used for:
+    a.) using spi.exe under DOS to update.
+    b.) using flash writer to pre-program FW into flash before mount on MB in FACTORY.
+  2. The released file S2Av010.bin is used for:
+    a.) using upfw.exe under DOS to update.
+    b.) using web UI to update
+
+Function Ready: 
+  N/A
+
+Changed/Added:
+  1. Change fan speed control rule.
+  2. change temperature thresholds.
+
+Bug Fixed:
+  1. No event log when voltage over thresholds.
+
+Known issue:
+  N/A
+
+Update procedure:
+  a.) use spi.exe under DOS
+    1. Copy two files "S2Av010M.bin" and "spi.exe" into your DOS 
+       bootable usb device.
+    2. Boot S2A into DOS.
+    3. Type command:
+       spi S2Av010M.bin
+    4. It'll cost you about 8 minutes to complete the update.
+    5. After update complete, please AC off and then AC on.
+  b.) use upfw.exe under DOS
+    1. Copy two files "S2Av010.bin" and "upfw.exe" into your DOS 
+       bootable usb device.
+    2. Boot S2A into DOS.
+    3. Type command:
+       upfw S2Av010.bin
+    4. It'll cost you about 8 minutes to complete the update.
+    
+=============================================================================
+        S2A AST2050 BMC FW Release v0.9
+=============================================================================
+Version: 0.9
+Date: 2009/07/25
+Hardware: S2A MB
+Firmware Images:
+  1) S2Av009M.bin with checksum 678D
+  2) S2Av009.bin with checksum 6B2D
+
+Note: 
+  1. The released file S2Av009M.bin is used for:
+    a.) using spi.exe under DOS to update.
+    b.) using flash writer to pre-program FW into flash before mount on MB in FACTORY.
+  2. The released file S2Av009.bin is used for:
+    a.) using upfw.exe under DOS to update.
+    b.) using web UI to update
+
+Function Ready: 
+  N/A
+
+Changed/Added:
+  1. processor temperature threshold.
+  2. Auto fan speed control rule/table.
+
+Bug Fixed:
+  1. SEL repository corrupted cases BMC not responding after AC on/off test.
+
+Known issue:
+  N/A
+
+Update procedure:
+  a.) use spi.exe under DOS
+    1. Copy two files "S2Av009M.bin" and "spi.exe" into your DOS 
+       bootable usb device.
+    2. Boot S2A into DOS.
+    3. Type command:
+       spi S2Av009M.bin
+    4. It'll cost you about 8 minutes to complete the update.
+    5. After update complete, please AC off and then AC on.
+  b.) use upfw.exe under DOS
+    1. Copy two files "S2Av009.bin" and "upfw.exe" into your DOS 
+       bootable usb device.
+    2. Boot S2A into DOS.
+    3. Type command:
+       upfw S2Av009.bin
+    4. It'll cost you about 8 minutes to complete the update.
+
+=============================================================================
+        S2A AST2050 BMC FW Release v0.8
+=============================================================================
+Version: 0.8
+Date: 2008/07/18
+Hardware: S2A MB
+Firmware Images:
+  1) S2Av008M.bin with checksum 769F
+  2) S2Av008.bin with checksum 7AA6
+
+Note: 
+  1. The released file S2Av008M.bin is used for:
+    a.) using spi.exe under DOS to update.
+    b.) using flash writer to pre-program FW into flash before mount on MB in FACTORY.
+  2. The released file S2Av008.bin is used for:
+    a.) using upfw.exe under DOS to update.
+    b.) using web UI to update
+
+Function Ready: 
+  1. Thermal trip event log.
+
+Changed/Added:
+  1. Auto fan speed speed control rule. 
+
+Bug Fixed:
+  1. BMC not responding after AC/DC/reboot teset.
+
+Known issue:
+  N/A
+
+Update procedure:
+  a.) use spi.exe under DOS
+    1. Copy two files "S2Av008M.bin" and "spi.exe" into your DOS 
+       bootable usb device.
+    2. Boot S2A into DOS.
+    3. Type command:
+       spi S2Av008M.bin
+    4. It'll cost you about 8 minutes to complete the update.
+    5. After update complete, please AC off and then AC on.
+  b.) use upfw.exe under DOS
+    1. Copy two files "S2Av008.bin" and "upfw.exe" into your DOS 
+       bootable usb device.
+    2. Boot S2A into DOS.
+    3. Type command:
+       upfw S2Av008.bin
+    4. It'll cost you about 8 minutes to complete the update.
+
+=============================================================================
+        S2A AST2050 BMC FW Release v0.7
+=============================================================================
+Version: 0.7
+Date: 2008/07/11
+Hardware: S2A MB
+Firmware Images:
+  1) S2Av007M.bin with checksum E712
+  2) S2Av007.bin with checksum EA2E
+
+Note: 
+  1. The released file S2Av007M.bin is used for:
+    a.) using spi.exe under DOS to update.
+    b.) using flash writer to pre-program FW into flash before mount on MB in FACTORY.
+  2. The released file S2Av007.bin is used for:
+    a.) using upfw.exe under DOS to update.
+    b.) using web UI to update
+
+Function Ready: 
+  N/A
+
+Changed/Added:
+  1. Add new CPU/DIMM type Nehalem-EP/DDR3.
+  2. Change voltage thresholds.
+  3. Change fan speed control duty cycle value.
+
+Bug Fixed:
+  1. Web UI session timeout does not work.
+  2. Can't generate/upload SSL certificate in web UI.
+
+Known issue:
+  N/A
+
+Update procedure:
+  a.) use spi.exe under DOS
+    1. Copy two files "S2Av007M.bin" and "spi.exe" into your DOS 
+       bootable usb device.
+    2. Boot S2A into DOS.
+    3. Type command:
+       spi S2Av007.bin
+    4. It'll cost you about 8 minutes to complete the update.
+    5. After update complete, please AC off and then AC on.
+  b.) use upfw.exe under DOS
+    1. Copy two files "S2Av007.bin" and "upfw.exe" into your DOS 
+       bootable usb device.
+    2. Boot S2A into DOS.
+    3. Type command:
+       upfw S2Av007.bin
+    4. It'll cost you about 8 minutes to complete the update.
+
+=============================================================================
+        S2A AST2050 BMC FW Release v0.6
+=============================================================================
+Version: 0.6
+Date: 2008/07/03
+Hardware: S2A MB
+Firmware Images:
+  1) S2Av006M.bin with checksum C8D8
+  2) S2Av006.bin with checksum CDA0
+
+Note: 
+  1. The released file S2Av006M.bin is used for:
+    a.) using spi.exe under DOS to update.
+    b.) using flash writer to pre-program FW into flash before mount on MB in FACTORY.
+  2. The released file S2Av006.bin is used for:
+    a.) using upfw.exe under DOS to update.
+    b.) using web UI to update
+
+Function Ready: 
+  N/A
+
+Changed/Added:
+  N/A
+
+Bug Fixed:
+  1. Remote keyboard/mouse can't work under Linux.
+  2. Watchdog timer commands test fail with ICTS.
+  3. Can't save event logs via Microsoft Internet Explorer in Web UI.
+  4. Can't save PET/PEF setting in Web UI.
+
+Known issue:
+  N/A
+
+Update procedure:
+  a.) use spi.exe under DOS
+    1. Copy two files "S2Av006M.bin" and "spi.exe" into your DOS 
+       bootable usb device.
+    2. Boot S2A into DOS.
+    3. Type command:
+       spi S2Av006M.bin
+    4. It'll cost you about 8 minutes to complete the update.
+    5. After update complete, please AC off and then AC on.
+  b.) use upfw.exe under DOS
+    1. Copy two files "S2Av006.bin" and "upfw.exe" into your DOS 
+       bootable usb device.
+    2. Boot S2A into DOS.
+    3. Type command:
+       upfw S2Av006.bin
+    4. It'll cost you about 8 minutes to complete the update.
+    5. After update complete, please AC off and then AC on.
+
+=============================================================================
+        S2A AST2050 BMC FW Release v0.5
+=============================================================================
+Version: 0.5
+Date: 2008/06/26
+Hardware: S2A MB
+Firmware Images:
+  1) S2Av005M.bin with checksum 59FC
+  2) S2Av005.bin with checksum 5D03
+
+Note: 
+  1. The released file S2Av005M.bin is used for:
+    a.) using spi.exe under DOS to update.
+    b.) using flash writer to pre-program FW into flash before mount on MB in FACTORY.
+  2. The released file S2Av005.bin is used for:
+    a.) using upfw.exe under DOS to update.
+    b.) using web UI to update
+
+Function Ready:
+  1. CPU temperature sensor reading via PECI.
+  2. Main voltage sensor reading.
+  3. Backplane fan control.
+  4. Remote KVM support absolute position mouse under Microsoft Windows.
+
+Changed/Added: 
+  N/A
+
+Bug Fixed:
+  N/A
+
+Known issue:
+  1. The CPU temperature value shown in UI is the value below processor hot, not real temperature.
+
+Update procedure:
+  a.) use spi.exe under DOS
+    1. Copy two files "S2Av005M.bin" and "spi.exe" into your DOS 
+       bootable usb device.
+    2. Boot S2A into DOS.
+    3. Type command:
+       spi S2Av005M.bin
+    4. It'll cost you about 8 minutes to complete the update.
+    5. After update complete, please AC off and then AC on.
+  b.) use upfw.exe under DOS
+    1. Copy two files "S2Av005.bin" and "upfw.exe" into your DOS 
+       bootable usb device.
+    2. Boot S2A into DOS.
+    3. Type command:
+       upfw S2Av005.bin
+    4. It'll cost you about 8 minutes to complete the update.
+    5. After update complete, please AC off and then AC on.
+
+=============================================================================
+        S2A AST2050 BMC FW Release v0.4
+=============================================================================
+Version: 0.4
+Date: 2008/06/19
+Hardware: S2A MB
+Firmware Images:
+  1) S2Av004M.bin with checksum 1CD9
+  2) S2Av004.bin with checksum 20C0
+
+Note: 
+  1. The released file S2Av004M.bin is used for:
+    a.) using spi.exe under DOS to update.
+    b.) using flash writer to pre-program FW into flash before mount on MB in FACTORY.
+  2. The released file S2Av004.bin is used for:
+    a.) using upfw.exe under DOS to update.
+    b.) using web UI to update
+
+Function Ready:
+  1. Power on/off/reset.
+  2. Idnetify via button/command.
+  3. Back plane temperature/fan sensor reading.
+  4. Main board/front panel temperature sensor reading.
+  5. Main board fan sensor reading.
+
+Changed/Added: 
+  N/A
+
+Bug Fixed:
+  N/A
+
+Known issue:
+  N/A
+
+Update procedure:
+  a.) use spi.exe under DOS
+    1. Copy two files "S2Av004M.bin" and "spi.exe" into your DOS 
+       bootable usb device.
+    2. Boot S2A into DOS.
+    3. Type command:
+       spi S2Av004M.bin
+    4. It'll cost you about 8 minutes to complete the update.
+    5. After update complete, please AC off and then AC on.
+  b.) use upfw.exe under DOS
+    1. Copy two files "S2Av004.bin" and "upfw.exe" into your DOS 
+       bootable usb device.
+    2. Boot S2A into DOS.
+    3. Type command:
+       upfw S2Av004.bin
+    4. It'll cost you about 8 minutes to complete the update.
+    5. After update complete, please AC off and then AC on.
+
+=============================================================================
+        S2A AST2050 BMC FW Release v0.3
+=============================================================================
+Version: 0.3
+Date: 2008/06/12
+Hardware: S2A MB
+Firmware Images:
+  1) S2Av003M.bin with checksum DD96
+  2) S2Av003.bin with checksum E1BC
+
+Note: 
+  1. The released file S2Av003M.bin is used for:
+    a.) using spi.exe under DOS to update.
+    b.) using flash writer to pre-program FW into flash before mount on MB in FACTORY.
+  2. The released file S2Av003.bin is used for:
+    a.) using upfw.exe under DOS to update.
+    b.) using web UI to update
+
+Function Ready:
+  1. Two LAN channels(dedicated and shared).
+  2. Remote KVM and virtual storage.
+
+Changed/Added: 
+  1. Remove virtual UART.
+
+Bug Fixed:
+  1. BMC will hang after mount storage device when RKVM is working.
+  2. RKVM can't be lanuched when there is no storage device on client. 
+
+Known issue:
+  N/A 
+
+Update procedure:
+  a.) use spi.exe under DOS
+    1. Copy two files "S2Av003M.bin" and "spi.exe" into your DOS 
+       bootable usb device.
+    2. Boot S2A into DOS.
+    3. Type command:
+       spi S2Av003M.bin
+    4. It'll cost you about 8 minutes to complete the update.
+    5. After update complete, please AC off and then AC on.
+  b.) use upfw.exe under DOS
+    1. Copy two files "S2Av003.bin" and "upfw.exe" into your DOS 
+       bootable usb device.
+    2. Boot S2A into DOS.
+    3. Type command:
+       upfw S2Av003.bin
+    4. It'll cost you about 8 minutes to complete the update.
+    5. After update complete, please AC off and then AC on.
+
+=============================================================================
+        S2A AST2050 BMC FW Release v0.2
+=============================================================================
+Version: 0.2
+Date: 2008/05/30
+Hardware: S2A MB
+Firmware Images:
+  1) S2Av0.2M.bin with checksum 4A16
+
+Note: 
+  1. The released file S2Av0.2M.bin is used for:
+    a.) using spi.exe under DOS to update.
+    b.) using flash writer to pre-program FW into flash before mount on MB in FACTORY.
+
+Function Ready:
+  1. BMC heart beat
+  2. BMC ready
+  3. Dedicated LAN port
+
+Changed/Added: 
+  N/A
+
+Bug Fixed:
+  1. Host boot fail when BMC is enabled(Disable GPIOE multi-function pin configuration). 
+
+Known issue:
+  N/A 
+
+Update procedure:
+  a.) use spi.exe under DOS
+    1. Copy two files "S2Av0.2M.bin" and "spi.exe" into your DOS 
+       bootable usb device.
+    2. Boot S2A into DOS.
+    3. Type command:
+       spi S2Av0.2M.bin
+    4. It'll cost you about 8 minutes to complete the update.
+    5. After update complete, please AC off and then AC on.
+
+=============================================================================
+        S2A AST2050 BMC FW Release v0.1
+=============================================================================
+Version: 0.1
+Date: 2008/05/14
+Hardware: S2A MB
+Firmware Images:
+  1) S2Av0.1M.bin with checksum 2A61
+
+Note: 
+  1. The released file S2Av0.1M.bin is used for:
+    a.) using spi.exe under DOS to update.
+    b.) using flash writer to pre-program FW into flash before mount on MB in FACTORY.
+
+Function Ready:
+  1. BMC heart beat
+
+Changed/Added: 
+  N/A
+
+Bug Fixed:
+  N/A
+
+Known issue:
+  N/A 
+
+Update procedure:
+  a.) use spi.exe under DOS
+    1. Copy two files "S2Av0.1M.bin" and "spi.exe" into your DOS 
+       bootable usb device.
+    2. Boot S2A into DOS.
+    3. Type command:
+       spi S2Av0.1M.bin
+    4. It'll cost you about 8 minutes to complete the update.
+    5. After update complete, please AC off and then AC on.

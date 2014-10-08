@@ -1,0 +1,164 @@
+pr2-webui (0.5.7) stable; urgency=low
+
+  * Incrementing to SVN: r930
+   - r930: Add explicit dependency on pr2-core-impl to pr2-webui.
+
+ -- Austin Hendrix <ahendrix@willowgarage.com>  Mon, 13 Aug 2012 18:03:04 -0700
+
+pr2-webui (0.5.6) stable; urgency=low
+
+  * Incrementing to SVN: r909
+   - r909: Fix webui path.
+
+ -- Austin Hendrix <ahendrix@willowgarage.com>  Thu, 02 Aug 2012 14:39:19 -0700
+
+pr2-webui (0.5.5) stable; urgency=low
+
+  * Incrementing to SVN: r889
+   - r889: Find rospack on fuerte.
+
+ -- Austin Hendrix <ahendrix@willowgarage.com>  Wed, 25 Jul 2012 15:14:47 -0700
+
+pr2-webui (0.5.4) stable; urgency=low
+
+  * Incrementing to SVN: r599
+   - r599: Fixing postinst script
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Wed, 12 Jan 2011 13:37:18 -0800
+
+pr2-webui (0.5.3) stable; urgency=low
+
+  * Incrementing to SVN: r598
+   - r598: Trying to make fixes to the webui
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Wed, 12 Jan 2011 13:34:17 -0800
+
+pr2-webui (0.5.2) stable; urgency=low
+
+  * Incrementing to SVN: r568
+   - r568: Adding dep on mod-python
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Tue, 04 Jan 2011 12:43:45 -0800
+
+pr2-webui (0.5.1) stable; urgency=low
+
+  * Incrementing to SVN: r379
+   - r379: Disabling pr2-webui postinstall for now
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Mon, 29 Nov 2010 15:34:41 -0800
+
+pr2-webui (0.5.0) stable; urgency=low
+
+  * Incrementing to SVN: r159
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Tue, 12 Oct 2010 15:16:07 -0700
+
+pr2-webui (0.0.16) jaunty-proposed; urgency=low
+
+  * Fixing ros-apache2ctl to look in ros-apache2
+
+ -- Jeremy Leibs <leibs@bar.willowgarage.com>  Mon, 12 Jul 2010 15:08:09 -0700
+
+pr2-webui (0.0.15) jaunty-proposed; urgency=low
+
+  * Moving to new repository and svn-buildpackage
+  * Adding ros-apache2 to pr2-webui
+	
+ -- Jeremy Leibs <leibs@bar.willowgarage.com>  Mon, 12 Jul 2010 15:05:50 -0700
+
+pr2-webui (0.0.14) stable; urgency=low
+
+  * Incrementing to SVN: r864
+   - r864: Removing calls to favorites.py
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Fri, 07 May 2010 11:12:04 -0700
+
+pr2-webui (0.0.13) stable; urgency=low
+
+  * Incrementing to SVN: r825
+   - r825: chmodding /var/ros
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Thu, 22 Apr 2010 17:55:24 -0700
+
+pr2-webui (0.0.12) stable; urgency=low
+
+  * Incrementing to SVN: r616
+   - r616: adding apache2-mpm-prefork dep
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Fri, 05 Feb 2010 11:17:23 -0800
+
+pr2-webui (0.0.11) stable; urgency=low
+
+  * Incrementing to SVN: r584
+   - r584: Changing dependency to be on pr2-core
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Thu, 21 Jan 2010 10:02:39 -0800
+
+pr2-webui (0.0.10) stable; urgency=low
+
+  * Incrementing to SVN: r575
+   - r575: Updating index.html
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Tue, 19 Jan 2010 16:46:01 -0800
+
+pr2-webui (0.0.9) stable; urgency=low
+
+  * Incrementing to SVN: r567
+   - r567: Fixing ROS_PYTHON_PATH for webui
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Tue, 19 Jan 2010 15:03:54 -0800
+
+pr2-webui (0.0.8) stable; urgency=low
+
+  * Incrementing to SVN: r565
+  * Pushing another release since something went wrong
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Tue, 19 Jan 2010 12:05:18 -0800
+
+pr2-webui (0.0.7) stable; urgency=low
+
+  * Incrementing to SVN: r565
+   - r565: Fixing diversion rules for pr2-webui
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Tue, 19 Jan 2010 12:05:18 -0800
+
+pr2-webui (0.0.6) stable; urgency=low
+
+  * Incrementing to SVN: r558
+   - r556: Fixing apache.cfg to use new available environment variables.
+   - r557: Adding modification to apache envvars
+   - r558: adding diversion ruels for pr2-webui
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Fri, 15 Jan 2010 13:37:11 -0800
+
+pr2-webui (0.0.5) stable; urgency=low
+
+  * Incrementing to SVN: r537
+   - r537: Fixing apache.cfg in webui
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Tue, 12 Jan 2010 14:49:58 -0800
+
+pr2-webui (0.0.4) stable; urgency=low
+
+  * Incrementing to SVN: r504
+   - r429: added some default apps
+   - r430: fixed clearsilver issues
+   - r502: Slight reorganization of webui files.
+   - r504: Making rules and postinst executable
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Thu, 07 Jan 2010 13:37:54 -0800
+
+pr2-webui (0.0.2) stable; urgency=low
+
+  * Incrementing to SVN: r428
+   - r428: added the index.html file
+
+ -- Scott Hassan <hassan@willowgarage.com>  Thu, 24 Dec 2009 12:15:37 -0800
+
+pr2-webui (0.0.1) stable; urgency=low
+
+  * Incrementing to SVN: r426
+   - r426: pr2-webui package
+
+ -- Scott Hassan <hassan@willowgarage.com>  Thu, 24 Dec 2009 11:42:22 -0800
+

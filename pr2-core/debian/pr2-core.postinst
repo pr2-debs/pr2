@@ -1,0 +1,51 @@
+#!/bin/bash
+if [ "$1" = "configure" ]; then
+  addgroup --system ros || :
+  adduser --system --group robot || :
+  adduser ros --disabled-password -quiet --firstuid 100 --ingroup ros --gecos "" || :
+
+  # Create a key for ros if there isn't one already
+  mkdir -p /home/ros/.ssh
+  if [ ! -e /home/ros/.ssh/id_rsa.pub ]; then
+      yes | ssh-keygen -q -f /home/ros/.ssh/id_rsa -N ""
+  fi
+  
+  # Add ros to its authorized_keys file if not already there
+  if [ -e /home/ros/.ssh/authorized_keys ]; then
+      count=`grep -c -f /home/ros/.ssh/id_rsa.pub /home/ros/.ssh/authorized_keys || true`
+      if [ $count -eq 0 ]; then
+          cat /home/ros/.ssh/id_rsa.pub >> /home/ros/.ssh/authorized_keys
+      fi
+  else
+      cat /home/ros/.ssh/id_rsa.pub >> /home/ros/.ssh/authorized_keys
+  fi
+
+  [ -e /etc/ros/distro -o -h /etc/ros/distro ] || ln -sf /etc/ros/fuerte /etc/ros/distro
+
+  chown ros:ros -R /home/ros/.ssh
+
+  # Make .ros directory world readable
+  mkdir -p /home/ros/.ros
+  chown ros:ros -R /home/ros/.ros
+  chmod -R 755 /home/ros/.ros
+
+  # Make /var/ros ros-read/writable
+  chmod -R 775 /var/ros
+  chown -R ros:users /var/ros
+
+  # The www directory still needs to be owned by www-data
+  chown -R www-data:www-data /var/ros/www
+
+
+  # Make /var/lib/robot read/writable by robot group -- this is where active_user.yaml goes
+  chown -R robot:robot /var/lib/robot
+  chmod -R 775 /var/lib/robot
+
+  # Make the robot command run suid robot so we can modify /var/lib/robot
+  chown robot:robot /usr/bin/robot
+  chown robot:robot /usr/lib/robot/robot
+  chmod +s /usr/lib/robot/robot
+
+fi
+
+

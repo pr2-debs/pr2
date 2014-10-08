@@ -1,0 +1,14 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+export DH_ALWAYS_EXCLUDE=CVS:.svn
+
+DEB_DIVERT_EXTENSION = .pr2-network
+DEB_DIVERT_FILES_pr2-network += \
+    /etc/hosts.pr2-network \
+    /etc/dhcp3/dhclient.conf.pr2-network \
+    /etc/network/interfaces.pr2-network \
+    /etc/resolv.conf.pr2-network
+
+include /usr/share/cdbs/1/rules/debhelper.mk
+include /usr/share/cdbs/1/rules/config-package.mk

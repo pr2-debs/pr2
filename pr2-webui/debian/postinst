@@ -1,0 +1,34 @@
+#!/bin/bash
+set -e
+
+PKG=pr2-webui
+
+if [ "$1" = "configure" ]; then
+
+  export ROS_VAR_DIR=/var/ros/www
+  
+  mkdir -p ${ROS_VAR_DIR}
+
+  . /etc/ros/setup.bash
+  export ROS_WEBUI_PATH=`rospack find webui`/src/webui/
+
+  mkdir -p ${ROS_VAR_DIR}/db
+  [ -d ${ROS_VAR_DIR}/db/host ] || 
+  {
+      ${ROS_WEBUI_PATH}/auth/createdb.py
+      python ${ROS_WEBUI_PATH}/auth/newuser.py --admin admin admin
+  }
+  
+  [ -d ${ROS_VAR_DIR}/db/webui ] || 
+  {
+      ${ROS_WEBUI_PATH}/mod/webui/createdb.py
+  }
+
+  chown -R www-data:www-data /var/ros/www
+
+  a2dissite default
+  a2ensite webui
+
+fi
+
+#DEBHELPER#

@@ -1,0 +1,14 @@
+<launch>
+
+    <!-- Robot Description --> <param name="robot_description" textfile="/etc/ros/fuerte/urdf/robot.xml" />
+
+    <!-- Robot Analyzer --> <rosparam command="load" file="/etc/ros/fuerte/pr2_analyzers.yaml" ns="diag_agg" />
+
+    <!-- Robot bringup --> <include file="/etc/ros/fuerte/pr2.launch" />
+
+    <!-- Web ui --> <include file="$(find webui)/webui.launch" />
+
+    
+    <rosparam file="/etc/ros/robot.yaml"/>
+
+</launch> 

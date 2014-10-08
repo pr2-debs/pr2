@@ -1,0 +1,13 @@
+Source: pr2-chrony
+Section: config
+Priority: extra
+Maintainer: Blaise Gassend <blaise@willowgarage.com>
+Build-Depends: debhelper (>= 5), config-package-dev (>= 4.5~)
+Standards-Version: 3.7.2
+
+Package: pr2-chrony
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, chrony
+Description: Installs chrony for the pr2 with configuration files on both computers.
+Provides: ${diverted-files} pr2-timesync
+Conflicts: ${diverted-files}

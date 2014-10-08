@@ -1,0 +1,25 @@
+#!/bin/sh
+set -e
+
+#DEBHELPER#
+
+PKG=pr2-iptables.d
+
+case "$1" in
+  configure)
+    if [ -d /var/tmp/iptables.d ]; then
+	cp -r /var/tmp/iptables.d /var/run/
+    fi
+
+    if [ -e /etc/init.d/iptables.d ]; then
+      update-rc.d iptables.d start 41 S .
+      invoke-rc.d iptables.d restart || true
+    fi
+
+    ;;
+  
+  *)
+        echo "postinst called with unknown argument \`$1'" >&2
+        exit 0
+    ;;
+esac

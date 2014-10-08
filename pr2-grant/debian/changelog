@@ -1,0 +1,90 @@
+pr2-grant (0.5.7) stable; urgency=low
+
+  * Incrementing to SVN: r667
+   - r667: #55
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Fri, 04 Feb 2011 16:01:46 -0800
+
+pr2-grant (0.5.6) stable; urgency=low
+
+  * Incrementing to SVN: r367
+   - r367: pr2-grant also needs suid
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Mon, 22 Nov 2010 21:21:05 -0800
+
+pr2-grant (0.5.5) stable; urgency=low
+
+  * Incrementing to SVN: r348
+   - r348: Making makefile robust to no clean
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Mon, 22 Nov 2010 14:50:08 -0800
+
+pr2-grant (0.5.4) stable; urgency=low
+
+  * Incrementing to SVN: r346
+   - r346: Fixing makefile target
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Mon, 22 Nov 2010 14:45:28 -0800
+
+pr2-grant (0.5.3) stable; urgency=low
+
+  * Incrementing to SVN: r331
+   - r331: Changing pr2_grant to name the executable pr2-grant
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Sun, 21 Nov 2010 16:25:13 -0800
+
+pr2-grant (0.5.2) stable; urgency=low
+
+  * Incrementing to SVN: r164
+   - r164: Change pr2-grant to depend on libcap-dev
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Tue, 12 Oct 2010 18:06:38 -0700
+
+pr2-grant (0.5.1) stable; urgency=low
+
+  * Incrementing to SVN: r157
+   - r157: Adding dep on libcap-dev
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Tue, 12 Oct 2010 17:21:22 -0700
+
+pr2-grant (0.5.0) stable; urgency=low
+
+  * Incrementing to SVN: r140
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Tue, 12 Oct 2010 16:14:17 -0700
+
+pr2-grant (0.1.4) stable; urgency=low
+
+  * Incrementing to SVN: r17
+   - r17: Added pr2-grant to new pr2debs repo
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Wed, 23 Jun 2010 15:34:21 -0700
+
+pr2-grant (0.1.3) stable; urgency=low
+
+  * Incrementing to SVN: r1
+   - resetting svn revision number
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Wed, 23 Jun 2010 18:53:23 -0700
+
+pr2-grant (0.1.2) stable; urgency=low
+
+  * Incrementing to SVN: r380
+   - r380: drop group priveleges too
+
+ -- Rob Wheeler <wheeler@willowgarage.com>  Mon, 07 Dec 2009 15:34:13 -0800
+
+pr2-grant (0.1.1) stable; urgency=low
+
+  * Incrementing to SVN: r332
+   - r330: Movinf pr2-grant into the pr2 directory.
+   - r331: Adding clean rule to pr2-grant makefile.
+
+ -- Rob Wheeler <wheeler@willowgarage.com>  Wed, 25 Nov 2009 17:36:34 -0800
+
+pr2-grant (0.1.0) unstable; urgency=low
+
+  * Initial release
+
+ -- Rob Wheeler <wheeler@willowgarage.com>  Wed, 25 Nov 2009 17:09:13 -0800
+

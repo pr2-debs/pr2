@@ -1,0 +1,13 @@
+Source: pr2-sendhwlog
+Section: config
+Priority: extra
+Maintainer: Jeremy Leibs <leibs@willowgarage.com>
+Build-Depends: debhelper (>= 5)
+Standards-Version: 3.7.2
+
+Package: pr2-sendhwlog
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, python
+Description: Provides a script for sending hwlogs to wg or the basestation
+Provides: ${diverted-files}
+Conflicts: ${diverted-files}

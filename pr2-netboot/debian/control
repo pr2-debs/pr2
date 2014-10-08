@@ -1,0 +1,13 @@
+Source: pr2-netboot
+Section: config
+Priority: extra
+Maintainer: Blaise Gassend <blaise@willowgarage.com>
+Build-Depends: debhelper (>= 5), config-package-dev (>= 4.5~)
+Standards-Version: 3.7.2
+
+Package: pr2-netboot
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, nfs-kernel-server, nfs-client, atftpd, syslinux, pr2-network, dnsmasq, unionfs-fuse (>=0.23), portmap, executable-selector, linux-image-3.0.6-pr2
+Description: Configures the master computer to nfsboot the slave, and configures the slave to boot properly.
+Provides: ${diverted-files}
+Conflicts: ${diverted-files}

@@ -1,0 +1,13 @@
+Source: pr2-systemcheck
+Section: config
+Priority: extra
+Maintainer: Jeremy Leibs <leibs@willowgarage.com>
+Build-Depends: debhelper (>= 5)
+Standards-Version: 3.7.2
+
+Package: pr2-systemcheck
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, python
+Description: Runs a series of tests across multiple computers and displays results.
+Provides: ${diverted-files}
+Conflicts: ${diverted-files}

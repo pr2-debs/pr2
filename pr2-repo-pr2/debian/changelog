@@ -1,0 +1,15 @@
+pr2-repo-pr2 (0.5.1) stable; urgency=low
+
+  * Incrementing to SVN: r581
+   - r581: Moving all debs over to packages.ros.org
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Tue, 11 Jan 2011 15:33:27 -0800
+
+pr2-repo-pr2 (0.5.0) stable; urgency=low
+
+  * Incrementing to SVN: r540
+   - r534: Creating deb for pr2 component
+   - r540: Removing install file
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Thu, 23 Dec 2010 11:58:18 -0800
+

@@ -1,0 +1,18 @@
+This directory contains the ROS configuration for your robot.
+
+Files and their uses are listed below:
+
+/etc/ros/distro
+ * A symlink to one of the ROS releases, e.g. electric
+
+/etc/ros/setup.sh
+ * Sources the setup.sh (no bash support) for distro
+
+/etc/ros/setup.bash
+ * Sources /etc/ros/setup.sh
+
+/etc/ros/robot.launch
+ * A symlink to distro/robotlaunch
+
+/etc/ros/run.sh
+ * Sources /etc/ros/setup.sh and then execs rosrun

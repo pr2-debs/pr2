@@ -1,0 +1,13 @@
+Source: pr2-userdisk
+Section: config
+Priority: extra
+Maintainer: Jeremy Leibs <leibs@willowgarage.com>
+Build-Depends: debhelper (>= 5), config-package-dev (>= 4.5~)
+Standards-Version: 3.7.2
+
+Package: pr2-userdisk
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, autofs5, pr2-network, pr2-netboot, nfs-kernel-server, fstab.d
+Description: Configures the slave computer disk for use in hosting user home directories.
+Provides: ${diverted-files}
+Conflicts: ${diverted-files}

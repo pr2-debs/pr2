@@ -1,0 +1,23 @@
+#!/bin/bash
+
+#DEBHELPER#
+
+case "$1" in
+    'configure')
+	
+	;;
+
+    'triggered')
+
+	;;
+
+    *)
+	;;
+
+esac
+
+    
+
+
+
+

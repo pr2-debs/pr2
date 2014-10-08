@@ -1,0 +1,72 @@
+pr2-bios-bmc-images (0.5.0) stable; urgency=low
+
+  * Incrementing to SVN: r116
+   - r116: Adding pr2-bios-bmc-images
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Mon, 11 Oct 2010 17:38:31 -0700
+
+pr2-bios-bmc-images (0.1.8) stable; urgency=low
+
+  * Incrementing to SVN: r740
+   - r740: Adding BIOS-HD to deb
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Thu, 01 Apr 2010 12:19:50 -0700
+
+pr2-bios-bmc-images (0.1.7) stable; urgency=low
+
+  * Incrementing to SVN: r734
+   - r734: Changing BIOS back to netboot but adding an HD BIOS
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Thu, 01 Apr 2010 09:46:29 -0700
+
+pr2-bios-bmc-images (0.1.6) stable; urgency=low
+
+  * Incrementing to SVN: r648
+   - r648: Corrected usage message for user-nvram (source and destination file were inverted).
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Thu, 25 Feb 2010 12:59:59 -0800
+
+pr2-bios-bmc-images (0.1.5) stable; urgency=low
+
+  * Incrementing to SVN: r483
+   - r483: Trying again to get the bios right.
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Fri, 01 Jan 2010 16:17:25 -0800
+
+pr2-bios-bmc-images (0.1.4) stable; urgency=low
+
+  * Incrementing to SVN: r479
+   - r478: Fixing makefile
+   - r479: More makefile fixing.
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Thu, 31 Dec 2009 12:36:47 -0800
+
+pr2-bios-bmc-images (0.1.3) stable; urgency=low
+
+  * Incrementing to SVN: r474
+   - r472: Building an installing user-nvram
+   - r473: Modifying BIOS to boot c1 off of lan1 when netbooting
+   - r474: Installing bios options.
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Thu, 31 Dec 2009 12:28:41 -0800
+
+pr2-bios-bmc-images (0.1.2) stable; urgency=low
+
+  * Incrementing to SVN: r435
+   - r435: Fixing install script.
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Tue, 29 Dec 2009 13:32:03 -0800
+
+pr2-bios-bmc-images (0.1.1) stable; urgency=low
+
+  * Incrementing to SVN: r434
+   - r434: Deb to install the pr2 bios and bmc images.
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Tue, 29 Dec 2009 13:23:12 -0800
+
+pr2-bios-bmc-images (0.1.0) unstable; urgency=low
+
+  * Initial release
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Tue, 29 Dec 2009 13:08:03 -0800
+

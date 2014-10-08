@@ -1,0 +1,18 @@
+#!/bin/sh
+
+if [ `id -u` = 0 ]; then
+    echo "You should not run ros-apache2ctl as root!"
+    exit 1
+fi
+
+if [ -z "${ROS_ROOT}" -o -z "${ROS_PACKAGE_PATH}" ]; then
+    echo "Please make sure you have your ROS_ROOT and ROS_PACKAGE_PATH environment variables set"
+    exit 2
+fi
+
+export APACHE_ENVVARS=/etc/ros-apache2/envvars
+export APACHE_ARGUMENTS="-f /etc/ros-apache2/apache2.conf"
+
+ARGV="$@"
+
+apache2ctl ${ARGV}

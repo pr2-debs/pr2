@@ -1,0 +1,13 @@
+Source: pr2-core-electric
+Section: pr2
+Priority: extra
+Maintainer: Jeremy Leibs <leibs@willowgarage.com>
+Build-Depends: debhelper (>= 5)
+Standards-Version: 3.7.2
+
+Package: pr2-core-electric
+Architecture: any
+Depends: python, ros-electric-pr2
+Description: Provides ROS environment configuration files for PR2.
+Provides: ${diverted-files}, pr2-core-impl
+Conflicts: ${diverted-files}
