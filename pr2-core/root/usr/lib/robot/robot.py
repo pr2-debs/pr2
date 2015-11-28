@@ -625,6 +625,11 @@ def ckill():
             for l in plist():
                 print l
         else:
+            if os.path.exists(PID_FILE):
+                try:
+                    os.remove(PID_FILE)
+                except OSError, e:
+                    print "%s still remains, but could not be removed.: (%d) %s" % (PID_FILE, e.errno, e.strerror)
             print "All processes killed successfully."
     else:
         print "No processes to kill."
