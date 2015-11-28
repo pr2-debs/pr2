@@ -249,6 +249,21 @@ def cmd_start(argv):
         else:
             subprocess.Popen(['roslaunch', '/etc/ros/robot.launch', '--pid', PID_FILE], env=env)
 
+        # check PID_FILE is writable from other users, and if not writable, change permission                       
+        start_time = time.time()
+        while not os.path.exists(PID_FILE):
+            if time.time() - start_time > 3.0:
+                print "%s not found." % PID_FILE
+                sys.exit(1)
+            time.sleep(0.1)
+        f_stat = os.stat(PID_FILE)
+        others_writable = bool(f_stat.st_mode & stat.S_IWOTH)
+        if not others_writable:
+            try:
+                os.chmod(PID_FILE, f_stat.st_mode | stat.S_IWOTH)
+            except OSError, e:
+                print "failed to append write permission to %s: (%d) %s" % (PID_FILE, e.errno, e.strerror)
+
         sys.exit(0)
 
 
